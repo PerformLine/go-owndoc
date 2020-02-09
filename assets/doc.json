@@ -1,0 +1,583 @@
+[
+    {
+        "Name": "main",
+        "ImportPath": ".",
+        "Files": [
+            {
+                "Name": "file.go",
+                "Imports": [
+                    {
+                        "PackageName": "bytes",
+                        "Alias": "bytes"
+                    },
+                    {
+                        "PackageName": "fmt",
+                        "Alias": "fmt"
+                    },
+                    {
+                        "PackageName": "go/ast",
+                        "Alias": "ast"
+                    },
+                    {
+                        "PackageName": "go/doc",
+                        "Alias": "doc"
+                    },
+                    {
+                        "PackageName": "go/format",
+                        "Alias": "format"
+                    },
+                    {
+                        "PackageName": "go/token",
+                        "Alias": "token"
+                    },
+                    {
+                        "PackageName": "path/filepath",
+                        "Alias": "filepath"
+                    },
+                    {
+                        "PackageName": "sort",
+                        "Alias": "sort"
+                    },
+                    {
+                        "PackageName": "strings",
+                        "Alias": "strings"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/log",
+                        "Alias": "log"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                        "Alias": "stringutil"
+                    }
+                ],
+                "Size": 8347,
+                "LineCount": 363,
+                "SourceLineCount": 282
+            },
+            {
+                "Name": "main.go",
+                "Imports": [
+                    {
+                        "PackageName": "encoding/json",
+                        "Alias": "json"
+                    },
+                    {
+                        "PackageName": "os",
+                        "Alias": "os"
+                    },
+                    {
+                        "PackageName": "path/filepath",
+                        "Alias": "filepath"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/cli",
+                        "Alias": "cli"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/log",
+                        "Alias": "log"
+                    }
+                ],
+                "Size": 1445,
+                "LineCount": 72,
+                "SourceLineCount": 58
+            },
+            {
+                "Name": "package.go",
+                "Imports": [
+                    {
+                        "PackageName": "fmt",
+                        "Alias": "fmt"
+                    },
+                    {
+                        "PackageName": "go/ast",
+                        "Alias": "ast"
+                    },
+                    {
+                        "PackageName": "go/doc",
+                        "Alias": "doc"
+                    },
+                    {
+                        "PackageName": "go/parser",
+                        "Alias": "parser"
+                    },
+                    {
+                        "PackageName": "go/token",
+                        "Alias": "token"
+                    },
+                    {
+                        "PackageName": "os",
+                        "Alias": "os"
+                    },
+                    {
+                        "PackageName": "path/filepath",
+                        "Alias": "filepath"
+                    },
+                    {
+                        "PackageName": "sort",
+                        "Alias": "sort"
+                    },
+                    {
+                        "PackageName": "strings",
+                        "Alias": "strings"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
+                        "Alias": "fileutil"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
+                        "Alias": "rxutil"
+                    }
+                ],
+                "Size": 2406,
+                "LineCount": 110,
+                "SourceLineCount": 90
+            },
+            {
+                "Name": "static.go",
+                "Imports": [
+                    {
+                        "PackageName": "bytes",
+                        "Alias": "bytes"
+                    },
+                    {
+                        "PackageName": "compress/gzip",
+                        "Alias": "gzip"
+                    },
+                    {
+                        "PackageName": "encoding/base64",
+                        "Alias": "base64"
+                    },
+                    {
+                        "PackageName": "io/ioutil",
+                        "Alias": "ioutil"
+                    },
+                    {
+                        "PackageName": "net/http",
+                        "Alias": "http"
+                    },
+                    {
+                        "PackageName": "os",
+                        "Alias": "os"
+                    },
+                    {
+                        "PackageName": "path",
+                        "Alias": "path"
+                    },
+                    {
+                        "PackageName": "sync",
+                        "Alias": "sync"
+                    },
+                    {
+                        "PackageName": "time",
+                        "Alias": "time"
+                    }
+                ],
+                "Size": 93430,
+                "LineCount": 1368,
+                "SourceLineCount": 1316
+            }
+        ],
+        "Constants": [
+            {
+                "Name": "Hello",
+                "Type": "bool",
+                "Immutable": true,
+                "Expression": "true"
+            }
+        ],
+        "Variables": [
+            {
+                "Name": "There",
+                "Expression": "strings.TrimSpace(`there`)"
+            },
+            {
+                "Name": "MaxExpressionSnippetLength",
+                "Expression": "64"
+            }
+        ],
+        "Functions": [
+            {
+                "Name": "Dir",
+                "Comment": "Dir returns a http.Filesystem for the embedded assets on a given prefix dir.\nIf useLocal is true, the filesystem's contents are instead used.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": ""
+                    }
+                ],
+                "Signature": "Dir(useLocal bool, name string) "
+            },
+            {
+                "Name": "FS",
+                "Comment": "FS returns a http.Filesystem for the embedded assets. If useLocal is true,\nthe filesystem's contents are instead used.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": ""
+                    }
+                ],
+                "Signature": "FS(useLocal bool) "
+            },
+            {
+                "Name": "FSByte",
+                "Comment": "FSByte returns the named file from the embedded assets. If useLocal is\ntrue, the filesystem's contents are instead used.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "[]byte"
+                    },
+                    {
+                        "Type": "error"
+                    }
+                ],
+                "Signature": "FSByte(useLocal bool, name string) ([]byte, error)"
+            },
+            {
+                "Name": "FSMustByte",
+                "Comment": "FSMustByte is the same as FSByte, but panics if name is not present.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "[]byte"
+                    }
+                ],
+                "Signature": "FSMustByte(useLocal bool, name string) []byte"
+            },
+            {
+                "Name": "FSMustString",
+                "Comment": "FSMustString is the string version of FSMustByte.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "string"
+                    }
+                ],
+                "Signature": "FSMustString(useLocal bool, name string) string"
+            },
+            {
+                "Name": "FSString",
+                "Comment": "FSString is the string version of FSByte.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "string"
+                    },
+                    {
+                        "Type": "error"
+                    }
+                ],
+                "Signature": "FSString(useLocal bool, name string) (string, error)"
+            },
+            {
+                "Name": "LoadPackage",
+                "Arguments": [
+                    {
+                        "Name": "parentDir",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "*Package"
+                    },
+                    {
+                        "Type": "error"
+                    }
+                ],
+                "Signature": "LoadPackage(parentDir string) (*Package, error)"
+            }
+        ],
+        "Structs": {
+            "Arg": {
+                "Name": "Arg",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Type",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents a function argument or return value."
+            },
+            "Example": {
+                "Name": "Example",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Comment",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Output",
+                        "Type": "string"
+                    }
+                ]
+            },
+            "Field": {
+                "Name": "Field",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Struct",
+                        "Type": "*Struct"
+                    },
+                    {
+                        "Name": "Comment",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents a single field in a struct declaration."
+            },
+            "File": {
+                "Name": "File",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Package",
+                        "Type": "*Package"
+                    },
+                    {
+                        "Name": "Imports",
+                        "Type": "[]Import"
+                    },
+                    {
+                        "Name": "MainFunction",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "Size",
+                        "Type": "int64"
+                    },
+                    {
+                        "Name": "LineCount",
+                        "Type": "int"
+                    },
+                    {
+                        "Name": "SourceLineCount",
+                        "Type": "int"
+                    }
+                ],
+                "Comment": "Represents a Golang source file."
+            },
+            "Import": {
+                "Name": "Import",
+                "Fields": [
+                    {
+                        "Name": "PackageName",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Alias",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents an import declaration for a dependent package."
+            },
+            "Method": {
+                "Name": "Method",
+                "Fields": [
+                    {
+                        "Name": "Struct",
+                        "Type": "*Struct",
+                        "Comment": "The parent struct this method is attached to."
+                    },
+                    {
+                        "Name": "File",
+                        "Type": "*File",
+                        "Comment": "The File this declaration appears in."
+                    },
+                    {
+                        "Name": "Name",
+                        "Type": "string",
+                        "Comment": "The name of the method."
+                    },
+                    {
+                        "Name": "Comment",
+                        "Type": "string",
+                        "Comment": "The comment text describing the function."
+                    },
+                    {
+                        "Name": "PointerReceiver",
+                        "Type": "bool",
+                        "Comment": "Whether this method is attached to a Struct instance or Struct pointer."
+                    },
+                    {
+                        "Name": "ReceiverName",
+                        "Type": "string",
+                        "Comment": "The variable used to access the receiver instance."
+                    },
+                    {
+                        "Name": "Arguments",
+                        "Type": "[]Arg",
+                        "Comment": "List of arguments this method accepts."
+                    },
+                    {
+                        "Name": "Returns",
+                        "Type": "[]Arg",
+                        "Comment": "List of outputs this method returns."
+                    },
+                    {
+                        "Name": "Signature",
+                        "Type": "string",
+                        "Comment": "Return a source representation of the function signature"
+                    }
+                ],
+                "Comment": "Represents a function declaration, both package-level and struct methods."
+            },
+            "Package": {
+                "Name": "Package",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "ImportPath",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Files",
+                        "Type": "[]*File"
+                    },
+                    {
+                        "Name": "Constants",
+                        "Type": "[]Value"
+                    },
+                    {
+                        "Name": "Variables",
+                        "Type": "[]Value"
+                    },
+                    {
+                        "Name": "Functions",
+                        "Type": "[]*Method"
+                    },
+                    {
+                        "Name": "Structs",
+                        "Type": "map[string]*Struct"
+                    },
+                    {
+                        "Name": "Examples",
+                        "Type": "[]Example"
+                    }
+                ]
+            },
+            "Struct": {
+                "Name": "Struct",
+                "Fields": [
+                    {
+                        "Name": "File",
+                        "Type": "*File"
+                    },
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Fields",
+                        "Type": "[]*Field"
+                    },
+                    {
+                        "Name": "Methods",
+                        "Type": "[]*Method"
+                    },
+                    {
+                        "Name": "Comment",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents a struct, including all of its constituent fields and methods."
+            },
+            "Value": {
+                "Name": "Value",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Immutable",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "Expression",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents a constant or variable declaration."
+            }
+        }
+    }
+]
