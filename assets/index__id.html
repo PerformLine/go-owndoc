@@ -1,10 +1,4 @@
----
-bindings:
--   name: docs
-    resource: /doc.json
----
-{{ $Docs := $.bindings.docs }}
-{{ $Package := (firstByKey $Docs "Name" (param 1)) }}
+{{ $Package := $.bindings.Project.Package }}
 <br>
 <div class="clearfix" id="x-projnav">
 	<a href="URL"><strong>project-name:</strong></a>
@@ -88,6 +82,7 @@ bindings:
 	{{ end }}
 </ul>
 
+{{ if $Package.Examples }}
 <h4 id="pkg-examples">
 	Examples
 	<a class="permalink" href="#pkg-examples">&#182;</a>
@@ -110,6 +105,7 @@ bindings:
 	</li>
 	{{ end }}
 </ul>
+{{ end }}
 
 {{ if $Package.Files }}
 <h4 id="pkg-files">
@@ -117,43 +113,78 @@ bindings:
 	<a class="permalink" href="#pkg-files">&#182;</a>
 </h4>
 
-<p>
-{{ range $File := $Package.Files }}
-	<a href="{{ $File.Name }}">{{ $File.Name }}</a>
-{{ end }}
-</p>
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	{{ range $File := $Package.Files }}
+	<tr>
+		<td class="text-left">
+			{{ if $File.MainFunction }}
+			<b><a href="{{ $File.Name }}">{{ $File.Name }}</a></b>
+			{{ else }}
+			<a href="{{ $File.Name }}">{{ $File.Name }}</a>
+			{{ end }}
+		</td>
+		<td class="text-right">{{ autobyte $File.Size "%.0f" }}</td>
+		<td class="text-right">{{ or $File.SourceLineCount `` }} lines</td>
+		<td class="text-right">{{ or $File.FunctionCount `` }}</td>
+		<td class="text-right">{{ or $File.TypeCount `` }}</td>
+		<td class="text-right">{{ or $File.ConstantCount `` }}</td>
+		<td class="text-right">{{ or $File.VariableCount `` }}</td>
+	</tr>
+	{{ end }}
+</tbody>
+</table>
 {{ end }}
 
-
+{{ if $Package.Constants }}
 <h3 id="pkg-constants">
 	Constants
 	<a class="permalink" href="#pkg-constants">&#182;</a>
 </h3>
-{{ range $Constant := $Package.Constants }}
 <div class="decl" data-kind="v">
 	<a title="View Source" href="">&#10070;</a>
-	<pre>const <span id="{{ $Constant.Name }}">{{ $Constant.Name }}</span> = {{ $Constant.Expression }}</pre>
+{{ $padTo := len (longestString (pluck $Package.Constants "Name")) }}
+	<pre>
+{{ range $Constant := $Package.Constants -}}
+const <span id="{{ $Constant.Name }}">{{ printf (printf "%%- %ds" $padTo) $Constant.Name }}</span> = {{ $Constant.Expression }}
+{{ end -}}
+	</pre>
 </div>
 {{ end }}
 
+{{ if $Package.Variables }}
 <h3 id="pkg-variables">
 	Variables
 	<a class="permalink" href="#pkg-variables">&#182;</a>
 </h3>
-{{ range $Variable := $Package.Variables }}
 <div class="decl" data-kind="v">
 	<a title="View Source" href="">&#10070;</a>
-	<pre>var <span id="{{ $Variable.Name }}">{{ $Variable.Name }}</span> = {{ $Variable.Expression }}</pre>
+{{ $padTo := len (longestString (pluck $Package.Variables "Name")) }}
+	<pre>
+{{ range $Variable := $Package.Variables -}}
+var <span id="{{ $Variable.Name }}">{{ printf (printf "%%- %ds" $padTo) $Variable.Name }}</span> = {{ $Variable.Expression }}
+{{ end -}}
+	</pre>
 </div>
 {{ end }}
 
-
+{{ if $Package.Functions }}
 <!-- Package-level Function Declarations -->
 {{ range $Function := $Package.Functions }}
 <h3 id="{{ $Function.Name }}" data-kind="f">
 	func <a title="View Source" href="">{{ $Function.Name }}</a>
 	<a class="permalink" href="#{{ $Function.Name }}">&#182;</a>
-	<!--<a class="uses" title="List Function Callers" href="https://sourcegraph.com/-/godoc/refs?def=Auto&amp;pkg=github.com%2Fghetzel%2Fgo-stockutil%2Ftypeutil&amp;repo=github.com%2Fghetzel%2Fgo-stockutil">Uses</a>-->
 </h3>
 <div class="funcdecl decl">
 	<a title="View Source" href="">&#10070;</a>
@@ -161,7 +192,7 @@ bindings:
 </div>
 
 {{   if $Function.Comment }}
-<p>{{ sanitize (replace $Function.Comment "\n" "<br>" -1) }}</p>
+<p>{{ markdown (replace $Function.Comment "\n" "<br>" -1) }}</p>
 {{   end }}
 {{ end }}
 
@@ -195,7 +226,7 @@ bindings:
 	<pre>func {{ $Method.Signature }}</pre>
 </div>
 {{       if $Method.Comment }}
-<p>{{ sanitize (replace $Method.Comment "\n" "<br>" -1) }}</p>
+<p>{{ markdown (replace $Method.Comment "\n" "<br>" -1) }}</p>
 {{       end }}
 {{     end }}
 {{   end }}
@@ -215,8 +246,10 @@ bindings:
 	<pre>func ({{ $Method.ReceiverName }} {{ if $Method.PointerReceiver }}*{{ end }}{{ $Type.Name }}) {{ $Method.Signature }}</pre>
 </div>
 {{       if $Method.Comment }}
-<p>{{ sanitize (replace $Method.Comment "\n" "<br>" -1) }}</p>
+<p>{{ markdown (replace $Method.Comment "\n" "<br>" -1) }}</p>
 {{       end }}
 {{     end }}
 {{   end }}
+{{ end }}
+
 {{ end }}

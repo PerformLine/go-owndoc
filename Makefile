@@ -25,6 +25,9 @@ $(BIN):
 	go build -o $(@) .
 	cp $(@) ~/bin/owndoc
 
+docs:
+	$(BIN) generate
+
 build: $(BIN)
 
-.PHONY: deps all build fmt test $(BIN)
+.PHONY: deps docs all build fmt test $(BIN)

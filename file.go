@@ -107,11 +107,15 @@ type Import struct {
 type File struct {
 	Name            string
 	Package         *Package `json:"-"`
-	Imports         []Import
-	MainFunction    bool `json:",omitempty"`
+	Imports         []Import `json:",omitempty"`
+	MainFunction    bool     `json:",omitempty"`
 	Size            int64
 	LineCount       int
 	SourceLineCount int
+	FunctionCount   int
+	TypeCount       int
+	ConstantCount   int
+	VariableCount   int
 	ast             *ast.File
 }
 
@@ -164,8 +168,10 @@ func (self *File) parse() error {
 					case token.CONST:
 						value.Immutable = true
 						self.Package.Constants = append(self.Package.Constants, value)
+						self.ConstantCount += 1
 					case token.VAR:
 						self.Package.Variables = append(self.Package.Variables, value)
+						self.VariableCount += 1
 					}
 
 				case *ast.TypeSpec: // type declarations
@@ -185,6 +191,10 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 	method.File = self
 	method.Name = fn.Name.Name
 	method.Comment = formatAstComment(fn.Doc)
+
+	if method.Name == `main` {
+		self.MainFunction = true
+	}
 
 	if ast.IsExported(method.Name) {
 		var constructorTypeName string
@@ -263,6 +273,9 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 			// in this package.  If so, we put it with that struct's methods
 			if typ, ok := self.Package.Types[constructorTypeName]; ok {
 				typ.Methods = append(typ.Methods, method)
+
+				// NOTE: this still counts as a package-level function even through we're putting it in a type
+				self.FunctionCount += 1
 			} else if strings.HasPrefix(method.Name, `Test`) {
 				self.Package.Tests = append(self.Package.Tests, method)
 			} else if strings.HasPrefix(method.Name, `Example`) {
@@ -273,6 +286,7 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 				self.Package.Examples = append(self.Package.Examples, method)
 			} else {
 				self.Package.Functions = append(self.Package.Functions, method)
+				self.FunctionCount += 1
 			}
 
 			return
@@ -304,6 +318,7 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 					}
 
 					parent.Methods = append(parent.Methods, method)
+					self.FunctionCount += 1
 
 					sort.Slice(parent.Methods, func(i int, j int) bool {
 						return parent.Methods[i].Name < parent.Methods[j].Name
@@ -315,8 +330,6 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 				}
 			}
 		}
-	} else if method.Name == `main` {
-		self.MainFunction = true
 	}
 }
 
@@ -331,6 +344,14 @@ func (self *File) appendTypeDecl(meta *ast.GenDecl, tspec *ast.TypeSpec) {
 		}
 
 		typ.Name = name
+		src := mustAstNodeToString(meta)
+
+		if strings.Contains(src, CommentExportedFields) {
+			src = strings.ReplaceAll(src, CommentExportedFields, ``)
+			typ.HasUnexportedFields = true
+		}
+
+		typ.Source = base64.StdEncoding.EncodeToString([]byte(src))
 
 		// structs have an extra bit of business
 		switch tspec.Type.(type) {
@@ -339,15 +360,6 @@ func (self *File) appendTypeDecl(meta *ast.GenDecl, tspec *ast.TypeSpec) {
 			typ.MetaType = `struct`
 			typ.Comment = formatAstComment(meta.Doc)
 			typ.Fields = make([]*Field, 0)
-
-			src := mustAstNodeToString(meta)
-
-			if strings.Contains(src, CommentExportedFields) {
-				src = strings.ReplaceAll(src, CommentExportedFields, ``)
-				typ.HasUnexportedFields = true
-			}
-
-			typ.Source = base64.StdEncoding.EncodeToString([]byte(src))
 
 			for _, field := range strct.Fields.List {
 				if len(field.Names) > 0 {
@@ -363,10 +375,11 @@ func (self *File) appendTypeDecl(meta *ast.GenDecl, tspec *ast.TypeSpec) {
 		case *ast.Ident:
 			typ.MetaType = typeutil.String(tspec.Type)
 		default:
-			log.Dump(`typedecl: unhandled metatype: `, tspec.Type)
+			// log.Dump(`typedecl: unhandled metatype: `, tspec.Type)
 		}
 
 		self.Package.Types[name] = typ
+		self.TypeCount += 1
 	}
 }
 

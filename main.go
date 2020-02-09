@@ -5,7 +5,6 @@ package main
 import (
 	"encoding/json"
 	"os"
-	"path/filepath"
 
 	"github.com/ghetzel/cli"
 	"github.com/ghetzel/go-stockutil/log"
@@ -37,34 +36,34 @@ func main() {
 		return nil
 	}
 
-	app.Action = func(c *cli.Context) {
-		root := c.Args().First()
-		packages := make([]*Package, 0)
-
-		if root == `` {
-			root = `.`
-		}
-
-		if err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
-			if info.IsDir() {
-				if p, err := LoadPackage(path); err == nil {
-					if p != nil {
-						packages = append(packages, p)
-					}
-				} else {
-					return err
+	app.Commands = []cli.Command{
+		{
+			Name:  `generate`,
+			Usage: `Generate a JSON manifest decribing the current package and all subpackages.`,
+			Flags: []cli.Flag{},
+			Action: func(c *cli.Context) {
+				root := c.Args().First()
+				if root == `` {
+					root = `.`
 				}
-			}
 
-			return nil
-		}); err == nil {
-			enc := json.NewEncoder(os.Stdout)
-			enc.SetIndent(``, `    `)
-			enc.Encode(packages)
-			// fmt.Println(typeutil.Dump(packages))
-		} else {
-			log.Fatal(err)
-		}
+				if pkg, err := LoadPackage(root); err == nil {
+					enc := json.NewEncoder(os.Stdout)
+					enc.SetIndent(``, `    `)
+
+					enc.Encode(&Module{
+						Metadata: Metadata{
+							Title:            ``,
+							URL:              `https://github.com/ghetzel/go-owndoc`,
+							GeneratorVersion: app.Version,
+						},
+						Package: pkg,
+					})
+				} else {
+					log.Fatal(err)
+				}
+			},
+		},
 	}
 
 	app.Run(os.Args)

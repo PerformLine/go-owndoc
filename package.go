@@ -6,12 +6,14 @@ import (
 	"go/doc"
 	"go/parser"
 	"go/token"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
 
 	fileutil "github.com/ghetzel/go-stockutil/fileutil"
+	"github.com/ghetzel/go-stockutil/log"
 	"github.com/ghetzel/go-stockutil/rxutil"
 )
 
@@ -30,6 +32,7 @@ type Package struct {
 	Examples   []*Method        `json:",omitempty"`
 	Tests      []*Method        `json:",omitempty"`
 	Types      map[string]*Type `json:",omitempty"`
+	Packages   []*Package       `json:",omitempty"`
 	ast        *ast.Package
 }
 
@@ -93,43 +96,58 @@ func (self *Package) sortObjects() {
 }
 
 func LoadPackage(parentDir string) (*Package, error) {
-	if absParentDir, err := filepath.Abs(parentDir); err == nil {
-		fset := token.NewFileSet()
+	fset := token.NewFileSet()
 
-		if pkgs, err := parser.ParseDir(
-			fset,
-			absParentDir,
-			nil,
-			(parser.ParseComments | parser.DeclarationErrors | parser.AllErrors),
-		); err == nil {
-			for _, pkg := range pkgs {
-				pkgDoc := doc.New(pkg, parentDir, doc.PreserveAST)
+	if pkgs, err := parser.ParseDir(
+		fset,
+		parentDir,
+		nil,
+		(parser.ParseComments | parser.DeclarationErrors | parser.AllErrors),
+	); err == nil {
+		for _, pkg := range pkgs {
+			pkgDoc := doc.New(pkg, parentDir, doc.PreserveAST)
+			log.Dump(pkgDoc)
 
-				p := new(Package)
-				p.ast = pkg
-				p.Name = pkgDoc.Name
-				p.ImportPath = pkgDoc.ImportPath
-				p.Functions = make([]*Method, 0)
-				p.Types = make(map[string]*Type)
-				p.Files = make([]*File, 0)
+			p := new(Package)
+			p.ast = pkg
+			p.Name = pkgDoc.Name
+			p.ImportPath = pkgDoc.ImportPath
+			p.Functions = make([]*Method, 0)
+			p.Types = make(map[string]*Type)
+			p.Files = make([]*File, 0)
 
-				for fname, f := range pkg.Files {
-					if err := p.addFile(fname, f); err != nil {
-						return nil, err
-					}
+			for fname, f := range pkg.Files {
+				if err := p.addFile(fname, f); err != nil {
+					return nil, err
 				}
-
-				p.sortObjects()
-
-				return p, nil
 			}
 
-			return nil, nil
-		} else {
-			return nil, fmt.Errorf("parse: %v", err)
+			if entries, err := ioutil.ReadDir(parentDir); err == nil {
+				for _, entry := range entries {
+					if entry.IsDir() {
+						path := filepath.Join(parentDir, entry.Name())
+
+						if subpkg, err := LoadPackage(path); err == nil {
+							if subpkg != nil {
+								p.Packages = append(p.Packages, subpkg)
+							}
+						} else {
+							return nil, fmt.Errorf("dir %s: %v", path, err)
+						}
+					}
+				}
+			} else {
+				return nil, err
+			}
+
+			p.sortObjects()
+
+			return p, nil
 		}
+
+		return nil, nil
 	} else {
-		return nil, err
+		return nil, fmt.Errorf("parse: %v", err)
 	}
 }
 
