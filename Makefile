@@ -1,12 +1,12 @@
 .EXPORT_ALL_VARIABLES:
 
 GO111MODULE ?= on
-BIN         ?= bin/godocfriend-$(shell go env GOOS)-$(shell go env GOARCH)
+BIN         ?= bin/owndoc-$(shell go env GOOS)-$(shell go env GOARCH)
 
 all: deps fmt test build
 
 go.mod:
-	go mod init github.com/ghetzel/godocfriend
+	go mod init github.com/ghetzel/go-owndoc
 
 deps: go.mod
 	go get ./...
@@ -23,7 +23,7 @@ test:
 
 $(BIN):
 	go build -o $(@) .
-	cp $(@) ~/bin/godocfriend
+	cp $(@) ~/bin/owndoc
 
 build: $(BIN)
 

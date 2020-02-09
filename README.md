@@ -1,3 +1,3 @@
-# godocfriend
+# go-owndoc
 
-A utility that aims to provide more flexibility in generating documentation for Golang projects.
+Generates static websites from automatically-generated Golang source documentation.

@@ -13,7 +13,7 @@ import (
 
 func main() {
 	app := cli.NewApp()
-	app.Name = `godocfriend`
+	app.Name = `owndoc`
 	app.Usage = `Generate a static site documenting a Golang package and all subpackages`
 	app.Version = `0.0.1`
 
