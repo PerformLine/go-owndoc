@@ -24,17 +24,18 @@ type Package struct {
 	Name       string
 	ImportPath string
 	Files      []*File
-	Constants  []Value            `json:",omitempty"`
-	Variables  []Value            `json:",omitempty"`
-	Functions  []*Method          `json:",omitempty"`
-	Structs    map[string]*Struct `json:",omitempty"`
-	Examples   []Example          `json:",omitempty"`
+	Constants  []Value          `json:",omitempty"`
+	Variables  []Value          `json:",omitempty"`
+	Functions  []*Method        `json:",omitempty"`
+	Examples   []*Method        `json:",omitempty"`
+	Tests      []*Method        `json:",omitempty"`
+	Types      map[string]*Type `json:",omitempty"`
 	ast        *ast.Package
 }
 
 func (self *Package) addFile(fname string, astfile *ast.File) error {
-	// append examples in this file
-	self.Examples = append(self.Examples, astFileExamples(astfile)...)
+	// // append examples in this file
+	// self.Examples = append(self.Examples, astFileExamples(astfile)...)
 
 	if stat, err := os.Stat(fname); err == nil {
 		file := &File{
@@ -65,6 +66,32 @@ func (self *Package) addFile(fname string, astfile *ast.File) error {
 	}
 }
 
+func (self *Package) sortObjects() {
+	sort.Slice(self.Files, func(i int, j int) bool {
+		return self.Files[i].Name < self.Files[j].Name
+	})
+
+	sort.Slice(self.Constants, func(i int, j int) bool {
+		return self.Constants[i].Name < self.Constants[j].Name
+	})
+
+	sort.Slice(self.Variables, func(i int, j int) bool {
+		return self.Variables[i].Name < self.Variables[j].Name
+	})
+
+	sort.Slice(self.Functions, func(i int, j int) bool {
+		return self.Functions[i].Name < self.Functions[j].Name
+	})
+
+	sort.Slice(self.Examples, func(i int, j int) bool {
+		return self.Examples[i].Name < self.Examples[j].Name
+	})
+
+	sort.Slice(self.Tests, func(i int, j int) bool {
+		return self.Tests[i].Name < self.Tests[j].Name
+	})
+}
+
 func LoadPackage(parentDir string) (*Package, error) {
 	if absParentDir, err := filepath.Abs(parentDir); err == nil {
 		fset := token.NewFileSet()
@@ -83,7 +110,7 @@ func LoadPackage(parentDir string) (*Package, error) {
 				p.Name = pkgDoc.Name
 				p.ImportPath = pkgDoc.ImportPath
 				p.Functions = make([]*Method, 0)
-				p.Structs = make(map[string]*Struct)
+				p.Types = make(map[string]*Type)
 				p.Files = make([]*File, 0)
 
 				for fname, f := range pkg.Files {
@@ -92,9 +119,7 @@ func LoadPackage(parentDir string) (*Package, error) {
 					}
 				}
 
-				sort.Slice(p.Files, func(i int, j int) bool {
-					return p.Files[i].Name < p.Files[j].Name
-				})
+				p.sortObjects()
 
 				return p, nil
 			}
@@ -106,4 +131,19 @@ func LoadPackage(parentDir string) (*Package, error) {
 	} else {
 		return nil, err
 	}
+}
+
+func parseFilterGoNoTests(stat os.FileInfo) bool {
+	filename := stat.Name()
+	filename = strings.ToLower(filename)
+
+	if strings.HasSuffix(filename, `.go`) {
+		if strings.HasSuffix(filename, `_test.go`) {
+			return false
+		} else {
+			return true
+		}
+	}
+
+	return false
 }

@@ -2,9 +2,9 @@ package main
 
 import (
 	"bytes"
+	"encoding/base64"
 	"fmt"
 	"go/ast"
-	"go/doc"
 	"go/format"
 	"go/token"
 	"path/filepath"
@@ -13,13 +13,10 @@ import (
 
 	"github.com/ghetzel/go-stockutil/log"
 	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
-type Example struct {
-	Name    string
-	Comment string
-	Output  string
-}
+const CommentExportedFields = `// contains filtered or unexported fields`
 
 // Represents a constant or variable declaration.
 type Value struct {
@@ -38,13 +35,22 @@ type Arg struct {
 // Represents a function declaration, both package-level and struct methods.
 type Method struct {
 	// The parent struct this method is attached to.
-	Struct *Struct `json:"-"`
+	Parent *Type `json:"-"`
 
 	// The File this declaration appears in.
 	File *File `json:"-"`
 
 	// The name of the method.
 	Name string
+
+	// The name of an example method, as extracted from the method name.
+	Label string `json:",omitempty"`
+
+	// The name of the function the example is for.
+	For string `json:",omitempty"`
+
+	// The expected output of the method (for examples)
+	ExpectedOutput string `json:",omitempty"`
 
 	// The comment text describing the function.
 	Comment string `json:",omitempty"`
@@ -63,23 +69,32 @@ type Method struct {
 
 	// Return a source representation of the function signature
 	Signature string `json:",omitempty"`
+
+	// Optional full text of the function's source.
+	Source string `json:",omitempty"`
+
+	// Return whether this is a package-level function or struct method.
+	IsPackageLevel bool
 }
 
 // Represents a single field in a struct declaration.
 type Field struct {
 	Name    string
 	Type    string
-	Struct  *Struct `json:"-"`
-	Comment string  `json:",omitempty"`
+	Parent  *Type  `json:"-"`
+	Comment string `json:",omitempty"`
 }
 
-// Represents a struct, including all of its constituent fields and methods.
-type Struct struct {
-	File    *File `json:"-"`
-	Name    string
-	Fields  []*Field
-	Methods []*Method `json:",omitempty"`
-	Comment string    `json:",omitempty"`
+// Represents a type declaration, including all of its constituent fields and methods for structs.
+type Type struct {
+	File                *File `json:"-"`
+	Name                string
+	MetaType            string    `json:",omitempty"`
+	Methods             []*Method `json:",omitempty"`
+	Fields              []*Field  `json:",omitempty"`
+	Comment             string    `json:",omitempty"`
+	Source              string    `json:",omitempty"`
+	HasUnexportedFields bool      `json:",omitempty"`
 }
 
 // Represents an import declaration for a dependent package.
@@ -154,26 +169,13 @@ func (self *File) parse() error {
 					}
 
 				case *ast.TypeSpec: // type declarations
-					tspec := spec.(*ast.TypeSpec)
-
-					switch tspec.Type.(type) {
-					case *ast.StructType: // structs
-						self.appendStruct(
-							gen,
-							tspec.Name.Name,
-							tspec.Type.(*ast.StructType),
-						)
-					}
+					self.appendTypeDecl(gen, spec.(*ast.TypeSpec))
 				}
 			}
 		default:
 			log.Debugf("%s: unhandled: %T", self.Name, decl)
 		}
 	}
-
-	sort.Slice(self.Package.Functions, func(i int, j int) bool {
-		return self.Package.Functions[i].Name < self.Package.Functions[j].Name
-	})
 
 	return nil
 }
@@ -185,6 +187,9 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 	method.Comment = formatAstComment(fn.Doc)
 
 	if ast.IsExported(method.Name) {
+		var constructorTypeName string
+
+		// TODO: make this anon function a package-level exported function
 		defer func(m *Method) {
 			var argset []string
 			var retset []string
@@ -227,23 +232,49 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 		}
 
 		if fn.Type.Results != nil {
-			for _, res := range fn.Type.Results.List {
+			for i, res := range fn.Type.Results.List {
 				var name string
 
 				if len(res.Names) > 0 {
 					name = res.Names[0].String()
 				}
 
+				retType := astTypeToString(res.Type)
+
 				method.Returns = append(method.Returns, Arg{
 					Name: name,
-					Type: astTypeToString(res.Type),
+					Type: retType,
 				})
+
+				if t := self.describesDeclaredType(retType); i == 0 && t != `` {
+					constructorTypeName = t
+				}
 			}
 		}
 
 		// no receiver == package-level function
 		if fn.Recv == nil {
-			self.Package.Functions = append(self.Package.Functions, method)
+			method.IsPackageLevel = true
+			method.Source = base64.StdEncoding.EncodeToString(
+				[]byte(mustAstNodeToString(fn.Body)),
+			)
+
+			// ...except if it's first return argument type has been declared as a struct
+			// in this package.  If so, we put it with that struct's methods
+			if typ, ok := self.Package.Types[constructorTypeName]; ok {
+				typ.Methods = append(typ.Methods, method)
+			} else if strings.HasPrefix(method.Name, `Test`) {
+				self.Package.Tests = append(self.Package.Tests, method)
+			} else if strings.HasPrefix(method.Name, `Example`) {
+				pair := strings.TrimPrefix(method.Name, `Example`)
+				method.For, method.Label = stringutil.SplitPair(pair, `_`)
+				method.Label = stringutil.Camelize(method.Label)
+
+				self.Package.Examples = append(self.Package.Examples, method)
+			} else {
+				self.Package.Functions = append(self.Package.Functions, method)
+			}
+
 			return
 		} else if len(fn.Recv.List) > 0 {
 			var listField = fn.Recv.List[len(fn.Recv.List)-1]
@@ -264,16 +295,21 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 
 			if ident != nil {
 				if recvName := ident.Name; ast.IsExported(recvName) {
-
-					var parent *Struct = self.Package.Structs[recvName]
+					var parent *Type = self.Package.Types[recvName]
 
 					if parent == nil {
-						parent = new(Struct)
+						parent = new(Type)
 						parent.Name = recvName
+						parent.MetaType = `struct`
 					}
 
 					parent.Methods = append(parent.Methods, method)
-					self.Package.Structs[recvName] = parent
+
+					sort.Slice(parent.Methods, func(i int, j int) bool {
+						return parent.Methods[i].Name < parent.Methods[j].Name
+					})
+
+					self.Package.Types[recvName] = parent
 				} else {
 					return
 				}
@@ -284,34 +320,66 @@ func (self *File) appendFuncDecl(fn *ast.FuncDecl) {
 	}
 }
 
-func (self *File) appendStruct(meta *ast.GenDecl, name string, typ *ast.StructType) {
-	if ast.IsExported(name) {
-		var strct *Struct
+func (self *File) appendTypeDecl(meta *ast.GenDecl, tspec *ast.TypeSpec) {
+	if name := tspec.Name.Name; ast.IsExported(name) {
+		var typ = new(Type)
 
-		if s, ok := self.Package.Structs[name]; ok {
-			strct = s
+		if s, ok := self.Package.Types[name]; ok {
+			typ = s
 		} else {
-			strct = new(Struct)
+			typ = new(Type)
 		}
 
-		strct.Name = name
-		strct.Fields = make([]*Field, 0)
-		strct.Comment = formatAstComment(meta.Doc)
+		typ.Name = name
 
-		for _, field := range typ.Fields.List {
-			if len(field.Names) > 0 {
-				if fieldName := field.Names[0].String(); ast.IsExported(fieldName) {
-					strct.Fields = append(strct.Fields, &Field{
-						Name:    fieldName,
-						Type:    astTypeToString(field.Type),
-						Comment: formatAstComment(field.Doc),
-					})
+		// structs have an extra bit of business
+		switch tspec.Type.(type) {
+		case *ast.StructType:
+			strct := tspec.Type.(*ast.StructType)
+			typ.MetaType = `struct`
+			typ.Comment = formatAstComment(meta.Doc)
+			typ.Fields = make([]*Field, 0)
+
+			src := mustAstNodeToString(meta)
+
+			if strings.Contains(src, CommentExportedFields) {
+				src = strings.ReplaceAll(src, CommentExportedFields, ``)
+				typ.HasUnexportedFields = true
+			}
+
+			typ.Source = base64.StdEncoding.EncodeToString([]byte(src))
+
+			for _, field := range strct.Fields.List {
+				if len(field.Names) > 0 {
+					if fieldName := field.Names[0].String(); ast.IsExported(fieldName) {
+						typ.Fields = append(typ.Fields, &Field{
+							Name:    fieldName,
+							Type:    astTypeToString(field.Type),
+							Comment: formatAstComment(field.Doc),
+						})
+					}
 				}
 			}
+		case *ast.Ident:
+			typ.MetaType = typeutil.String(tspec.Type)
+		default:
+			log.Dump(`typedecl: unhandled metatype: `, tspec.Type)
 		}
 
-		self.Package.Structs[name] = strct
+		self.Package.Types[name] = typ
 	}
+}
+
+func (self *File) describesDeclaredType(typestr string) string {
+	for typeName, _ := range self.Package.Types {
+		typestr = strings.TrimPrefix(typestr, `*`)
+
+		if typeName == typestr {
+			return typeName
+		}
+	}
+
+	return ``
 }
 
 func astTypeToString(typ ast.Expr) string {
@@ -325,6 +393,13 @@ func astTypeToString(typ ast.Expr) string {
 	case *ast.MapType:
 		mt := typ.(*ast.MapType)
 		return `map[` + astTypeToString(mt.Key) + `]` + astTypeToString(mt.Value)
+	case *ast.SelectorExpr:
+		sel := typ.(*ast.SelectorExpr)
+		return typeutil.String(sel.X) + `.` + sel.Sel.String()
+	case *ast.InterfaceType:
+		return `interface{}`
+	case *ast.Ellipsis:
+		return `...` + astTypeToString(typ.(*ast.Ellipsis).Elt)
 	default:
 		return ``
 	}
@@ -338,17 +413,17 @@ func formatAstComment(doc *ast.CommentGroup) string {
 	return ``
 }
 
-func astFileExamples(file *ast.File) (examples []Example) {
-	for _, ex := range doc.Examples(file) {
-		examples = append(examples, Example{
-			Name:    ex.Name,
-			Comment: ex.Doc,
-			Output:  ex.Output,
-		})
-	}
+// func astFileExamples(file *ast.File) (examples []Example) {
+// 	for _, ex := range doc.Examples(file) {
+// 		examples = append(examples, Example{
+// 			Name:    ex.Name,
+// 			Comment: ex.Doc,
+// 			Output:  ex.Output,
+// 		})
+// 	}
 
-	return
-}
+// 	return
+// }
 
 func mustAstNodeToString(node ast.Node) string {
 	var buf bytes.Buffer

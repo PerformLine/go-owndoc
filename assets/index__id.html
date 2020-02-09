@@ -1,0 +1,222 @@
+---
+bindings:
+-   name: docs
+    resource: /doc.json
+---
+{{ $Docs := $.bindings.docs }}
+{{ $Package := (firstByKey $Docs "Name" (param 1)) }}
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="URL"><strong>project-name:</strong></a>
+	<a href="path">github.com/ghetzel/project-name</a>
+	<span class="text-muted">/</span>
+	<span class="text-muted">{{ $Package.Name }}</span>
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<h2 id="pkg-overview">package {{ $Package.Name }}</h2>
+
+<p>
+	<code>import "{{ $Package.ImportPath }}"</code>
+</p>
+
+{{ if $Package.Summary }}
+<p>{{ $Package.Summary }}</p>
+{{ end }}
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	<!-- Constant Declarations -->
+	{{ if $Package.Constants }}
+    <li><a href="#pkg-constants">Constants</a></li>
+	{{ end }}
+
+	<!-- Package Variables -->
+	{{ if $Package.Variables }}
+    <li><a href="#pkg-variables">Variables</a></li>
+	{{ end }}
+
+	<!-- Package-level Function Declarations -->
+	{{ range $Function := $Package.Functions }}
+    <li>
+		<a href="#{{ $Function.Name }}">func {{ $Function.Signature }}</a>
+	</li>
+	{{ end }}
+
+	<!-- Type Declarations -->
+	{{ range $Type := $Package.Types }}
+    <li>
+		<a href="#{{ $Type.Name }}">type {{ $Type.Name }}</a>
+
+		<!-- Struct Members -->
+		{{ if eqx $Type.MetaType "struct" }}
+		<ul>
+			{{ range $Method := $Type.Methods }}
+			{{   if $Method.IsPackageLevel }}
+			<!-- Type Constructor Method -->
+			<li>
+				<a href="#{{ $Type.Name }}.{{ $Method.Name }}">
+					func {{ $Method.Signature }}
+				</a>
+			</li>
+			{{   end }}
+			{{ end }}
+
+			<!-- Member Methods -->
+			{{ range $Method := $Type.Methods }}
+			{{   if not $Method.IsPackageLevel }}
+			<li>
+				<a href="#{{ $Type.Name }}.{{ $Method.Name }}">
+					func
+					({{ $Method.ReceiverName }} {{ if $Method.PointerReceiver }}*{{ end }}{{ $Type.Name }})
+					{{ $Method.Signature }}
+				</a>
+			</li>
+			{{   end }}
+			{{ end }}
+		</ul>
+		{{ end }}
+	</li>
+	{{ end }}
+</ul>
+
+<h4 id="pkg-examples">
+	Examples
+	<a class="permalink" href="#pkg-examples">&#182;</a>
+</h4>
+
+<ul class="list-unstyled">
+	{{ range $Example := $Package.Examples }}
+	<li>
+		<a
+			href="#example-{{ $Example.For }}--{{ $Example.Label }}"
+			onclick="
+				$('#ex-{{ $Example.For }}--{{ $Example.Label }}')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			{{ $Example.For }} ({{ pascalize $Example.Label }})
+		</a>
+	</li>
+	{{ end }}
+</ul>
+
+{{ if $Package.Files }}
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/project-name">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<p>
+{{ range $File := $Package.Files }}
+	<a href="{{ $File.Name }}">{{ $File.Name }}</a>
+{{ end }}
+</p>
+{{ end }}
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+{{ range $Constant := $Package.Constants }}
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>const <span id="{{ $Constant.Name }}">{{ $Constant.Name }}</span> = {{ $Constant.Expression }}</pre>
+</div>
+{{ end }}
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+{{ range $Variable := $Package.Variables }}
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>var <span id="{{ $Variable.Name }}">{{ $Variable.Name }}</span> = {{ $Variable.Expression }}</pre>
+</div>
+{{ end }}
+
+
+<!-- Package-level Function Declarations -->
+{{ range $Function := $Package.Functions }}
+<h3 id="{{ $Function.Name }}" data-kind="f">
+	func <a title="View Source" href="">{{ $Function.Name }}</a>
+	<a class="permalink" href="#{{ $Function.Name }}">&#182;</a>
+	<!--<a class="uses" title="List Function Callers" href="https://sourcegraph.com/-/godoc/refs?def=Auto&amp;pkg=github.com%2Fghetzel%2Fgo-stockutil%2Ftypeutil&amp;repo=github.com%2Fghetzel%2Fgo-stockutil">Uses</a>-->
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func {{ $Function.Signature }}</pre>
+</div>
+
+{{   if $Function.Comment }}
+<p>{{ sanitize (replace $Function.Comment "\n" "<br>" -1) }}</p>
+{{   end }}
+{{ end }}
+
+<!-- Type Declarations -->
+{{ range $Type := $Package.Types }}
+<h3 id="{{ $Type.Name }}" data-kind="t">
+	type
+	<a title="View Source" href="">{{ $Type.Name }}</a>
+	<a class="permalink" href="#{{ $Type.Name }}">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	{{ $src := chr2str (unbase64 $Type.Source "padded") }}
+	{{ if $Type.HasUnexportedFields }}
+	{{   $src = rxreplace $src `\n}\s*$` "  // contains filtered or unexported fields\n}" }}
+	{{ end }}
+	<pre>{{ $src }}</pre>
+</div>
+
+<!-- Type Constructor Method -->
+{{ 	 range $Method := $Type.Methods }}
+{{     if $Method.IsPackageLevel }}
+<h4 id="{{ $Method.Name }}" data-kind="f">
+	func <a title="View Source" href="">{{ $Method.Name }}</a>
+	<a class="permalink" href="#{{ $Method.Name }}">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func {{ $Method.Signature }}</pre>
+</div>
+{{       if $Method.Comment }}
+<p>{{ sanitize (replace $Method.Comment "\n" "<br>" -1) }}</p>
+{{       end }}
+{{     end }}
+{{   end }}
+
+<!-- Member Methods -->
+{{ 	 range $Method := $Type.Methods }}
+{{     if not $Method.IsPackageLevel }}
+<h4 id="{{ $Type.Name }}.{{ $Method.Name }}" data-kind="f">
+	func
+	({{ $Method.ReceiverName }} {{ if $Method.PointerReceiver }}*{{ end }}{{ $Type.Name }})
+	<a title="View Source" href="">{{ $Method.Name }}</a>
+	<a class="permalink" href="#{{ $Method.Name }}">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ({{ $Method.ReceiverName }} {{ if $Method.PointerReceiver }}*{{ end }}{{ $Type.Name }}) {{ $Method.Signature }}</pre>
+</div>
+{{       if $Method.Comment }}
+<p>{{ sanitize (replace $Method.Comment "\n" "<br>" -1) }}</p>
+{{       end }}
+{{     end }}
+{{   end }}
+{{ end }}
