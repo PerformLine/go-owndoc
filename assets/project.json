@@ -4,731 +4,736 @@
         "GeneratorVersion": "0.0.1",
         "URL": "https://github.com/ghetzel/go-owndoc"
     },
-    "Packages": [
-        {
-            "Name": "main",
-            "ImportPath": ".",
-            "Files": [
-                {
-                    "Name": "file.go",
-                    "Imports": [
-                        {
-                            "PackageName": "bytes",
-                            "Alias": "bytes"
-                        },
-                        {
-                            "PackageName": "encoding/base64",
-                            "Alias": "base64"
-                        },
-                        {
-                            "PackageName": "fmt",
-                            "Alias": "fmt"
-                        },
-                        {
-                            "PackageName": "go/ast",
-                            "Alias": "ast"
-                        },
-                        {
-                            "PackageName": "go/format",
-                            "Alias": "format"
-                        },
-                        {
-                            "PackageName": "go/token",
-                            "Alias": "token"
-                        },
-                        {
-                            "PackageName": "path/filepath",
-                            "Alias": "filepath"
-                        },
-                        {
-                            "PackageName": "sort",
-                            "Alias": "sort"
-                        },
-                        {
-                            "PackageName": "strings",
-                            "Alias": "strings"
-                        },
-                        {
-                            "PackageName": "github.com/ghetzel/go-stockutil/log",
-                            "Alias": "log"
-                        },
-                        {
-                            "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
-                            "Alias": "stringutil"
-                        },
-                        {
-                            "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
-                            "Alias": "typeutil"
-                        }
-                    ],
-                    "Size": 11419,
-                    "LineCount": 451,
-                    "SourceLineCount": 332,
-                    "FunctionCount": 0,
-                    "TypeCount": 7,
-                    "ConstantCount": 1,
-                    "VariableCount": 0
-                },
-                {
-                    "Name": "main.go",
-                    "Imports": [
-                        {
-                            "PackageName": "encoding/json",
-                            "Alias": "json"
-                        },
-                        {
-                            "PackageName": "os",
-                            "Alias": "os"
-                        },
-                        {
-                            "PackageName": "path/filepath",
-                            "Alias": "filepath"
-                        },
-                        {
-                            "PackageName": "github.com/ghetzel/cli",
-                            "Alias": "cli"
-                        },
-                        {
-                            "PackageName": "github.com/ghetzel/go-stockutil/log",
-                            "Alias": "log"
-                        }
-                    ],
-                    "Size": 1632,
-                    "LineCount": 81,
-                    "SourceLineCount": 65,
-                    "FunctionCount": 0,
-                    "TypeCount": 0,
-                    "ConstantCount": 0,
-                    "VariableCount": 0
-                },
-                {
-                    "Name": "package.go",
-                    "Imports": [
-                        {
-                            "PackageName": "fmt",
-                            "Alias": "fmt"
-                        },
-                        {
-                            "PackageName": "go/ast",
-                            "Alias": "ast"
-                        },
-                        {
-                            "PackageName": "go/doc",
-                            "Alias": "doc"
-                        },
-                        {
-                            "PackageName": "go/parser",
-                            "Alias": "parser"
-                        },
-                        {
-                            "PackageName": "go/token",
-                            "Alias": "token"
-                        },
-                        {
-                            "PackageName": "os",
-                            "Alias": "os"
-                        },
-                        {
-                            "PackageName": "path/filepath",
-                            "Alias": "filepath"
-                        },
-                        {
-                            "PackageName": "sort",
-                            "Alias": "sort"
-                        },
-                        {
-                            "PackageName": "strings",
-                            "Alias": "strings"
-                        },
-                        {
-                            "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
-                            "Alias": "fileutil"
-                        },
-                        {
-                            "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
-                            "Alias": "rxutil"
-                        }
-                    ],
-                    "Size": 3342,
-                    "LineCount": 150,
-                    "SourceLineCount": 120,
-                    "FunctionCount": 1,
-                    "TypeCount": 1,
-                    "ConstantCount": 1,
-                    "VariableCount": 2
-                },
-                {
-                    "Name": "project.go",
-                    "Imports": null,
-                    "Size": 179,
-                    "LineCount": 13,
-                    "SourceLineCount": 10,
-                    "FunctionCount": 0,
-                    "TypeCount": 2,
-                    "ConstantCount": 0,
-                    "VariableCount": 0
-                },
-                {
-                    "Name": "static.go",
-                    "Imports": [
-                        {
-                            "PackageName": "bytes",
-                            "Alias": "bytes"
-                        },
-                        {
-                            "PackageName": "compress/gzip",
-                            "Alias": "gzip"
-                        },
-                        {
-                            "PackageName": "encoding/base64",
-                            "Alias": "base64"
-                        },
-                        {
-                            "PackageName": "io/ioutil",
-                            "Alias": "ioutil"
-                        },
-                        {
-                            "PackageName": "net/http",
-                            "Alias": "http"
-                        },
-                        {
-                            "PackageName": "os",
-                            "Alias": "os"
-                        },
-                        {
-                            "PackageName": "path",
-                            "Alias": "path"
-                        },
-                        {
-                            "PackageName": "sync",
-                            "Alias": "sync"
-                        },
-                        {
-                            "PackageName": "time",
-                            "Alias": "time"
-                        }
-                    ],
-                    "Size": 98788,
-                    "LineCount": 1434,
-                    "SourceLineCount": 1382,
-                    "FunctionCount": 6,
-                    "TypeCount": 0,
-                    "ConstantCount": 0,
-                    "VariableCount": 0
-                }
-            ],
-            "Constants": [
-                {
-                    "Name": "CommentExportedFields",
-                    "Immutable": true,
-                    "Expression": "`// contains filtered or unexported fields`"
-                },
-                {
-                    "Name": "Hello",
-                    "Type": "bool",
-                    "Immutable": true,
-                    "Expression": "true"
-                }
-            ],
-            "Variables": [
-                {
-                    "Name": "MaxExpressionSnippetLength",
-                    "Expression": "64"
-                },
-                {
-                    "Name": "There",
-                    "Expression": "strings.TrimSpace(`there`)"
-                }
-            ],
-            "Functions": [
-                {
-                    "Name": "Dir",
-                    "Comment": "Dir returns a http.Filesystem for the embedded assets on a given prefix dir.\nIf useLocal is true, the filesystem's contents are instead used.",
-                    "Arguments": [
-                        {
-                            "Name": "useLocal",
-                            "Type": "bool"
-                        },
-                        {
-                            "Name": "name",
-                            "Type": "string"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "http.FileSystem"
-                        }
-                    ],
-                    "Signature": "Dir(useLocal bool, name string) http.FileSystem",
-                    "Source": "ewoJaWYgdXNlTG9jYWwgewoJCXJldHVybiBfZXNjRGlyZWN0b3J5e2ZzOiBfZXNjTG9jYWwsIG5hbWU6IG5hbWV9Cgl9CglyZXR1cm4gX2VzY0RpcmVjdG9yeXtmczogX2VzY1N0YXRpYywgbmFtZTogbmFtZX0KfQ==",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "FS",
-                    "Comment": "FS returns a http.Filesystem for the embedded assets. If useLocal is true,\nthe filesystem's contents are instead used.",
-                    "Arguments": [
-                        {
-                            "Name": "useLocal",
-                            "Type": "bool"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "http.FileSystem"
-                        }
-                    ],
-                    "Signature": "FS(useLocal bool) http.FileSystem",
-                    "Source": "ewoJaWYgdXNlTG9jYWwgewoJCXJldHVybiBfZXNjTG9jYWwKCX0KCXJldHVybiBfZXNjU3RhdGljCn0=",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "FSByte",
-                    "Comment": "FSByte returns the named file from the embedded assets. If useLocal is\ntrue, the filesystem's contents are instead used.",
-                    "Arguments": [
-                        {
-                            "Name": "useLocal",
-                            "Type": "bool"
-                        },
-                        {
-                            "Name": "name",
-                            "Type": "string"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "[]byte"
-                        },
-                        {
-                            "Type": "error"
-                        }
-                    ],
-                    "Signature": "FSByte(useLocal bool, name string) ([]byte, error)",
-                    "Source": "ewoJaWYgdXNlTG9jYWwgewoJCWYsIGVyciA6PSBfZXNjTG9jYWwuT3BlbihuYW1lKQoJCWlmIGVyciAhPSBuaWwgewoJCQlyZXR1cm4gbmlsLCBlcnIKCQl9CgkJYiwgZXJyIDo9IGlvdXRpbC5SZWFkQWxsKGYpCgkJXyA9IGYuQ2xvc2UoKQoJCXJldHVybiBiLCBlcnIKCX0KCWYsIGVyciA6PSBfZXNjU3RhdGljLnByZXBhcmUobmFtZSkKCWlmIGVyciAhPSBuaWwgewoJCXJldHVybiBuaWwsIGVycgoJfQoJcmV0dXJuIGYuZGF0YSwgbmlsCn0=",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "FSMustByte",
-                    "Comment": "FSMustByte is the same as FSByte, but panics if name is not present.",
-                    "Arguments": [
-                        {
-                            "Name": "useLocal",
-                            "Type": "bool"
-                        },
-                        {
-                            "Name": "name",
-                            "Type": "string"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "[]byte"
-                        }
-                    ],
-                    "Signature": "FSMustByte(useLocal bool, name string) []byte",
-                    "Source": "ewoJYiwgZXJyIDo9IEZTQnl0ZSh1c2VMb2NhbCwgbmFtZSkKCWlmIGVyciAhPSBuaWwgewoJCXBhbmljKGVycikKCX0KCXJldHVybiBiCn0=",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "FSMustString",
-                    "Comment": "FSMustString is the string version of FSMustByte.",
-                    "Arguments": [
-                        {
-                            "Name": "useLocal",
-                            "Type": "bool"
-                        },
-                        {
-                            "Name": "name",
-                            "Type": "string"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "string"
-                        }
-                    ],
-                    "Signature": "FSMustString(useLocal bool, name string) string",
-                    "Source": "ewoJcmV0dXJuIHN0cmluZyhGU011c3RCeXRlKHVzZUxvY2FsLCBuYW1lKSkKfQ==",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "FSString",
-                    "Comment": "FSString is the string version of FSByte.",
-                    "Arguments": [
-                        {
-                            "Name": "useLocal",
-                            "Type": "bool"
-                        },
-                        {
-                            "Name": "name",
-                            "Type": "string"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "string"
-                        },
-                        {
-                            "Type": "error"
-                        }
-                    ],
-                    "Signature": "FSString(useLocal bool, name string) (string, error)",
-                    "Source": "ewoJYiwgZXJyIDo9IEZTQnl0ZSh1c2VMb2NhbCwgbmFtZSkKCXJldHVybiBzdHJpbmcoYiksIGVycgp9",
-                    "IsPackageLevel": true
-                }
-            ],
-            "Types": {
-                "Arg": {
-                    "Name": "Arg",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "Name",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Type",
-                            "Type": "string"
-                        }
-                    ],
-                    "Comment": "Represents a function argument or return value.",
-                    "Source": "dHlwZSBBcmcgc3RydWN0IHsKCU5hbWUgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCVR5cGUgc3RyaW5nCn0vLyBSZXByZXNlbnRzIGEgZnVuY3Rpb24gYXJndW1lbnQgb3IgcmV0dXJuIHZhbHVlLgo="
-                },
-                "Field": {
-                    "Name": "Field",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "Name",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Type",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Parent",
-                            "Type": "*Type"
-                        },
-                        {
-                            "Name": "Comment",
-                            "Type": "string"
-                        }
-                    ],
-                    "Comment": "Represents a single field in a struct declaration.",
-                    "Source": "dHlwZSBGaWVsZCBzdHJ1Y3QgewoJTmFtZSAgICBzdHJpbmcKCVR5cGUgICAgc3RyaW5nCglQYXJlbnQgICpUeXBlICBganNvbjoiLSJgCglDb21tZW50IHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCn0vLyBSZXByZXNlbnRzIGEgc2luZ2xlIGZpZWxkIGluIGEgc3RydWN0IGRlY2xhcmF0aW9uLgo="
-                },
-                "File": {
-                    "Name": "File",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "Name",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Package",
-                            "Type": "*Package"
-                        },
-                        {
-                            "Name": "Imports",
-                            "Type": "[]Import"
-                        },
-                        {
-                            "Name": "MainFunction",
-                            "Type": "bool"
-                        },
-                        {
-                            "Name": "Size",
-                            "Type": "int64"
-                        },
-                        {
-                            "Name": "LineCount",
-                            "Type": "int"
-                        },
-                        {
-                            "Name": "SourceLineCount",
-                            "Type": "int"
-                        },
-                        {
-                            "Name": "FunctionCount",
-                            "Type": "int"
-                        },
-                        {
-                            "Name": "TypeCount",
-                            "Type": "int"
-                        },
-                        {
-                            "Name": "ConstantCount",
-                            "Type": "int"
-                        },
-                        {
-                            "Name": "VariableCount",
-                            "Type": "int"
-                        }
-                    ],
-                    "Comment": "Represents a Golang source file.",
-                    "Source": "dHlwZSBGaWxlIHN0cnVjdCB7CglOYW1lICAgIHN0cmluZwoJUGFja2FnZSAqUGFja2FnZSBganNvbjoiLSJgCglJbXBvcnRzIFsgLy8gUmVwcmVzZW50cyBhIEdvbGFuZyBzb3VyY2UgZmlsZS4KCV1JbXBvcnQKCU1haW5GdW5jdGlvbiAgICBib29sIGBqc29uOiIsb21pdGVtcHR5ImAKCVNpemUgICAgICAgICAgICBpbnQ2NAoJTGluZUNvdW50ICAgICAgIGludAoJU291cmNlTGluZUNvdW50IGludAoJRnVuY3Rpb25Db3VudCAgIGludAoJVHlwZUNvdW50ICAgICAgIGludAoJQ29uc3RhbnRDb3VudCAgIGludAoJVmFyaWFibGVDb3VudCAgIGludAoKfQo=",
-                    "HasUnexportedFields": true
-                },
-                "Import": {
-                    "Name": "Import",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "PackageName",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Alias",
-                            "Type": "string"
-                        }
-                    ],
-                    "Comment": "Represents an import declaration for a dependent package.",
-                    "Source": "dHlwZSBJbXBvcnQgc3RydWN0IHsKCVBhY2thZ2VOYW1lIHN0cmluZwoJQWxpYXMgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKfS8vIFJlcHJlc2VudHMgYW4gaW1wb3J0IGRlY2xhcmF0aW9uIGZvciBhIGRlcGVuZGVudCBwYWNrYWdlLgo="
-                },
-                "Metadata": {
-                    "Name": "Metadata",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "Title",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "GeneratorVersion",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "URL",
-                            "Type": "string"
-                        }
-                    ],
-                    "Source": "dHlwZSBNZXRhZGF0YSBzdHJ1Y3QgewoJVGl0bGUgICAgICAgICAgICBzdHJpbmcKCUdlbmVyYXRvclZlcnNpb24gc3RyaW5nCglVUkwgICAgICAgICAgICAgIHN0cmluZwp9"
-                },
-                "Method": {
-                    "Name": "Method",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "Parent",
-                            "Type": "*Type",
-                            "Comment": "The parent struct this method is attached to."
-                        },
-                        {
-                            "Name": "File",
-                            "Type": "*File",
-                            "Comment": "The File this declaration appears in."
-                        },
-                        {
-                            "Name": "Name",
-                            "Type": "string",
-                            "Comment": "The name of the method."
-                        },
-                        {
-                            "Name": "Label",
-                            "Type": "string",
-                            "Comment": "The name of an example method, as extracted from the method name."
-                        },
-                        {
-                            "Name": "For",
-                            "Type": "string",
-                            "Comment": "The name of the function the example is for."
-                        },
-                        {
-                            "Name": "ExpectedOutput",
-                            "Type": "string",
-                            "Comment": "The expected output of the method (for examples)"
-                        },
-                        {
-                            "Name": "Comment",
-                            "Type": "string",
-                            "Comment": "The comment text describing the function."
-                        },
-                        {
-                            "Name": "PointerReceiver",
-                            "Type": "bool",
-                            "Comment": "Whether this method is attached to a Struct instance or Struct pointer."
-                        },
-                        {
-                            "Name": "ReceiverName",
-                            "Type": "string",
-                            "Comment": "The variable used to access the receiver instance."
-                        },
-                        {
-                            "Name": "Arguments",
-                            "Type": "[]Arg",
-                            "Comment": "List of arguments this method accepts."
-                        },
-                        {
-                            "Name": "Returns",
-                            "Type": "[]Arg",
-                            "Comment": "List of outputs this method returns."
-                        },
-                        {
-                            "Name": "Signature",
-                            "Type": "string",
-                            "Comment": "Return a source representation of the function signature"
-                        },
-                        {
-                            "Name": "Source",
-                            "Type": "string",
-                            "Comment": "Optional full text of the function's source."
-                        },
-                        {
-                            "Name": "IsPackageLevel",
-                            "Type": "bool",
-                            "Comment": "Return whether this is a package-level function or struct method."
-                        }
-                    ],
-                    "Comment": "Represents a function declaration, both package-level and struct methods.",
-                    "Source": "dHlwZSBNZXRob2Qgc3RydWN0IHsKCVBhcmVudCAgICAgICAgICAqVHlwZSBganNvbjoiLSJgCglGaWxlICAgICAgICAgICAgKkZpbGUgYGpzb246Ii0iYAoJTmFtZSAgICAgICAgICAgIHN0cmluZwoJTGFiZWwgICAgICAgICAgIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglGb3IgICAgICAgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUV4cGVjdGVkT3V0cHV0ICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJQ29tbWVudCAgICAgICAgIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglQb2ludGVyUmVjZWl2ZXIgYm9vbCAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVJlY2VpdmVyTmFtZSAgICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJQXJndW1lbnRzICAgICAgIFsgLy8gUmVwcmVzZW50cyBhIGZ1bmN0aW9uIGRlY2xhcmF0aW9uLCBib3RoIHBhY2thZ2UtbGV2ZWwgYW5kIHN0cnVjdCBtZXRob2RzLgoJLy8gTGlzdCBvZiBhcmd1bWVudHMgdGhpcyBtZXRob2QgYWNjZXB0cy4KCV1BcmcgYGpzb246IixvbWl0ZW1wdHkiYAoJUmV0dXJucyBbIC8vIExpc3Qgb2Ygb3V0cHV0cyB0aGlzIG1ldGhvZCByZXR1cm5zLgoJXUFyZyAgICBganNvbjoiLG9taXRlbXB0eSJgCglTaWduYXR1cmUgICAgICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJU291cmNlICAgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUlzUGFja2FnZUxldmVsIGJvb2wKfS8vIFJldHVybiBhIHNvdXJjZSByZXByZXNlbnRhdGlvbiBvZiB0aGUgZnVuY3Rpb24gc2lnbmF0dXJlCi8vIFJldHVybiB3aGV0aGVyIHRoaXMgaXMgYSBwYWNrYWdlLWxldmVsIGZ1bmN0aW9uIG9yIHN0cnVjdCBtZXRob2QuCg=="
-                },
-                "Package": {
-                    "Name": "Package",
-                    "MetaType": "struct",
-                    "Methods": [
-                        {
-                            "Name": "LoadPackage",
-                            "Arguments": [
-                                {
-                                    "Name": "parentDir",
-                                    "Type": "string"
-                                }
-                            ],
-                            "Returns": [
-                                {
-                                    "Type": "*Package"
-                                },
-                                {
-                                    "Type": "error"
-                                }
-                            ],
-                            "Signature": "LoadPackage(parentDir string) (*Package, error)",
-                            "Source": "ewoJaWYgYWJzUGFyZW50RGlyLCBlcnIgOj0gZmlsZXBhdGguQWJzKHBhcmVudERpcik7IGVyciA9PSBuaWwgewoJCWZzZXQgOj0gdG9rZW4uTmV3RmlsZVNldCgpCgkJaWYgcGtncywgZXJyIDo9IHBhcnNlci5QYXJzZURpcihmc2V0LCBhYnNQYXJlbnREaXIsIG5pbCwgKHBhcnNlci5QYXJzZUNvbW1lbnRzIHwgcGFyc2VyLkRlY2xhcmF0aW9uRXJyb3JzIHwgcGFyc2VyLkFsbEVycm9ycykpOyBlcnIgPT0gbmlsIHsKCQkJZm9yIF8sIHBrZyA6PSByYW5nZSBwa2dzIHsKCQkJCXBrZ0RvYyA6PSBkb2MuTmV3KHBrZywgcGFyZW50RGlyLCBkb2MuUHJlc2VydmVBU1QpCgkJCQlwIDo9IG5ldyhQYWNrYWdlKQoJCQkJcC5hc3QgPSBwa2cKCQkJCXAuTmFtZSA9IHBrZ0RvYy5OYW1lCgkJCQlwLkltcG9ydFBhdGggPSBwa2dEb2MuSW1wb3J0UGF0aAoJCQkJcC5GdW5jdGlvbnMgPSBtYWtlKFtdKk1ldGhvZCwgMCkKCQkJCXAuVHlwZXMgPSBtYWtlKG1hcFtzdHJpbmddKlR5cGUpCgkJCQlwLkZpbGVzID0gbWFrZShbXSpGaWxlLCAwKQoJCQkJZm9yIGZuYW1lLCBmIDo9IHJhbmdlIHBrZy5GaWxlcyB7CgkJCQkJaWYgZXJyIDo9IHAuYWRkRmlsZShmbmFtZSwgZik7IGVyciAhPSBuaWwgewoJCQkJCQlyZXR1cm4gbmlsLCBlcnIKCQkJCQl9CgkJCQl9CgkJCQlwLnNvcnRPYmplY3RzKCkKCQkJCXJldHVybiBwLCBuaWwKCQkJfQoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gbmlsLCBmbXQuRXJyb3JmKCJwYXJzZTogJXYiLCBlcnIpCgkJfQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KfQ==",
-                            "IsPackageLevel": true
-                        }
-                    ],
-                    "Fields": [
-                        {
-                            "Name": "Name",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "ImportPath",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Files",
-                            "Type": "[]*File"
-                        },
-                        {
-                            "Name": "Constants",
-                            "Type": "[]Value"
-                        },
-                        {
-                            "Name": "Variables",
-                            "Type": "[]Value"
-                        },
-                        {
-                            "Name": "Functions",
-                            "Type": "[]*Method"
-                        },
-                        {
-                            "Name": "Examples",
-                            "Type": "[]*Method"
-                        },
-                        {
-                            "Name": "Tests",
-                            "Type": "[]*Method"
-                        },
-                        {
-                            "Name": "Types",
-                            "Type": "map[string]*Type"
-                        }
-                    ],
-                    "Source": "dHlwZSBQYWNrYWdlIHN0cnVjdCB7CglOYW1lICAgICAgIHN0cmluZwoJSW1wb3J0UGF0aCBzdHJpbmcKCUZpbGVzICAgICAgW10qRmlsZQoJQ29uc3RhbnRzICBbXVZhbHVlICAgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVZhcmlhYmxlcyAgW11WYWx1ZSAgICAgICAgICBganNvbjoiLG9taXRlbXB0eSJgCglGdW5jdGlvbnMgIFtdKk1ldGhvZCAgICAgICAgYGpzb246IixvbWl0ZW1wdHkiYAoJRXhhbXBsZXMgICBbXSpNZXRob2QgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVRlc3RzICAgICAgW10qTWV0aG9kICAgICAgICBganNvbjoiLG9taXRlbXB0eSJgCglUeXBlcyAgICAgIG1hcFtzdHJpbmddKlR5cGUgYGpzb246IixvbWl0ZW1wdHkiYAoKfQo=",
-                    "HasUnexportedFields": true
-                },
-                "Project": {
-                    "Name": "Project",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "Metadata",
-                            "Type": "Metadata"
-                        },
-                        {
-                            "Name": "Packages",
-                            "Type": "[]*Package"
-                        }
-                    ],
-                    "Source": "dHlwZSBQcm9qZWN0IHN0cnVjdCB7CglNZXRhZGF0YSBNZXRhZGF0YQoJUGFja2FnZXMgW10qUGFja2FnZQp9"
-                },
-                "Type": {
-                    "Name": "Type",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "File",
-                            "Type": "*File"
-                        },
-                        {
-                            "Name": "Name",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "MetaType",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Methods",
-                            "Type": "[]*Method"
-                        },
-                        {
-                            "Name": "Fields",
-                            "Type": "[]*Field"
-                        },
-                        {
-                            "Name": "Comment",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Source",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "HasUnexportedFields",
-                            "Type": "bool"
-                        }
-                    ],
-                    "Comment": "Represents a type declaration, including all of its constituent fields and methods for structs.",
-                    "Source": "dHlwZSBUeXBlIHN0cnVjdCB7CglGaWxlICAgICAqRmlsZSBganNvbjoiLSJgCglOYW1lICAgICBzdHJpbmcKCU1ldGFUeXBlIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglNZXRob2RzICBbIC8vIFJlcHJlc2VudHMgYSB0eXBlIGRlY2xhcmF0aW9uLCBpbmNsdWRpbmcgYWxsIG9mIGl0cyBjb25zdGl0dWVudCBmaWVsZHMgYW5kIG1ldGhvZHMgZm9yIHN0cnVjdHMuCgldKk1ldGhvZCBganNvbjoiLG9taXRlbXB0eSJgCglGaWVsZHMgICAgICAgICAgICAgIFtdKkZpZWxkIGBqc29uOiIsb21pdGVtcHR5ImAKCUNvbW1lbnQgICAgICAgICAgICAgc3RyaW5nICAgYGpzb246IixvbWl0ZW1wdHkiYAoJU291cmNlICAgICAgICAgICAgICBzdHJpbmcgICBganNvbjoiLG9taXRlbXB0eSJgCglIYXNVbmV4cG9ydGVkRmllbGRzIGJvb2wgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKfQ=="
-                },
-                "Value": {
-                    "Name": "Value",
-                    "MetaType": "struct",
-                    "Fields": [
-                        {
-                            "Name": "Name",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Type",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "Immutable",
-                            "Type": "bool"
-                        },
-                        {
-                            "Name": "Expression",
-                            "Type": "string"
-                        }
-                    ],
-                    "Comment": "Represents a constant or variable declaration.",
-                    "Source": "dHlwZSBWYWx1ZSBzdHJ1Y3QgewoJTmFtZSAgICAgICBzdHJpbmcKCVR5cGUgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUltbXV0YWJsZSAgYm9vbCAgIGBqc29uOiIsb21pdGVtcHR5ImAKCUV4cHJlc3Npb24gc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKfS8vIFJlcHJlc2VudHMgYSBjb25zdGFudCBvciB2YXJpYWJsZSBkZWNsYXJhdGlvbi4K"
-                }
+    "Package": {
+        "Name": "main",
+        "ImportPath": ".",
+        "Files": [
+            {
+                "Name": "file.go",
+                "Imports": [
+                    {
+                        "PackageName": "bytes",
+                        "Alias": "bytes"
+                    },
+                    {
+                        "PackageName": "encoding/base64",
+                        "Alias": "base64"
+                    },
+                    {
+                        "PackageName": "fmt",
+                        "Alias": "fmt"
+                    },
+                    {
+                        "PackageName": "go/ast",
+                        "Alias": "ast"
+                    },
+                    {
+                        "PackageName": "go/format",
+                        "Alias": "format"
+                    },
+                    {
+                        "PackageName": "go/token",
+                        "Alias": "token"
+                    },
+                    {
+                        "PackageName": "path/filepath",
+                        "Alias": "filepath"
+                    },
+                    {
+                        "PackageName": "sort",
+                        "Alias": "sort"
+                    },
+                    {
+                        "PackageName": "strings",
+                        "Alias": "strings"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/log",
+                        "Alias": "log"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                        "Alias": "stringutil"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                        "Alias": "typeutil"
+                    }
+                ],
+                "Size": 11446,
+                "LineCount": 451,
+                "SourceLineCount": 331,
+                "FunctionCount": 0,
+                "TypeCount": 7,
+                "ConstantCount": 1,
+                "VariableCount": 0
+            },
+            {
+                "Name": "main.go",
+                "Imports": [
+                    {
+                        "PackageName": "encoding/json",
+                        "Alias": "json"
+                    },
+                    {
+                        "PackageName": "os",
+                        "Alias": "os"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/cli",
+                        "Alias": "cli"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/log",
+                        "Alias": "log"
+                    }
+                ],
+                "Size": 1498,
+                "LineCount": 71,
+                "SourceLineCount": 59,
+                "FunctionCount": 0,
+                "TypeCount": 0,
+                "ConstantCount": 0,
+                "VariableCount": 0
+            },
+            {
+                "Name": "module.go",
+                "Size": 176,
+                "LineCount": 13,
+                "SourceLineCount": 10,
+                "FunctionCount": 0,
+                "TypeCount": 2,
+                "ConstantCount": 0,
+                "VariableCount": 0
+            },
+            {
+                "Name": "package.go",
+                "Imports": [
+                    {
+                        "PackageName": "fmt",
+                        "Alias": "fmt"
+                    },
+                    {
+                        "PackageName": "go/ast",
+                        "Alias": "ast"
+                    },
+                    {
+                        "PackageName": "go/doc",
+                        "Alias": "doc"
+                    },
+                    {
+                        "PackageName": "go/parser",
+                        "Alias": "parser"
+                    },
+                    {
+                        "PackageName": "go/token",
+                        "Alias": "token"
+                    },
+                    {
+                        "PackageName": "io/ioutil",
+                        "Alias": "ioutil"
+                    },
+                    {
+                        "PackageName": "os",
+                        "Alias": "os"
+                    },
+                    {
+                        "PackageName": "path/filepath",
+                        "Alias": "filepath"
+                    },
+                    {
+                        "PackageName": "sort",
+                        "Alias": "sort"
+                    },
+                    {
+                        "PackageName": "strings",
+                        "Alias": "strings"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
+                        "Alias": "fileutil"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/log",
+                        "Alias": "log"
+                    },
+                    {
+                        "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
+                        "Alias": "rxutil"
+                    }
+                ],
+                "Size": 3782,
+                "LineCount": 168,
+                "SourceLineCount": 136,
+                "FunctionCount": 1,
+                "TypeCount": 1,
+                "ConstantCount": 1,
+                "VariableCount": 2
+            },
+            {
+                "Name": "static.go",
+                "Imports": [
+                    {
+                        "PackageName": "bytes",
+                        "Alias": "bytes"
+                    },
+                    {
+                        "PackageName": "compress/gzip",
+                        "Alias": "gzip"
+                    },
+                    {
+                        "PackageName": "encoding/base64",
+                        "Alias": "base64"
+                    },
+                    {
+                        "PackageName": "io/ioutil",
+                        "Alias": "ioutil"
+                    },
+                    {
+                        "PackageName": "net/http",
+                        "Alias": "http"
+                    },
+                    {
+                        "PackageName": "os",
+                        "Alias": "os"
+                    },
+                    {
+                        "PackageName": "path",
+                        "Alias": "path"
+                    },
+                    {
+                        "PackageName": "sync",
+                        "Alias": "sync"
+                    },
+                    {
+                        "PackageName": "time",
+                        "Alias": "time"
+                    }
+                ],
+                "Size": 99106,
+                "LineCount": 1445,
+                "SourceLineCount": 1392,
+                "FunctionCount": 6,
+                "TypeCount": 0,
+                "ConstantCount": 0,
+                "VariableCount": 0
+            }
+        ],
+        "Constants": [
+            {
+                "Name": "CommentExportedFields",
+                "Immutable": true,
+                "Expression": "`// contains filtered or unexported fields`"
+            },
+            {
+                "Name": "Hello",
+                "Type": "bool",
+                "Immutable": true,
+                "Expression": "true"
+            }
+        ],
+        "Variables": [
+            {
+                "Name": "MaxExpressionSnippetLength",
+                "Expression": "64"
+            },
+            {
+                "Name": "There",
+                "Expression": "strings.TrimSpace(`there`)"
+            }
+        ],
+        "Functions": [
+            {
+                "Name": "Dir",
+                "Comment": "Dir returns a http.Filesystem for the embedded assets on a given prefix dir.\nIf useLocal is true, the filesystem's contents are instead used.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "http.FileSystem"
+                    }
+                ],
+                "Signature": "Dir(useLocal bool, name string) http.FileSystem",
+                "Source": "ewoJaWYgdXNlTG9jYWwgewoJCXJldHVybiBfZXNjRGlyZWN0b3J5e2ZzOiBfZXNjTG9jYWwsIG5hbWU6IG5hbWV9Cgl9CglyZXR1cm4gX2VzY0RpcmVjdG9yeXtmczogX2VzY1N0YXRpYywgbmFtZTogbmFtZX0KfQ==",
+                "IsPackageLevel": true
+            },
+            {
+                "Name": "FS",
+                "Comment": "FS returns a http.Filesystem for the embedded assets. If useLocal is true,\nthe filesystem's contents are instead used.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "http.FileSystem"
+                    }
+                ],
+                "Signature": "FS(useLocal bool) http.FileSystem",
+                "Source": "ewoJaWYgdXNlTG9jYWwgewoJCXJldHVybiBfZXNjTG9jYWwKCX0KCXJldHVybiBfZXNjU3RhdGljCn0=",
+                "IsPackageLevel": true
+            },
+            {
+                "Name": "FSByte",
+                "Comment": "FSByte returns the named file from the embedded assets. If useLocal is\ntrue, the filesystem's contents are instead used.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "[]byte"
+                    },
+                    {
+                        "Type": "error"
+                    }
+                ],
+                "Signature": "FSByte(useLocal bool, name string) ([]byte, error)",
+                "Source": "ewoJaWYgdXNlTG9jYWwgewoJCWYsIGVyciA6PSBfZXNjTG9jYWwuT3BlbihuYW1lKQoJCWlmIGVyciAhPSBuaWwgewoJCQlyZXR1cm4gbmlsLCBlcnIKCQl9CgkJYiwgZXJyIDo9IGlvdXRpbC5SZWFkQWxsKGYpCgkJXyA9IGYuQ2xvc2UoKQoJCXJldHVybiBiLCBlcnIKCX0KCWYsIGVyciA6PSBfZXNjU3RhdGljLnByZXBhcmUobmFtZSkKCWlmIGVyciAhPSBuaWwgewoJCXJldHVybiBuaWwsIGVycgoJfQoJcmV0dXJuIGYuZGF0YSwgbmlsCn0=",
+                "IsPackageLevel": true
+            },
+            {
+                "Name": "FSMustByte",
+                "Comment": "FSMustByte is the same as FSByte, but panics if name is not present.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "[]byte"
+                    }
+                ],
+                "Signature": "FSMustByte(useLocal bool, name string) []byte",
+                "Source": "ewoJYiwgZXJyIDo9IEZTQnl0ZSh1c2VMb2NhbCwgbmFtZSkKCWlmIGVyciAhPSBuaWwgewoJCXBhbmljKGVycikKCX0KCXJldHVybiBiCn0=",
+                "IsPackageLevel": true
+            },
+            {
+                "Name": "FSMustString",
+                "Comment": "FSMustString is the string version of FSMustByte.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "string"
+                    }
+                ],
+                "Signature": "FSMustString(useLocal bool, name string) string",
+                "Source": "ewoJcmV0dXJuIHN0cmluZyhGU011c3RCeXRlKHVzZUxvY2FsLCBuYW1lKSkKfQ==",
+                "IsPackageLevel": true
+            },
+            {
+                "Name": "FSString",
+                "Comment": "FSString is the string version of FSByte.",
+                "Arguments": [
+                    {
+                        "Name": "useLocal",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "name",
+                        "Type": "string"
+                    }
+                ],
+                "Returns": [
+                    {
+                        "Type": "string"
+                    },
+                    {
+                        "Type": "error"
+                    }
+                ],
+                "Signature": "FSString(useLocal bool, name string) (string, error)",
+                "Source": "ewoJYiwgZXJyIDo9IEZTQnl0ZSh1c2VMb2NhbCwgbmFtZSkKCXJldHVybiBzdHJpbmcoYiksIGVycgp9",
+                "IsPackageLevel": true
+            }
+        ],
+        "Types": {
+            "Arg": {
+                "Name": "Arg",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Type",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents a function argument or return value.",
+                "Source": "dHlwZSBBcmcgc3RydWN0IHsKCU5hbWUgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCVR5cGUgc3RyaW5nCn0vLyBSZXByZXNlbnRzIGEgZnVuY3Rpb24gYXJndW1lbnQgb3IgcmV0dXJuIHZhbHVlLgo="
+            },
+            "Field": {
+                "Name": "Field",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Parent",
+                        "Type": "*Type"
+                    },
+                    {
+                        "Name": "Comment",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents a single field in a struct declaration.",
+                "Source": "dHlwZSBGaWVsZCBzdHJ1Y3QgewoJTmFtZSAgICBzdHJpbmcKCVR5cGUgICAgc3RyaW5nCglQYXJlbnQgICpUeXBlICBganNvbjoiLSJgCglDb21tZW50IHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCn0vLyBSZXByZXNlbnRzIGEgc2luZ2xlIGZpZWxkIGluIGEgc3RydWN0IGRlY2xhcmF0aW9uLgo="
+            },
+            "File": {
+                "Name": "File",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Package",
+                        "Type": "*Package"
+                    },
+                    {
+                        "Name": "Imports",
+                        "Type": "[]Import"
+                    },
+                    {
+                        "Name": "MainFunction",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "Size",
+                        "Type": "int64"
+                    },
+                    {
+                        "Name": "LineCount",
+                        "Type": "int"
+                    },
+                    {
+                        "Name": "SourceLineCount",
+                        "Type": "int"
+                    },
+                    {
+                        "Name": "FunctionCount",
+                        "Type": "int"
+                    },
+                    {
+                        "Name": "TypeCount",
+                        "Type": "int"
+                    },
+                    {
+                        "Name": "ConstantCount",
+                        "Type": "int"
+                    },
+                    {
+                        "Name": "VariableCount",
+                        "Type": "int"
+                    }
+                ],
+                "Comment": "Represents a Golang source file.",
+                "Source": "dHlwZSBGaWxlIHN0cnVjdCB7CglOYW1lICAgIHN0cmluZwoJUGFja2FnZSAqUGFja2FnZSBganNvbjoiLSJgCglJbXBvcnRzIFsgLy8gUmVwcmVzZW50cyBhIEdvbGFuZyBzb3VyY2UgZmlsZS4KCV1JbXBvcnQgYGpzb246IixvbWl0ZW1wdHkiYAoJTWFpbkZ1bmN0aW9uICAgIGJvb2wgYGpzb246IixvbWl0ZW1wdHkiYAoJU2l6ZSAgICAgICAgICAgIGludDY0CglMaW5lQ291bnQgICAgICAgaW50CglTb3VyY2VMaW5lQ291bnQgaW50CglGdW5jdGlvbkNvdW50ICAgaW50CglUeXBlQ291bnQgICAgICAgaW50CglDb25zdGFudENvdW50ICAgaW50CglWYXJpYWJsZUNvdW50ICAgaW50Cgp9Cg==",
+                "HasUnexportedFields": true
+            },
+            "Import": {
+                "Name": "Import",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "PackageName",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Alias",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents an import declaration for a dependent package.",
+                "Source": "dHlwZSBJbXBvcnQgc3RydWN0IHsKCVBhY2thZ2VOYW1lIHN0cmluZwoJQWxpYXMgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKfS8vIFJlcHJlc2VudHMgYW4gaW1wb3J0IGRlY2xhcmF0aW9uIGZvciBhIGRlcGVuZGVudCBwYWNrYWdlLgo="
+            },
+            "Metadata": {
+                "Name": "Metadata",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "Title",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "GeneratorVersion",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "URL",
+                        "Type": "string"
+                    }
+                ],
+                "Source": "dHlwZSBNZXRhZGF0YSBzdHJ1Y3QgewoJVGl0bGUgICAgICAgICAgICBzdHJpbmcKCUdlbmVyYXRvclZlcnNpb24gc3RyaW5nCglVUkwgICAgICAgICAgICAgIHN0cmluZwp9"
+            },
+            "Method": {
+                "Name": "Method",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "Parent",
+                        "Type": "*Type",
+                        "Comment": "The parent struct this method is attached to."
+                    },
+                    {
+                        "Name": "File",
+                        "Type": "*File",
+                        "Comment": "The File this declaration appears in."
+                    },
+                    {
+                        "Name": "Name",
+                        "Type": "string",
+                        "Comment": "The name of the method."
+                    },
+                    {
+                        "Name": "Label",
+                        "Type": "string",
+                        "Comment": "The name of an example method, as extracted from the method name."
+                    },
+                    {
+                        "Name": "For",
+                        "Type": "string",
+                        "Comment": "The name of the function the example is for."
+                    },
+                    {
+                        "Name": "ExpectedOutput",
+                        "Type": "string",
+                        "Comment": "The expected output of the method (for examples)"
+                    },
+                    {
+                        "Name": "Comment",
+                        "Type": "string",
+                        "Comment": "The comment text describing the function."
+                    },
+                    {
+                        "Name": "PointerReceiver",
+                        "Type": "bool",
+                        "Comment": "Whether this method is attached to a Struct instance or Struct pointer."
+                    },
+                    {
+                        "Name": "ReceiverName",
+                        "Type": "string",
+                        "Comment": "The variable used to access the receiver instance."
+                    },
+                    {
+                        "Name": "Arguments",
+                        "Type": "[]Arg",
+                        "Comment": "List of arguments this method accepts."
+                    },
+                    {
+                        "Name": "Returns",
+                        "Type": "[]Arg",
+                        "Comment": "List of outputs this method returns."
+                    },
+                    {
+                        "Name": "Signature",
+                        "Type": "string",
+                        "Comment": "Return a source representation of the function signature"
+                    },
+                    {
+                        "Name": "Source",
+                        "Type": "string",
+                        "Comment": "Optional full text of the function's source."
+                    },
+                    {
+                        "Name": "IsPackageLevel",
+                        "Type": "bool",
+                        "Comment": "Return whether this is a package-level function or struct method."
+                    }
+                ],
+                "Comment": "Represents a function declaration, both package-level and struct methods.",
+                "Source": "dHlwZSBNZXRob2Qgc3RydWN0IHsKCVBhcmVudCAgICAgICAgICAqVHlwZSBganNvbjoiLSJgCglGaWxlICAgICAgICAgICAgKkZpbGUgYGpzb246Ii0iYAoJTmFtZSAgICAgICAgICAgIHN0cmluZwoJTGFiZWwgICAgICAgICAgIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglGb3IgICAgICAgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUV4cGVjdGVkT3V0cHV0ICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJQ29tbWVudCAgICAgICAgIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglQb2ludGVyUmVjZWl2ZXIgYm9vbCAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVJlY2VpdmVyTmFtZSAgICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJQXJndW1lbnRzICAgICAgIFsgLy8gUmVwcmVzZW50cyBhIGZ1bmN0aW9uIGRlY2xhcmF0aW9uLCBib3RoIHBhY2thZ2UtbGV2ZWwgYW5kIHN0cnVjdCBtZXRob2RzLgoJLy8gTGlzdCBvZiBhcmd1bWVudHMgdGhpcyBtZXRob2QgYWNjZXB0cy4KCV1BcmcgYGpzb246IixvbWl0ZW1wdHkiYAoJUmV0dXJucyBbIC8vIExpc3Qgb2Ygb3V0cHV0cyB0aGlzIG1ldGhvZCByZXR1cm5zLgoJXUFyZyAgICBganNvbjoiLG9taXRlbXB0eSJgCglTaWduYXR1cmUgICAgICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJU291cmNlICAgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUlzUGFja2FnZUxldmVsIGJvb2wKfS8vIFJldHVybiBhIHNvdXJjZSByZXByZXNlbnRhdGlvbiBvZiB0aGUgZnVuY3Rpb24gc2lnbmF0dXJlCi8vIFJldHVybiB3aGV0aGVyIHRoaXMgaXMgYSBwYWNrYWdlLWxldmVsIGZ1bmN0aW9uIG9yIHN0cnVjdCBtZXRob2QuCg=="
+            },
+            "Module": {
+                "Name": "Module",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "Metadata",
+                        "Type": "Metadata"
+                    },
+                    {
+                        "Name": "Package",
+                        "Type": "*Package"
+                    }
+                ],
+                "Source": "dHlwZSBNb2R1bGUgc3RydWN0IHsKCU1ldGFkYXRhIE1ldGFkYXRhCglQYWNrYWdlICAqUGFja2FnZQp9"
+            },
+            "Package": {
+                "Name": "Package",
+                "MetaType": "struct",
+                "Methods": [
+                    {
+                        "Name": "LoadPackage",
+                        "Arguments": [
+                            {
+                                "Name": "parentDir",
+                                "Type": "string"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Type": "*Package"
+                            },
+                            {
+                                "Type": "error"
+                            }
+                        ],
+                        "Signature": "LoadPackage(parentDir string) (*Package, error)",
+                        "Source": "ewoJZnNldCA6PSB0b2tlbi5OZXdGaWxlU2V0KCkKCWlmIHBrZ3MsIGVyciA6PSBwYXJzZXIuUGFyc2VEaXIoZnNldCwgcGFyZW50RGlyLCBuaWwsIChwYXJzZXIuUGFyc2VDb21tZW50cyB8IHBhcnNlci5EZWNsYXJhdGlvbkVycm9ycyB8IHBhcnNlci5BbGxFcnJvcnMpKTsgZXJyID09IG5pbCB7CgkJZm9yIF8sIHBrZyA6PSByYW5nZSBwa2dzIHsKCQkJcGtnRG9jIDo9IGRvYy5OZXcocGtnLCBwYXJlbnREaXIsIGRvYy5QcmVzZXJ2ZUFTVCkKCQkJbG9nLkR1bXAocGtnRG9jKQoJCQlwIDo9IG5ldyhQYWNrYWdlKQoJCQlwLmFzdCA9IHBrZwoJCQlwLk5hbWUgPSBwa2dEb2MuTmFtZQoJCQlwLkltcG9ydFBhdGggPSBwa2dEb2MuSW1wb3J0UGF0aAoJCQlwLkZ1bmN0aW9ucyA9IG1ha2UoW10qTWV0aG9kLCAwKQoJCQlwLlR5cGVzID0gbWFrZShtYXBbc3RyaW5nXSpUeXBlKQoJCQlwLkZpbGVzID0gbWFrZShbXSpGaWxlLCAwKQoJCQlmb3IgZm5hbWUsIGYgOj0gcmFuZ2UgcGtnLkZpbGVzIHsKCQkJCWlmIGVyciA6PSBwLmFkZEZpbGUoZm5hbWUsIGYpOyBlcnIgIT0gbmlsIHsKCQkJCQlyZXR1cm4gbmlsLCBlcnIKCQkJCX0KCQkJfQoJCQlpZiBlbnRyaWVzLCBlcnIgOj0gaW91dGlsLlJlYWREaXIocGFyZW50RGlyKTsgZXJyID09IG5pbCB7CgkJCQlmb3IgXywgZW50cnkgOj0gcmFuZ2UgZW50cmllcyB7CgkJCQkJaWYgZW50cnkuSXNEaXIoKSB7CgkJCQkJCXBhdGggOj0gZmlsZXBhdGguSm9pbihwYXJlbnREaXIsIGVudHJ5Lk5hbWUoKSkKCQkJCQkJaWYgc3VicGtnLCBlcnIgOj0gTG9hZFBhY2thZ2UocGF0aCk7IGVyciA9PSBuaWwgewoJCQkJCQkJaWYgc3VicGtnICE9IG5pbCB7CgkJCQkJCQkJcC5QYWNrYWdlcyA9IGFwcGVuZChwLlBhY2thZ2VzLCBzdWJwa2cpCgkJCQkJCQl9CgkJCQkJCX0gZWxzZSB7CgkJCQkJCQlyZXR1cm4gbmlsLCBmbXQuRXJyb3JmKCJkaXIgJXM6ICV2IiwgcGF0aCwgZXJyKQoJCQkJCQl9CgkJCQkJfQoJCQkJfQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIG5pbCwgZXJyCgkJCX0KCQkJcC5zb3J0T2JqZWN0cygpCgkJCXJldHVybiBwLCBuaWwKCQl9CgkJcmV0dXJuIG5pbCwgbmlsCgl9IGVsc2UgewoJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoInBhcnNlOiAldiIsIGVycikKCX0KfQ==",
+                        "IsPackageLevel": true
+                    }
+                ],
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "ImportPath",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Files",
+                        "Type": "[]*File"
+                    },
+                    {
+                        "Name": "Constants",
+                        "Type": "[]Value"
+                    },
+                    {
+                        "Name": "Variables",
+                        "Type": "[]Value"
+                    },
+                    {
+                        "Name": "Functions",
+                        "Type": "[]*Method"
+                    },
+                    {
+                        "Name": "Examples",
+                        "Type": "[]*Method"
+                    },
+                    {
+                        "Name": "Tests",
+                        "Type": "[]*Method"
+                    },
+                    {
+                        "Name": "Types",
+                        "Type": "map[string]*Type"
+                    },
+                    {
+                        "Name": "Packages",
+                        "Type": "[]*Package"
+                    }
+                ],
+                "Source": "dHlwZSBQYWNrYWdlIHN0cnVjdCB7CglOYW1lICAgICAgIHN0cmluZwoJSW1wb3J0UGF0aCBzdHJpbmcKCUZpbGVzICAgICAgW10qRmlsZQoJQ29uc3RhbnRzICBbXVZhbHVlICAgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVZhcmlhYmxlcyAgW11WYWx1ZSAgICAgICAgICBganNvbjoiLG9taXRlbXB0eSJgCglGdW5jdGlvbnMgIFtdKk1ldGhvZCAgICAgICAgYGpzb246IixvbWl0ZW1wdHkiYAoJRXhhbXBsZXMgICBbXSpNZXRob2QgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVRlc3RzICAgICAgW10qTWV0aG9kICAgICAgICBganNvbjoiLG9taXRlbXB0eSJgCglUeXBlcyAgICAgIG1hcFtzdHJpbmddKlR5cGUgYGpzb246IixvbWl0ZW1wdHkiYAoJUGFja2FnZXMgICBbXSpQYWNrYWdlICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCn0K",
+                "HasUnexportedFields": true
+            },
+            "Type": {
+                "Name": "Type",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "File",
+                        "Type": "*File"
+                    },
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "MetaType",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Methods",
+                        "Type": "[]*Method"
+                    },
+                    {
+                        "Name": "Fields",
+                        "Type": "[]*Field"
+                    },
+                    {
+                        "Name": "Comment",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Source",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "HasUnexportedFields",
+                        "Type": "bool"
+                    }
+                ],
+                "Comment": "Represents a type declaration, including all of its constituent fields and methods for structs.",
+                "Source": "dHlwZSBUeXBlIHN0cnVjdCB7CglGaWxlICAgICAqRmlsZSBganNvbjoiLSJgCglOYW1lICAgICBzdHJpbmcKCU1ldGFUeXBlIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglNZXRob2RzICBbIC8vIFJlcHJlc2VudHMgYSB0eXBlIGRlY2xhcmF0aW9uLCBpbmNsdWRpbmcgYWxsIG9mIGl0cyBjb25zdGl0dWVudCBmaWVsZHMgYW5kIG1ldGhvZHMgZm9yIHN0cnVjdHMuCgldKk1ldGhvZCBganNvbjoiLG9taXRlbXB0eSJgCglGaWVsZHMgICAgICAgICAgICAgIFtdKkZpZWxkIGBqc29uOiIsb21pdGVtcHR5ImAKCUNvbW1lbnQgICAgICAgICAgICAgc3RyaW5nICAgYGpzb246IixvbWl0ZW1wdHkiYAoJU291cmNlICAgICAgICAgICAgICBzdHJpbmcgICBganNvbjoiLG9taXRlbXB0eSJgCglIYXNVbmV4cG9ydGVkRmllbGRzIGJvb2wgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKfQ=="
+            },
+            "Value": {
+                "Name": "Value",
+                "MetaType": "struct",
+                "Fields": [
+                    {
+                        "Name": "Name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "Immutable",
+                        "Type": "bool"
+                    },
+                    {
+                        "Name": "Expression",
+                        "Type": "string"
+                    }
+                ],
+                "Comment": "Represents a constant or variable declaration.",
+                "Source": "dHlwZSBWYWx1ZSBzdHJ1Y3QgewoJTmFtZSAgICAgICBzdHJpbmcKCVR5cGUgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUltbXV0YWJsZSAgYm9vbCAgIGBqc29uOiIsb21pdGVtcHR5ImAKCUV4cHJlc3Npb24gc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKfS8vIFJlcHJlc2VudHMgYSBjb25zdGFudCBvciB2YXJpYWJsZSBkZWNsYXJhdGlvbi4K"
             }
         }
-    ]
+    }
 }
