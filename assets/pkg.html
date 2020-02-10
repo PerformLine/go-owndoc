@@ -1,4 +1,4 @@
-{{ $Package := $.bindings.Project.Package }}
+{{ $Package := $.bindings.Package }}
 <br>
 <div class="clearfix" id="x-projnav">
 	<a href="URL"><strong>project-name:</strong></a>
@@ -38,10 +38,21 @@
     <li><a href="#pkg-variables">Variables</a></li>
 	{{ end }}
 
+	<!-- Subpackages -->
+	{{ if $Package.Packages }}
+    <li><a href="#pkg-packages">Packages</a></li>
+	{{ end }}
+
 	<!-- Package-level Function Declarations -->
 	{{ range $Function := $Package.Functions }}
     <li>
+		{{ if $Function.Comment }}
+		<strong>
+			<a href="#{{ $Function.Name }}">func {{ $Function.Signature }}</a>
+		</strong>
+		{{ else }}
 		<a href="#{{ $Function.Name }}">func {{ $Function.Signature }}</a>
+		{{ end }}
 	</li>
 	{{ end }}
 
@@ -148,6 +159,7 @@
 {{ end }}
 
 {{ if $Package.Constants }}
+<!-- Constants -->
 <h3 id="pkg-constants">
 	Constants
 	<a class="permalink" href="#pkg-constants">&#182;</a>
@@ -164,6 +176,7 @@ const <span id="{{ $Constant.Name }}">{{ printf (printf "%%- %ds" $padTo) $Const
 {{ end }}
 
 {{ if $Package.Variables }}
+<!-- Variables -->
 <h3 id="pkg-variables">
 	Variables
 	<a class="permalink" href="#pkg-variables">&#182;</a>
@@ -252,4 +265,33 @@ var <span id="{{ $Variable.Name }}">{{ printf (printf "%%- %ds" $padTo) $Variabl
 {{   end }}
 {{ end }}
 
+{{ end }}
+
+{{ if $Package.Packages }}
+<!-- Subpackages -->
+<h3 id="pkg-packages">
+	Packages
+	<a class="permalink" href="#pkg-packages">&#182;</a>
+</h3>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Package</th>
+		<th class="text-left">Synopsis</th>
+	</tr>
+</thead>
+<tbody>
+	{{ range $Package := $Package.Packages }}
+	<tr>
+		<td class="text-left">
+			<a href="/pkg?package={{ $Package.ImportPath }}">{{ $Package.Name }}</a>
+		</td>
+		<td class="text-left">
+			{{ $Package.Synopsis }}
+		</td>
+	</tr>
+	{{ end }}
+</tbody>
+</table>
 {{ end }}

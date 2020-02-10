@@ -14,7 +14,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = `owndoc`
 	app.Usage = `Generate a static site documenting a Golang package and all subpackages`
-	app.Version = `0.0.1`
+	app.Version = Version
 
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
@@ -22,12 +22,6 @@ func main() {
 			Usage:  `Level of log output verbosity`,
 			Value:  `debug`,
 			EnvVar: `LOGLEVEL`,
-		},
-		cli.StringFlag{
-			Name:   `output-dir, o`,
-			Usage:  `The output directory where generated files will be placed.`,
-			Value:  `docs`,
-			EnvVar: `GODOCGEN_DIR`,
 		},
 	}
 
@@ -42,23 +36,30 @@ func main() {
 			Usage: `Generate a JSON manifest decribing the current package and all subpackages.`,
 			Flags: []cli.Flag{},
 			Action: func(c *cli.Context) {
-				root := c.Args().First()
-				if root == `` {
-					root = `.`
-				}
-
-				if pkg, err := LoadPackage(root); err == nil {
+				if mod, err := ScanDir(c.Args().First()); err == nil {
 					enc := json.NewEncoder(os.Stdout)
 					enc.SetIndent(``, `    `)
-
-					enc.Encode(&Module{
-						Metadata: Metadata{
-							Title:            ``,
-							URL:              `https://github.com/ghetzel/go-owndoc`,
-							GeneratorVersion: app.Version,
-						},
-						Package: pkg,
-					})
+					enc.Encode(mod)
+				} else {
+					log.Fatal(err)
+				}
+			},
+		}, {
+			Name:  `render`,
+			Usage: `Render a module's documentation as a standalone static site.`,
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:   `output-dir, o`,
+					Usage:  `The output directory where generated files will be placed.`,
+					Value:  `docs`,
+					EnvVar: `OWNDOC_DIR`,
+				},
+			},
+			Action: func(c *cli.Context) {
+				if mod, err := ScanDir(c.Args().First()); err == nil {
+					log.FatalIf(
+						RenderHTML(c.String(`output-dir`), mod),
+					)
 				} else {
 					log.Fatal(err)
 				}

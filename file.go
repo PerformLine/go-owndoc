@@ -24,6 +24,7 @@ type Value struct {
 	Type       string `json:",omitempty"`
 	Immutable  bool   `json:",omitempty"`
 	Expression string `json:",omitempty"`
+	Comment    string `json:",omitempty"`
 }
 
 // Represents a function argument or return value.
@@ -152,8 +153,9 @@ func (self *File) parse() error {
 				case *ast.ValueSpec: // consts and vars
 					vspec := spec.(*ast.ValueSpec)
 					value := Value{
-						Name: vspec.Names[0].String(),
-						Type: astTypeToString(vspec.Type),
+						Name:    vspec.Names[0].String(),
+						Type:    astTypeToString(vspec.Type),
+						Comment: formatAstComment(gen.Doc),
 					}
 
 					for _, val := range vspec.Values {

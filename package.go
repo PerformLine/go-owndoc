@@ -15,6 +15,8 @@ import (
 	fileutil "github.com/ghetzel/go-stockutil/fileutil"
 	"github.com/ghetzel/go-stockutil/log"
 	"github.com/ghetzel/go-stockutil/rxutil"
+	"github.com/ghetzel/go-stockutil/sliceutil"
+	"github.com/ghetzel/go-stockutil/stringutil"
 )
 
 const Hello bool = true
@@ -23,17 +25,25 @@ var There = strings.TrimSpace(`there`)
 var MaxExpressionSnippetLength = 64
 
 type Package struct {
-	Name       string
-	ImportPath string
-	Files      []*File
-	Constants  []Value          `json:",omitempty"`
-	Variables  []Value          `json:",omitempty"`
-	Functions  []*Method        `json:",omitempty"`
-	Examples   []*Method        `json:",omitempty"`
-	Tests      []*Method        `json:",omitempty"`
-	Types      map[string]*Type `json:",omitempty"`
-	Packages   []*Package       `json:",omitempty"`
-	ast        *ast.Package
+	Name             string
+	ImportPath       string
+	Synopsis         string
+	Files            []*File
+	Constants        []Value          `json:",omitempty"`
+	Variables        []Value          `json:",omitempty"`
+	Functions        []*Method        `json:",omitempty"`
+	Examples         []*Method        `json:",omitempty"`
+	Tests            []*Method        `json:",omitempty"`
+	Types            map[string]*Type `json:",omitempty"`
+	Packages         []*Package       `json:",omitempty"`
+	CommentWordCount int
+	LineCount        int
+	SourceLineCount  int
+	FunctionCount    int
+	TypeCount        int
+	ConstantCount    int
+	VariableCount    int
+	ast              *ast.Package
 }
 
 func (self *Package) addFile(fname string, astfile *ast.File) error {
@@ -60,6 +70,7 @@ func (self *Package) addFile(fname string, astfile *ast.File) error {
 
 		if err := file.parse(); err == nil {
 			self.Files = append(self.Files, file)
+			self.recalcTotals()
 			return nil
 		} else {
 			return fmt.Errorf("%s: %v", file.Name, err)
@@ -67,6 +78,47 @@ func (self *Package) addFile(fname string, astfile *ast.File) error {
 	} else {
 		return fmt.Errorf("unreadable source %q: %v", fname, err)
 	}
+}
+
+func (self *Package) recalcTotals() {
+	self.CommentWordCount = 0
+	self.LineCount = 0
+	self.SourceLineCount = 0
+	self.FunctionCount = 0
+	self.TypeCount = 0
+	self.ConstantCount = 0
+	self.VariableCount = 0
+
+	for _, file := range self.Files {
+		self.LineCount += file.LineCount
+		self.SourceLineCount += file.SourceLineCount
+		self.FunctionCount += file.FunctionCount
+		self.TypeCount += file.TypeCount
+		self.ConstantCount += file.ConstantCount
+		self.VariableCount += file.VariableCount
+	}
+
+	for _, typ := range self.Types {
+		self.CommentWordCount += wordcount(typ.Comment)
+
+		for _, m := range typ.Methods {
+			self.CommentWordCount += wordcount(m.Comment)
+		}
+
+		for _, f := range typ.Fields {
+			self.CommentWordCount += wordcount(f.Comment)
+		}
+	}
+
+	for _, f := range self.Functions {
+		self.CommentWordCount += wordcount(f.Comment)
+	}
+
+	for _, v := range self.Variables {
+		self.CommentWordCount += wordcount(v.Comment)
+	}
+
+	self.CommentWordCount += wordcount(self.Synopsis)
 }
 
 func (self *Package) sortObjects() {
@@ -96,6 +148,7 @@ func (self *Package) sortObjects() {
 }
 
 func LoadPackage(parentDir string) (*Package, error) {
+	log.Infof("load package from: %s", parentDir)
 	fset := token.NewFileSet()
 
 	if pkgs, err := parser.ParseDir(
@@ -106,11 +159,12 @@ func LoadPackage(parentDir string) (*Package, error) {
 	); err == nil {
 		for _, pkg := range pkgs {
 			pkgDoc := doc.New(pkg, parentDir, doc.PreserveAST)
-			log.Dump(pkgDoc)
+			// log.Dump(pkgDoc)
 
 			p := new(Package)
 			p.ast = pkg
 			p.Name = pkgDoc.Name
+			p.Synopsis = pkgDoc.Doc
 			p.ImportPath = pkgDoc.ImportPath
 			p.Functions = make([]*Method, 0)
 			p.Types = make(map[string]*Type)
@@ -141,6 +195,7 @@ func LoadPackage(parentDir string) (*Package, error) {
 			}
 
 			p.sortObjects()
+			p.recalcTotals()
 
 			return p, nil
 		}
@@ -164,4 +219,10 @@ func parseFilterGoNoTests(stat os.FileInfo) bool {
 	}
 
 	return false
+}
+
+func wordcount(s string) int {
+	words := stringutil.SplitWords(s)
+	words = sliceutil.CompactString(words)
+	return len(words)
 }
