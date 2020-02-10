@@ -1,6 +1,6 @@
 {{ $Package := $ }}
 <li>
-    <a href="/pkg?package={{ $Package.Name }}">{{ $Package.Name }}</a>
+    <a href="/pkg?package={{ $Package.ImportPath }}">{{ $Package.ImportPath }}</a>
 </li>
 {{ range $Subpackage := $Package.Packages }}
 {{ template "tree" $Subpackage }}

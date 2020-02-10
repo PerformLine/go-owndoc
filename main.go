@@ -64,6 +64,32 @@ func main() {
 					log.Fatal(err)
 				}
 			},
+		}, {
+			Name:  `serve`,
+			Usage: `Render a module's documentation as a standalone static site.`,
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:   `output-dir, o`,
+					Usage:  `The output directory where generated files will be placed.`,
+					Value:  `docs`,
+					EnvVar: `OWNDOC_DIR`,
+				},
+				cli.StringFlag{
+					Name:   `address, a`,
+					Usage:  `The address that the webserver should listen on.`,
+					Value:  `localhost:16060`,
+					EnvVar: `OWNDOC_ADDRESS`,
+				},
+			},
+			Action: func(c *cli.Context) {
+				if mod, err := ScanDir(c.Args().First()); err == nil {
+					log.FatalIf(
+						RenderHTML(c.String(`output-dir`), mod),
+					)
+				} else {
+					log.Fatal(err)
+				}
+			},
 		},
 	}
 

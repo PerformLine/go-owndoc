@@ -40,14 +40,22 @@ func RenderHTML(targetDir string, module *Module) error {
 	server := diecast.NewServer(nil)
 	server.Address = `localhost:33333`
 	server.VerifyFile = `/_layouts/default.html`
-	server.SetFileSystem(FS(false))
 
-	server.Get(`/project.json`, func(w http.ResponseWriter, req *http.Request) {
+	if ui := os.Getenv(`UI`); fileutil.DirExists(ui) {
+		server.RootPath = ui
+	} else {
+		server.SetFileSystem(FS(false))
+	}
+
+	server.Get(`/module.json`, func(w http.ResponseWriter, req *http.Request) {
+		w.Header().Set(`Content-Type`, `application/json`)
+		log.Error(json.NewEncoder(w).Encode(module))
+	})
+
+	server.Get(`/package.json`, func(w http.ResponseWriter, req *http.Request) {
 		w.Header().Set(`Content-Type`, `application/json`)
 
-		if pkg := httputil.Q(req, `package`); pkg == `` {
-			json.NewEncoder(w).Encode(module)
-		} else {
+		if pkg := httputil.Q(req, `package`); pkg != `` {
 			var found *Package
 
 			if err := module.Walk(func(p *Package) error {
@@ -64,6 +72,8 @@ func RenderHTML(targetDir string, module *Module) error {
 			} else {
 				http.Error(w, err.Error(), http.StatusNotFound)
 			}
+		} else {
+			http.Error(w, `Must provide ?package parameter`, http.StatusBadRequest)
 		}
 	})
 

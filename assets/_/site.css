@@ -117,25 +117,27 @@ a {
 	color: #ccc;
 }
 
-.navbar-default .navbar-nav a,
+.navbar-default .navbar-nav>li>a,
 #x-footer a {
-	color: white !important;
+	color: white;
 }
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
 	background-color: #6281bd;
+	color: white;
 }
 
 .navbar-default .navbar-nav a:hover,
 .navbar-default .navbar-nav a:focus {
 	background-color: #42567f !important;
+	color: #ddd !important;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-	color: #ccc !important;
+	color: #ddd !important;
 }
 
 .banner {

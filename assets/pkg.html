@@ -1,10 +1,19 @@
+---
+bindings:
+-   name: Package
+    resource: /package.json
+    params:
+        package: '{{ qs `package` `` }}'
+---
 {{ $Package := $.bindings.Package }}
 <br>
 <div class="clearfix" id="x-projnav">
-	<a href="URL"><strong>project-name:</strong></a>
-	<a href="path">github.com/ghetzel/project-name</a>
-	<span class="text-muted">/</span>
-	<span class="text-muted">{{ $Package.Name }}</span>
+	<a href="URL"><strong>{{ $.bindings.Module.Metadata.Title }}:</strong></a>
+	{{ if $Package.ParentPackage }}
+	<a href="/pkg?package={{ $Package.ParentPackage }}">{{ urlScheme $Package.URL }}://{{ urlHost $Package.URL }}{{ dirname (urlPath $Package.URL) }}/{{ $Package.ParentPackage }}</a><span class="text-muted">/</span><span class="text-muted">{{ $Package.Name }}</span>
+	{{ else }}
+	<span class="text-muted">{{ $Package.URL }}</span>
+	{{ end }}
 
 	<span class="pull-right">
 		<a href="#pkg-index">Index</a>
@@ -16,7 +25,7 @@
 <h2 id="pkg-overview">package {{ $Package.Name }}</h2>
 
 <p>
-	<code>import "{{ $Package.ImportPath }}"</code>
+	<code>import "{{ $Package.CanonicalImportPath }}"</code>
 </p>
 
 {{ if $Package.Summary }}
@@ -26,6 +35,8 @@
 <h3 id="pkg-index" class="section-header">
 	Index <a class="permalink" href="#pkg-index">&#182;</a>
 </h3>
+
+<pre>{{ jsonify $Package.Statistics }}</pre>
 
 <ul class="list-unstyled">
 	<!-- Constant Declarations -->

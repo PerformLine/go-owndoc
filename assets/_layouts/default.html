@@ -1,12 +1,7 @@
 ---
 bindings:
 -   name: Module
-    resource: /project.json
-
--   name: Package
-    resource: /project.json
-    params:
-        package: '{{ qs `package` `` }}'
+    resource: /module.json
 
 includes:
     tree: '/_includes/tree.html'
@@ -48,7 +43,7 @@ includes:
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                Dropdown
+                                Packages
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">

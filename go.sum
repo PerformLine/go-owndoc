@@ -55,6 +55,8 @@ github.com/ghetzel/diecast v1.9.15/go.mod h1:XQ2W1E2vb9H5n0fagF7Ti4AiAVmqq8E3DoN
 github.com/ghetzel/diecast v1.13.10/go.mod h1:h9Mri+vMxBaCfK1J241NLCOWFi0uf7MWHN4v7C68Ylg=
 github.com/ghetzel/diecast v1.17.7 h1:wE9eJBJefvYRGgYx6h5cbuieLBQBt9T2cjA0ORsqvic=
 github.com/ghetzel/diecast v1.17.7/go.mod h1:+I2rhTBlfYk7KzsSeTJTpuRIj4ZO5xW7MXUzq2xf6Rg=
+github.com/ghetzel/diecast v1.17.8 h1:P/lnXdhFMiZCMmiY/Qn5GiSHBXQvvzsZSOuHYXamQEQ=
+github.com/ghetzel/diecast v1.17.8/go.mod h1:+I2rhTBlfYk7KzsSeTJTpuRIj4ZO5xW7MXUzq2xf6Rg=
 github.com/ghetzel/friendscript v0.5.0/go.mod h1:GZJ2FZRpgvURp4hUb/AdevNCnHKCWRpKLxtAl817F4g=
 github.com/ghetzel/friendscript v0.5.5/go.mod h1:zYqGAS3vGMxM912/T9GP1S62VP+AXssMDv9dPzO0Ph0=
 github.com/ghetzel/friendscript v0.6.6 h1:jpi8zy2luueXYmEJg1sKUtzNW1Cjk4FvQ8QXuGLRaUE=
@@ -72,6 +74,10 @@ github.com/ghetzel/go-stockutil v1.8.45 h1:U9qG3/Y26nIZFy5+uC2lI8wMpXke6d3aOIk3z
 github.com/ghetzel/go-stockutil v1.8.45/go.mod h1:Upalidr5qSOijbhYb6yED2X2rDoFFFVhl2z0H/hyCmw=
 github.com/ghetzel/go-stockutil v1.8.46 h1:y1WgQT8HP/HCwUkFBPgIQ4dVD8PAkgiZ7HtNs/c16Ds=
 github.com/ghetzel/go-stockutil v1.8.46/go.mod h1:Upalidr5qSOijbhYb6yED2X2rDoFFFVhl2z0H/hyCmw=
+github.com/ghetzel/go-stockutil v1.8.47 h1:Aa2lYrYMIYt0b2IvsIepShdHbCGA4e4RKHRDzj8ErnU=
+github.com/ghetzel/go-stockutil v1.8.47/go.mod h1:Upalidr5qSOijbhYb6yED2X2rDoFFFVhl2z0H/hyCmw=
+github.com/ghetzel/go-stockutil v1.8.49 h1:GLP8JGZ4soAosYXysoN/1q+BLmezHPoaRCrPOOfpnfs=
+github.com/ghetzel/go-stockutil v1.8.49/go.mod h1:Upalidr5qSOijbhYb6yED2X2rDoFFFVhl2z0H/hyCmw=
 github.com/ghetzel/go-webfriend v0.9.23/go.mod h1:4tjKFGdCtac9eXJ8Hz48DSCoiwjhzynwFFiyhsLfMnI=
 github.com/ghetzel/go-webfriend v0.9.40/go.mod h1:RDBxcAknpDWMJFOKS9AFiNldv+R6siUKFB4DDv+BGRI=
 github.com/ghetzel/go-webfriend v0.9.60 h1:all/aCdFxqUd1NEeCtaFYrU14+WKLDatxFR2B49R/gw=
@@ -202,6 +208,8 @@ github.com/mjibson/esc v0.1.0/go.mod h1:9Hw9gxxfHulMF5OJKCyhYD7PzlSdhzXyaGEBRPH1
 github.com/mjibson/esc v0.2.0/go.mod h1:9Hw9gxxfHulMF5OJKCyhYD7PzlSdhzXyaGEBRPH1OPs=
 github.com/montanaflynn/stats v0.0.0-20151014174947-eeaced052adb h1:bsjNADsjHq0gjU7KO7zwoX5k3HtFdf6TDzB3ncl5iUs=
 github.com/montanaflynn/stats v0.0.0-20151014174947-eeaced052adb/go.mod h1:wL8QJuTMNUDYhXwkmfOly8iTdp5TEcJFWZD2D7SIkUc=
+github.com/montanaflynn/stats v0.5.0 h1:2EkzeTSqBB4V4bJwWrt5gIIrZmpJBcoIRGS2kWLgzmk=
+github.com/montanaflynn/stats v0.5.0/go.mod h1:wL8QJuTMNUDYhXwkmfOly8iTdp5TEcJFWZD2D7SIkUc=
 github.com/neurosnap/sentences v1.0.6/go.mod h1:pg1IapvYpWCJJm/Etxeh0+gtMf1rI1STY9S7eUCPbDc=
 github.com/oliveagle/jsonpath v0.0.0-20180606110733-2e52cf6e6852 h1:Yl0tPBa8QPjGmesFh1D0rDy+q1Twx6FyU7VWHi8wZbI=
 github.com/oliveagle/jsonpath v0.0.0-20180606110733-2e52cf6e6852/go.mod h1:eqOVx5Vwu4gd2mmMZvVZsgIqNSaW3xxRThUJ0k/TPk4=

@@ -4,6 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"os"
+	"runtime"
+
+	"github.com/ghetzel/go-stockutil/log"
 )
 
 const Version = `0.0.2`
@@ -59,14 +62,17 @@ func ScanDir(root string) (*Module, error) {
 		root = `.`
 	}
 
+	log.Infof("scanning: %s", root)
+	log.Infof("  GOROOT: %s", runtime.GOROOT())
+
 	if pkg, err := LoadPackage(root); err == nil {
 		enc := json.NewEncoder(os.Stdout)
 		enc.SetIndent(``, `    `)
 
 		return &Module{
 			Metadata: Metadata{
-				Title:            ``,
-				URL:              `https://github.com/ghetzel/go-owndoc`,
+				Title:            pkg.Name,
+				URL:              pkg.URL,
 				GeneratorVersion: Version,
 			},
 			Package: pkg,
