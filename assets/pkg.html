@@ -3,7 +3,7 @@ bindings:
 -   name: Package
     resource: /package.json
     params:
-        package: '{{ qs `package` `` }}'
+        package: '{{ qs `package` $.page.package }}'
 ---
 {{ $Package := $.bindings.Package }}
 <br>

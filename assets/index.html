@@ -1,4 +1,4 @@
-<h1>module {{ $.bindings.Module.Package.CanonicalImportPath }}</h1>
+<h3>module {{ $.bindings.Module.Package.CanonicalImportPath }}</h3>
 
 {{ with $Packages := $.bindings.Module.PackageList }}
 {{ if $Packages }}
@@ -13,10 +13,6 @@
 		<th class="text-left">Package</th>
         <th class="text-left">Synopsis</th>
 		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
-		<th class="text-right"><code>func</code></th>
-		<th class="text-right"><code>type</code></th>
-		<th class="text-right"><code>const</code></th>
-		<th class="text-right"><code>var</code></th>
 	</tr>
 </thead>
 <tbody>
@@ -29,12 +25,8 @@
 			<a href="{{ or $.page.rootpath `/` }}pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a>
 			{{ end }}
 		</td>
-		<td class="text-right">{{ elideWords $Package.Synopsis 20 }}</td>
+		<td class="text-left">{{ elideWords $Package.Synopsis 15 }}</td>
 		<td class="text-right">{{ or $Package.SourceLineCount `` }} lines</td>
-		<td class="text-right">{{ or $Package.FunctionCount `` }}</td>
-		<td class="text-right">{{ or $Package.TypeCount `` }}</td>
-		<td class="text-right">{{ or $Package.ConstantCount `` }}</td>
-		<td class="text-right">{{ or $Package.VariableCount `` }}</td>
 	</tr>
 	{{ end }}
 </tbody>
