@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"os"
+	"path/filepath"
 	"sort"
 
 	"github.com/mcuadros/go-defaults"
@@ -78,7 +79,7 @@ func ScanDir(options *ScanOptions) (*Module, error) {
 
 		var mod = &Module{
 			Metadata: Metadata{
-				Title:            pkg.Name,
+				Title:            filepath.Base(pkg.URL),
 				URL:              pkg.URL,
 				GeneratorVersion: Version,
 			},
