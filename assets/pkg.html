@@ -30,7 +30,7 @@ bindings:
 </p>
 
 {{ if $Package.Synopsis }}
-<p>{{ $Package.Synopsis }}</p>
+{{ markdown $Package.Synopsis }}
 {{ end }}
 
 <h3 id="pkg-index" class="section-header">
@@ -56,13 +56,9 @@ bindings:
 	<!-- Package-level Function Declarations -->
 	{{ range $Function := $Package.Functions }}
     <li>
-		{{ if $Function.Comment }}
-		<strong>
-			<a href="#{{ $Function.Name }}">func {{ $Function.Signature }}</a>
-		</strong>
-		{{ else }}
+		{{ if $Function.Comment }}<strong>{{ end }}
 		<a href="#{{ $Function.Name }}">func {{ $Function.Signature }}</a>
-		{{ end }}
+		{{ if $Function.Comment }}</strong>{{ end }}
 	</li>
 	{{ end }}
 
@@ -78,9 +74,11 @@ bindings:
 			{{   if $Method.IsPackageLevel }}
 			<!-- Type Constructor Method -->
 			<li>
+				{{ if $Method.Comment }}<strong>{{ end }}
 				<a href="#{{ $Type.Name }}.{{ $Method.Name }}">
 					func {{ $Method.Signature }}
 				</a>
+				{{ if $Method.Comment }}</strong>{{ end }}
 			</li>
 			{{   end }}
 			{{ end }}
@@ -89,11 +87,13 @@ bindings:
 			{{ range $Method := $Type.Methods }}
 			{{   if not $Method.IsPackageLevel }}
 			<li>
+				{{ if $Method.Comment }}<strong>{{ end }}
 				<a href="#{{ $Type.Name }}.{{ $Method.Name }}">
 					func
 					({{ $Method.ReceiverName }} {{ if $Method.PointerReceiver }}*{{ end }}{{ $Type.Name }})
 					{{ $Method.Signature }}
 				</a>
+				{{ if $Method.Comment }}</strong>{{ end }}
 			</li>
 			{{   end }}
 			{{ end }}
