@@ -7,7 +7,6 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/ghetzel/diecast"
 	"github.com/ghetzel/go-stockutil/fileutil"
@@ -17,6 +16,13 @@ import (
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
+
+var SkipAssets = []string{
+	`/_layouts`,
+	`/_includes`,
+	`/pkg.html`,
+	`/package.json`,
+}
 
 // Renders the provided module as a static website in the target directory.
 func RenderHTML(targetDir string, module *Module) error {
@@ -49,7 +55,9 @@ func RenderHTML(targetDir string, module *Module) error {
 
 	server.Get(`/module.json`, func(w http.ResponseWriter, req *http.Request) {
 		w.Header().Set(`Content-Type`, `application/json`)
-		log.Error(json.NewEncoder(w).Encode(module))
+		enc := json.NewEncoder(w)
+		enc.SetIndent(``, `    `)
+		enc.Encode(module)
 	})
 
 	server.Get(`/package.json`, func(w http.ResponseWriter, req *http.Request) {
@@ -66,7 +74,9 @@ func RenderHTML(targetDir string, module *Module) error {
 					return nil
 				}
 			}); err == nil && found != nil {
-				json.NewEncoder(w).Encode(found)
+				enc := json.NewEncoder(w)
+				enc.SetIndent(``, `    `)
+				enc.Encode(found)
 			} else if found == nil {
 				http.Error(w, fmt.Sprintf("package %q not found", pkg), http.StatusNotFound)
 			} else {
@@ -80,30 +90,46 @@ func RenderHTML(targetDir string, module *Module) error {
 	return server.Serve(func(s *diecast.Server) error {
 		s.BindingPrefix = `http://` + s.Address
 
-		log.Infof(s.Address)
-		time.Sleep(100000 * time.Minute)
-
 		// copy all FS assets to target dir
 		for _, asset := range maputil.StringKeys(_escData) {
 			if _escData[asset].isDir {
 				continue
-			} else if stringutil.HasAnyPrefix(asset, `/_layouts`, `/_includes`) {
+			} else if stringutil.HasAnyPrefix(asset, SkipAssets...) {
 				continue
 			}
 
-			if err := renderRequestAndWriteFile(targetDir, asset, s); err != nil {
+			if err := renderRequestAndWriteFile(targetDir, asset, s, ``); err != nil {
 				return err
 			}
 		}
 
+		if err := renderRequestAndWriteFile(targetDir, `/module.json`, s, ``); err != nil {
+			return err
+		}
+
 		return module.Walk(func(pkg *Package) error {
 			log.Infof("package: %s", pkg.Name)
-			return renderRequestAndWriteFile(targetDir, `/pkg?package=`+pkg.Name, s)
+
+			if err := renderRequestAndWriteFile(
+				targetDir,
+				`/package.json?package=`+pkg.Name,
+				s,
+				filepath.Join(`pkg`, pkg.ImportPath+`.json`),
+			); err != nil {
+				return err
+			}
+
+			return renderRequestAndWriteFile(
+				targetDir,
+				`/pkg?package=`+pkg.Name,
+				s,
+				filepath.Join(`pkg`, pkg.ImportPath),
+			)
 		})
 	})
 }
 
-func renderRequestAndWriteFile(targetDir string, path string, server *diecast.Server) error {
+func renderRequestAndWriteFile(targetDir string, path string, server *diecast.Server, targetName string) error {
 	var req = httptest.NewRequest(http.MethodGet, fmt.Sprintf("%s%s", server.BindingPrefix, path), nil)
 	var w = httptest.NewRecorder()
 
@@ -112,6 +138,10 @@ func renderRequestAndWriteFile(targetDir string, path string, server *diecast.Se
 	if res := w.Result(); httputil.Is2xx(res.StatusCode) {
 		defer res.Body.Close()
 		var targetPath = filepath.Join(targetDir, path)
+
+		if targetName != `` {
+			targetPath = filepath.Join(targetDir, targetName)
+		}
 
 		if filepath.Ext(targetPath) == `` {
 			targetPath += `.html`
@@ -129,7 +159,7 @@ func renderRequestAndWriteFile(targetDir string, path string, server *diecast.Se
 			return fmt.Errorf("%s: %v", path, err)
 		}
 	} else {
-		log.Warningf("bad path %q: HTTP %v: %v", path, res.Status, typeutil.String(res.Body))
-		return nil
+		log.Error(typeutil.String(res.Body))
+		return fmt.Errorf("bad path %q: HTTP %v", path, res.Status)
 	}
 }

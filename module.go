@@ -5,6 +5,7 @@ import (
 	"errors"
 	"os"
 	"runtime"
+	"sort"
 
 	"github.com/ghetzel/go-stockutil/log"
 )
@@ -22,8 +23,9 @@ type Metadata struct {
 }
 
 type Module struct {
-	Metadata Metadata
-	Package  *Package
+	Metadata    Metadata
+	PackageList []PackageSummary
+	Package     *Package
 }
 
 func (self *Module) Walk(fn ModuleWalkFunc) error {
@@ -69,14 +71,28 @@ func ScanDir(root string) (*Module, error) {
 		enc := json.NewEncoder(os.Stdout)
 		enc.SetIndent(``, `    `)
 
-		return &Module{
+		var mod = &Module{
 			Metadata: Metadata{
 				Title:            pkg.Name,
 				URL:              pkg.URL,
 				GeneratorVersion: Version,
 			},
 			Package: pkg,
-		}, nil
+		}
+
+		if err := mod.Walk(func(pkg *Package) error {
+			mod.PackageList = append(mod.PackageList, pkg.PackageSummary)
+
+			sort.Slice(mod.PackageList, func(i int, j int) bool {
+				return mod.PackageList[i].ImportPath < mod.PackageList[j].ImportPath
+			})
+
+			return nil
+		}); err == nil {
+			return mod, nil
+		} else {
+			return nil, err
+		}
 	} else {
 		return nil, err
 	}

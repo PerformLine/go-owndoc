@@ -1,1 +1,43 @@
-{{ $.bindings.Module.Metadata }}
+<h1>module {{ $.bindings.Module.Package.CanonicalImportPath }}</h1>
+
+{{ with $Packages := $.bindings.Module.PackageList }}
+{{ if $Packages }}
+<h4 id="pkg-packages">
+	Packages
+	<a class="permalink" href="#pkg-packages">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Package</th>
+        <th class="text-left">Synopsis</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	{{ range $Package := $Packages }}
+	<tr>
+		<td class="text-left">
+			{{ if $Package.MainFunction }}
+			<b><a href="/pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a></b>
+			{{ else }}
+			<a href="/pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a>
+			{{ end }}
+		</td>
+		<td class="text-right">{{ elideWords $Package.Synopsis 20 }}</td>
+		<td class="text-right">{{ or $Package.SourceLineCount `` }} lines</td>
+		<td class="text-right">{{ or $Package.FunctionCount `` }}</td>
+		<td class="text-right">{{ or $Package.TypeCount `` }}</td>
+		<td class="text-right">{{ or $Package.ConstantCount `` }}</td>
+		<td class="text-right">{{ or $Package.VariableCount `` }}</td>
+	</tr>
+	{{ end }}
+</tbody>
+</table>
+{{ end }}
+{{ end }}

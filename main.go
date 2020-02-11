@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/ghetzel/cli"
+	"github.com/ghetzel/diecast"
 	"github.com/ghetzel/go-stockutil/log"
 )
 
@@ -82,6 +83,8 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) {
+				log.SetLevelString(`error`)
+
 				if mod, err := ScanDir(c.Args().First()); err == nil {
 					log.FatalIf(
 						RenderHTML(c.String(`output-dir`), mod),
@@ -89,6 +92,13 @@ func main() {
 				} else {
 					log.Fatal(err)
 				}
+
+				log.SetLevelString(c.GlobalString(`log-level`))
+				log.Infof("Listening at http://%s", c.String(`address`))
+
+				log.FatalIf(
+					diecast.NewServer(c.String(`output-dir`)).ListenAndServe(c.String(`address`)),
+				)
 			},
 		},
 	}

@@ -10,7 +10,7 @@ bindings:
 <div class="clearfix" id="x-projnav">
 	<a href="URL"><strong>{{ $.bindings.Module.Metadata.Title }}:</strong></a>
 	{{ if $Package.ParentPackage }}
-	<a href="/pkg?package={{ $Package.ParentPackage }}">{{ urlScheme $Package.URL }}://{{ urlHost $Package.URL }}{{ dirname (urlPath $Package.URL) }}/{{ $Package.ParentPackage }}</a><span class="text-muted">/</span><span class="text-muted">{{ $Package.Name }}</span>
+	<a href="/pkg/{{ $Package.ParentPackage }}.html">{{ urlScheme $Package.URL }}://{{ urlHost $Package.URL }}{{ dirname (urlPath $Package.URL) }}/{{ $Package.ParentPackage }}</a><span class="text-muted">/</span><span class="text-muted">{{ $Package.Name }}</span>
 	{{ else }}
 	<span class="text-muted">{{ $Package.URL }}</span>
 	{{ end }}
@@ -22,21 +22,20 @@ bindings:
 	</span>
 </div>
 
+<span class="pull-right">Doc Coverage: {{ percent $Package.Statistics.Mean 1 }}%</span>
 <h2 id="pkg-overview">package {{ $Package.Name }}</h2>
 
 <p>
 	<code>import "{{ $Package.CanonicalImportPath }}"</code>
 </p>
 
-{{ if $Package.Summary }}
-<p>{{ $Package.Summary }}</p>
+{{ if $Package.Synopsis }}
+<p>{{ $Package.Synopsis }}</p>
 {{ end }}
 
 <h3 id="pkg-index" class="section-header">
 	Index <a class="permalink" href="#pkg-index">&#182;</a>
 </h3>
-
-<pre>{{ jsonify $Package.Statistics }}</pre>
 
 <ul class="list-unstyled">
 	<!-- Constant Declarations -->
@@ -131,7 +130,7 @@ bindings:
 
 {{ if $Package.Files }}
 <h4 id="pkg-files">
-	<a href="https://github.com/ghetzel/project-name">Package Files</a>
+	<a href="{{ $.bindings.Module.Metadata.URL }}">Package Files</a>
 	<a class="permalink" href="#pkg-files">&#182;</a>
 </h4>
 
@@ -296,7 +295,7 @@ var <span id="{{ $Variable.Name }}">{{ printf (printf "%%- %ds" $padTo) $Variabl
 	{{ range $Package := $Package.Packages }}
 	<tr>
 		<td class="text-left">
-			<a href="/pkg?package={{ $Package.ImportPath }}">{{ $Package.Name }}</a>
+			<a href="/pkg/{{ $Package.ImportPath }}.html">{{ $Package.Name }}</a>
 		</td>
 		<td class="text-left">
 			{{ $Package.Synopsis }}

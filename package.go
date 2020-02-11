@@ -51,21 +51,14 @@ type Rollup struct {
 	Maximum       float64
 }
 
-type Package struct {
+type PackageSummary struct {
 	Name                string
 	CanonicalImportPath string
 	ImportPath          string
 	ParentPackage       string
 	URL                 string
 	Synopsis            string
-	Files               []*File
-	Constants           []Value          `json:",omitempty"`
-	Variables           []Value          `json:",omitempty"`
-	Functions           []*Method        `json:",omitempty"`
-	Examples            []*Method        `json:",omitempty"`
-	Tests               []*Method        `json:",omitempty"`
-	Types               map[string]*Type `json:",omitempty"`
-	Packages            []*Package       `json:",omitempty"`
+	MainFunction        bool
 	CommentWordCount    int
 	LineCount           int
 	SourceLineCount     int
@@ -74,7 +67,19 @@ type Package struct {
 	ConstantCount       int
 	VariableCount       int
 	Statistics          Rollup
-	ast                 *ast.Package
+}
+
+type Package struct {
+	PackageSummary
+	Files     []*File
+	Constants []Value          `json:",omitempty"`
+	Variables []Value          `json:",omitempty"`
+	Functions []*Method        `json:",omitempty"`
+	Examples  []*Method        `json:",omitempty"`
+	Tests     []*Method        `json:",omitempty"`
+	Types     map[string]*Type `json:",omitempty"`
+	Packages  []*Package       `json:",omitempty"`
+	ast       *ast.Package
 }
 
 func (self *Package) addFile(fname string, astfile *ast.File) error {
@@ -100,6 +105,10 @@ func (self *Package) addFile(fname string, astfile *ast.File) error {
 		}
 
 		if err := file.parse(); err == nil {
+			if file.MainFunction {
+				self.MainFunction = true
+			}
+
 			self.Files = append(self.Files, file)
 			self.recalcTotals()
 			return nil
