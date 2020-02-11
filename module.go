@@ -10,7 +10,7 @@ import (
 	"github.com/ghetzel/go-stockutil/log"
 )
 
-const Version = `0.0.2`
+const Version = `0.0.3`
 
 type ModuleWalkFunc func(pkg *Package) error
 

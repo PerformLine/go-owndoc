@@ -15,6 +15,7 @@ import (
 	"github.com/ghetzel/go-stockutil/maputil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
+	"github.com/mcuadros/go-defaults"
 )
 
 var SkipAssets = []string{
@@ -24,30 +25,42 @@ var SkipAssets = []string{
 	`/package.json`,
 }
 
+type RenderOptions struct {
+	TargetDir  string `default:"docs"`
+	Properties map[string]interface{}
+}
+
 // Renders the provided module as a static website in the target directory.
-func RenderHTML(targetDir string, module *Module) error {
+func RenderHTML(module *Module, options *RenderOptions) error {
+	if options == nil {
+		options = new(RenderOptions)
+	}
+
+	defaults.SetDefaults(options)
+
 	if module == nil || module.Package == nil {
 		return fmt.Errorf("cannot render empty module")
 	}
 
-	if fileutil.DirExists(targetDir) {
-		if err := os.RemoveAll(targetDir); err != nil {
+	if fileutil.DirExists(options.TargetDir) {
+		if err := os.RemoveAll(options.TargetDir); err != nil {
 			return err
 		}
-	} else if fileutil.FileExists(targetDir) {
+	} else if fileutil.FileExists(options.TargetDir) {
 		return fmt.Errorf("target path exists and is a file")
 	}
 
-	if err := os.MkdirAll(targetDir, 0755); err != nil {
+	if err := os.MkdirAll(options.TargetDir, 0755); err != nil {
 		return err
 	}
 
 	// start diecast rooted with FS() as its filesystem
 	server := diecast.NewServer(nil)
-	server.Address = `localhost:33333`
+	server.Address = `localhost:0` // use ephemeral local port
 	server.VerifyFile = `/_layouts/default.html`
+	server.DefaultPageObject = options.Properties
 
-	if ui := os.Getenv(`UI`); fileutil.DirExists(ui) {
+	if ui := os.Getenv(`OWNDOC_UI`); fileutil.DirExists(ui) {
 		server.RootPath = ui
 	} else {
 		server.SetFileSystem(FS(false))
@@ -98,12 +111,12 @@ func RenderHTML(targetDir string, module *Module) error {
 				continue
 			}
 
-			if err := renderRequestAndWriteFile(targetDir, asset, s, ``); err != nil {
+			if err := renderRequestAndWriteFile(options.TargetDir, asset, s, ``); err != nil {
 				return err
 			}
 		}
 
-		if err := renderRequestAndWriteFile(targetDir, `/module.json`, s, ``); err != nil {
+		if err := renderRequestAndWriteFile(options.TargetDir, `/module.json`, s, ``); err != nil {
 			return err
 		}
 
@@ -111,7 +124,7 @@ func RenderHTML(targetDir string, module *Module) error {
 			log.Infof("package: %s", pkg.Name)
 
 			if err := renderRequestAndWriteFile(
-				targetDir,
+				options.TargetDir,
 				`/package.json?package=`+pkg.Name,
 				s,
 				filepath.Join(`pkg`, pkg.ImportPath+`.json`),
@@ -120,7 +133,7 @@ func RenderHTML(targetDir string, module *Module) error {
 			}
 
 			return renderRequestAndWriteFile(
-				targetDir,
+				options.TargetDir,
 				`/pkg?package=`+pkg.Name,
 				s,
 				filepath.Join(`pkg`, pkg.ImportPath),

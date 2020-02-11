@@ -184,31 +184,31 @@ func (self *Package) recalcTotals() {
 	agg = append(agg, varCoverage...)
 
 	if v, err := agg.Mean(); err == nil {
-		self.Statistics.Mean = v
+		self.Statistics.Mean = mathutil.RoundPlaces(v, 4)
 	}
 
 	if v, err := agg.StandardDeviation(); err == nil {
-		self.Statistics.StdDev = v
+		self.Statistics.StdDev = mathutil.RoundPlaces(v, 4)
 	}
 
 	if v, err := agg.GeometricMean(); err == nil {
-		self.Statistics.GeometricMean = v
+		self.Statistics.GeometricMean = mathutil.RoundPlaces(v, 4)
 	}
 
 	if v, err := agg.HarmonicMean(); err == nil {
-		self.Statistics.HarmonicMean = v
+		self.Statistics.HarmonicMean = mathutil.RoundPlaces(v, 4)
 	}
 
 	if v, err := agg.Median(); err == nil {
-		self.Statistics.Median = v
+		self.Statistics.Median = mathutil.RoundPlaces(v, 4)
 	}
 
 	if v, err := agg.Min(); err == nil {
-		self.Statistics.Minimum = v
+		self.Statistics.Minimum = mathutil.RoundPlaces(v, 4)
 	}
 
 	if v, err := agg.Max(); err == nil {
-		self.Statistics.Maximum = v
+		self.Statistics.Maximum = mathutil.RoundPlaces(v, 4)
 	}
 
 	self.CommentWordCount += wordcount(self.Synopsis)

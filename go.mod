@@ -8,6 +8,7 @@ require (
 	github.com/ghetzel/diecast v1.17.8
 	github.com/ghetzel/go-stockutil v1.8.49
 	github.com/labstack/gommon v0.3.0
+	github.com/mcuadros/go-defaults v1.1.0
 	github.com/montanaflynn/stats v0.5.0
 	golang.org/x/tools v0.0.0-20200207183749-b753a1ba74fa
 	golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 // indirect

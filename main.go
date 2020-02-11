@@ -7,8 +7,10 @@ import (
 	"os"
 
 	"github.com/ghetzel/cli"
-	"github.com/ghetzel/diecast"
 	"github.com/ghetzel/go-stockutil/log"
+	"github.com/ghetzel/go-stockutil/maputil"
+	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 func main() {
@@ -55,50 +57,29 @@ func main() {
 					Value:  `docs`,
 					EnvVar: `OWNDOC_DIR`,
 				},
+				cli.StringSliceFlag{
+					Name:  `property, p`,
+					Usage: `A key=value pair to expose to all page generation templates.`,
+				},
 			},
 			Action: func(c *cli.Context) {
 				if mod, err := ScanDir(c.Args().First()); err == nil {
+					var props = maputil.M(nil)
+
+					for _, pair := range c.StringSlice(`property`) {
+						k, v := stringutil.SplitPair(pair, `=`)
+						props.Set(k, typeutil.Auto(v))
+					}
+
 					log.FatalIf(
-						RenderHTML(c.String(`output-dir`), mod),
+						RenderHTML(mod, &RenderOptions{
+							TargetDir:  c.String(`output-dir`),
+							Properties: props.MapNative(),
+						}),
 					)
 				} else {
 					log.Fatal(err)
 				}
-			},
-		}, {
-			Name:  `serve`,
-			Usage: `Render a module's documentation as a standalone static site.`,
-			Flags: []cli.Flag{
-				cli.StringFlag{
-					Name:   `output-dir, o`,
-					Usage:  `The output directory where generated files will be placed.`,
-					Value:  `docs`,
-					EnvVar: `OWNDOC_DIR`,
-				},
-				cli.StringFlag{
-					Name:   `address, a`,
-					Usage:  `The address that the webserver should listen on.`,
-					Value:  `localhost:16060`,
-					EnvVar: `OWNDOC_ADDRESS`,
-				},
-			},
-			Action: func(c *cli.Context) {
-				log.SetLevelString(`error`)
-
-				if mod, err := ScanDir(c.Args().First()); err == nil {
-					log.FatalIf(
-						RenderHTML(c.String(`output-dir`), mod),
-					)
-				} else {
-					log.Fatal(err)
-				}
-
-				log.SetLevelString(c.GlobalString(`log-level`))
-				log.Infof("Listening at http://%s", c.String(`address`))
-
-				log.FatalIf(
-					diecast.NewServer(c.String(`output-dir`)).ListenAndServe(c.String(`address`)),
-				)
 			},
 		},
 	}
