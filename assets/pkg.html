@@ -8,7 +8,7 @@ bindings:
 {{ $Package := $.bindings.Package }}
 <br>
 <div class="clearfix" id="x-projnav">
-	<a href="URL"><strong>{{ $.bindings.Module.Metadata.Title }}:</strong></a>
+	<a href="{{ $.bindings.Module.Metadata.URL }}"><strong>{{ $.bindings.Module.Metadata.Title }}:</strong></a>
 	{{ if $Package.ParentPackage }}
 	<a href="{{ or $.page.rootpath `/` }}pkg/{{ $Package.ParentPackage }}.html">{{ urlScheme $Package.URL }}://{{ urlHost $Package.URL }}{{ dirname (urlPath $Package.URL) }}/{{ $Package.ParentPackage }}</a><span class="text-muted">/</span><span class="text-muted">{{ $Package.Name }}</span>
 	{{ else }}
@@ -65,7 +65,7 @@ bindings:
 	<!-- Type Declarations -->
 	{{ range $Type := $Package.Types }}
     <li>
-		<a href="#{{ $Type.Name }}">type {{ $Type.Name }}</a>
+		<a href="#{{ $Type.Name }}">type {{ $Type.Name }}{{ if nex $Type.MetaType "struct" }} {{ $Type.MetaType }}{{ end }}</a>
 
 		<!-- Struct Members -->
 		{{ if eqx $Type.MetaType "struct" }}

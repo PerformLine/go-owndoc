@@ -39,7 +39,9 @@ func main() {
 			Usage: `Generate a JSON manifest decribing the current package and all subpackages.`,
 			Flags: []cli.Flag{},
 			Action: func(c *cli.Context) {
-				if mod, err := ScanDir(c.Args().First()); err == nil {
+				if mod, err := ScanDir(&ScanOptions{
+					StartDir: c.Args().First(),
+				}); err == nil {
 					enc := json.NewEncoder(os.Stdout)
 					enc.SetIndent(``, `    `)
 					enc.Encode(mod)
@@ -63,7 +65,9 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) {
-				if mod, err := ScanDir(c.Args().First()); err == nil {
+				if mod, err := ScanDir(&ScanOptions{
+					StartDir: c.Args().First(),
+				}); err == nil {
 					var props = maputil.M(nil)
 
 					for _, pair := range c.StringSlice(`property`) {

@@ -24,6 +24,7 @@ type Value struct {
 	Type       string `json:",omitempty"`
 	Immutable  bool   `json:",omitempty"`
 	Expression string `json:",omitempty"`
+	Value      string `json:",omitempty"`
 	Comment    string `json:",omitempty"`
 }
 
@@ -161,6 +162,14 @@ func (self *File) parse() error {
 					for _, val := range vspec.Values {
 						if expr := strings.TrimSpace(mustAstNodeToString(val)); len(expr) <= MaxExpressionSnippetLength {
 							value.Expression = expr
+
+							// I'm certain there's a better way to do this in go/<somewhere>, but am not up for finding it now.
+							// TODO: make this more-better
+							if stringutil.IsSurroundedBy(expr, "`", "`") {
+								value.Value = stringutil.Unwrap(expr, "`", "`")
+							} else if stringutil.IsSurroundedBy(expr, `"`, `"`) {
+								value.Value = stringutil.Unwrap(expr, `"`, `"`)
+							}
 						}
 
 						break

@@ -4,10 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"os"
-	"runtime"
 	"sort"
 
-	"github.com/ghetzel/go-stockutil/log"
+	"github.com/mcuadros/go-defaults"
 )
 
 const Version = `0.0.3`
@@ -16,8 +15,15 @@ type ModuleWalkFunc func(pkg *Package) error
 
 var stop error = errors.New(`quit`)
 
+type ScanOptions struct {
+	Version          string
+	StartDir         string `default:"."`
+	VersionConstName string `default:"Version"`
+}
+
 type Metadata struct {
 	Title            string
+	Version          string
 	GeneratorVersion string
 	URL              string
 }
@@ -59,15 +65,14 @@ func (self *Module) walkPackage(current *Package, fn ModuleWalkFunc) error {
 	return nil
 }
 
-func ScanDir(root string) (*Module, error) {
-	if root == `` {
-		root = `.`
+func ScanDir(options *ScanOptions) (*Module, error) {
+	if options == nil {
+		options = new(ScanOptions)
 	}
 
-	log.Infof("scanning: %s", root)
-	log.Infof("  GOROOT: %s", runtime.GOROOT())
+	defaults.SetDefaults(options)
 
-	if pkg, err := LoadPackage(root); err == nil {
+	if pkg, err := LoadPackage(options.StartDir); err == nil {
 		enc := json.NewEncoder(os.Stdout)
 		enc.SetIndent(``, `    `)
 
@@ -78,6 +83,17 @@ func ScanDir(root string) (*Module, error) {
 				GeneratorVersion: Version,
 			},
 			Package: pkg,
+		}
+
+		if options.Version == `` {
+			for _, c := range pkg.Constants {
+				if c.Name == options.VersionConstName {
+					mod.Metadata.Version = c.Value
+					break
+				}
+			}
+		} else {
+			mod.Metadata.Version = options.Version
 		}
 
 		if err := mod.Walk(func(pkg *Package) error {
