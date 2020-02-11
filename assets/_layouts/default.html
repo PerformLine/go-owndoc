@@ -2,9 +2,6 @@
 bindings:
 -   name: Module
     resource: /module.json
-
-includes:
-    tree: '/_includes/tree.html'
 ---
 {{ $Module := $.bindings.Module }}
 {{ $reqpath := or $.request.url.path `/` }}
@@ -50,7 +47,10 @@ includes:
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                {{ template "tree" $.bindings.Module.Package }}
+                                {{ range $Package := $.bindings.Module.PackageList }}
+                                <li>
+                                    <a href="{{ $root }}pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a>
+                                </li>{{ end }}
                             </ul>
                         </li>
 

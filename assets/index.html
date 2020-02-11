@@ -24,9 +24,9 @@
 	<tr>
 		<td class="text-left">
 			{{ if $Package.MainFunction }}
-			<b><a href="pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a></b>
+			<b><a href="{{ or $.page.rootpath `/` }}pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a></b>
 			{{ else }}
-			<a href="pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a>
+			<a href="{{ or $.page.rootpath `/` }}pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a>
 			{{ end }}
 		</td>
 		<td class="text-right">{{ elideWords $Package.Synopsis 20 }}</td>

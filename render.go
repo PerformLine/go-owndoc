@@ -58,7 +58,7 @@ func RenderHTML(module *Module, options *RenderOptions) error {
 	server := diecast.NewServer(nil)
 	server.Address = `localhost:0` // use ephemeral local port
 	server.VerifyFile = `/_layouts/default.html`
-	server.DefaultPageObject = options.Properties
+	server.OverridePageObject = options.Properties
 
 	if ui := os.Getenv(`OWNDOC_UI`); fileutil.DirExists(ui) {
 		server.RootPath = ui

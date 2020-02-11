@@ -1,7 +1,0 @@
-{{ $Package := $ }}
-<li>
-    <a href="pkg/{{ $Package.ImportPath }}.html">{{ $Package.ImportPath }}</a>
-</li>
-{{ range $Subpackage := $Package.Packages }}
-{{ template "tree" $Subpackage }}
-{{ end }}

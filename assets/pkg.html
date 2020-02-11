@@ -10,7 +10,7 @@ bindings:
 <div class="clearfix" id="x-projnav">
 	<a href="URL"><strong>{{ $.bindings.Module.Metadata.Title }}:</strong></a>
 	{{ if $Package.ParentPackage }}
-	<a href="pkg/{{ $Package.ParentPackage }}.html">{{ urlScheme $Package.URL }}://{{ urlHost $Package.URL }}{{ dirname (urlPath $Package.URL) }}/{{ $Package.ParentPackage }}</a><span class="text-muted">/</span><span class="text-muted">{{ $Package.Name }}</span>
+	<a href="{{ or $.page.rootpath `/` }}pkg/{{ $Package.ParentPackage }}.html">{{ urlScheme $Package.URL }}://{{ urlHost $Package.URL }}{{ dirname (urlPath $Package.URL) }}/{{ $Package.ParentPackage }}</a><span class="text-muted">/</span><span class="text-muted">{{ $Package.Name }}</span>
 	{{ else }}
 	<span class="text-muted">{{ $Package.URL }}</span>
 	{{ end }}
@@ -295,7 +295,7 @@ var <span id="{{ $Variable.Name }}">{{ printf (printf "%%- %ds" $padTo) $Variabl
 	{{ range $Package := $Package.Packages }}
 	<tr>
 		<td class="text-left">
-			<a href="pkg/{{ $Package.ImportPath }}.html">{{ $Package.Name }}</a>
+			<a href="{{ or $.page.rootpath `/` }}pkg/{{ $Package.ImportPath }}.html">{{ $Package.Name }}</a>
 		</td>
 		<td class="text-left">
 			{{ $Package.Synopsis }}
