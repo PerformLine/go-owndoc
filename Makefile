@@ -26,7 +26,7 @@ $(BIN):
 	cp $(@) ~/bin/owndoc
 
 docs:
-	$(BIN) generate
+	$(BIN) render
 
 build: $(BIN)
 

@@ -1,0 +1,1282 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/-/site.css">
+
+        <title>go-owndoc - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/pkg/main.html">main</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v0.0.3
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-owndoc">
+        <strong>go-owndoc</strong>
+    </a>
+
+	<span class="pull-right">
+		<a href="/module.json">JSON</a>
+	</span>
+</div>
+
+<p>
+    This page contains the complete manifest that was used to generate all of the
+    Golang source documentation on this site.  Use the <a href="/module.json">JSON</a>
+    link above to retrieve the JSON directly.
+</p>
+
+<pre>{
+  &#34;Metadata&#34;: {
+    &#34;GeneratorVersion&#34;: &#34;0.0.3&#34;,
+    &#34;Title&#34;: &#34;go-owndoc&#34;,
+    &#34;URL&#34;: &#34;https://github.com/ghetzel/go-owndoc&#34;,
+    &#34;Version&#34;: &#34;0.0.3&#34;
+  },
+  &#34;Package&#34;: {
+    &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-owndoc&#34;,
+    &#34;CommentWordCount&#34;: 355,
+    &#34;ConstantCount&#34;: 2,
+    &#34;Constants&#34;: [
+      {
+        &#34;Expression&#34;: &#34;`// contains filtered or unexported fields`&#34;,
+        &#34;Immutable&#34;: true,
+        &#34;Name&#34;: &#34;CommentExportedFields&#34;,
+        &#34;Value&#34;: &#34;// contains filtered or unexported fields&#34;
+      },
+      {
+        &#34;Expression&#34;: &#34;`0.0.3`&#34;,
+        &#34;Immutable&#34;: true,
+        &#34;Name&#34;: &#34;Version&#34;,
+        &#34;Value&#34;: &#34;0.0.3&#34;
+      }
+    ],
+    &#34;Files&#34;: [
+      {
+        &#34;ConstantCount&#34;: 1,
+        &#34;FunctionCount&#34;: 0,
+        &#34;Imports&#34;: [
+          {
+            &#34;Alias&#34;: &#34;bytes&#34;,
+            &#34;PackageName&#34;: &#34;bytes&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;base64&#34;,
+            &#34;PackageName&#34;: &#34;encoding/base64&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;fmt&#34;,
+            &#34;PackageName&#34;: &#34;fmt&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;ast&#34;,
+            &#34;PackageName&#34;: &#34;go/ast&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;format&#34;,
+            &#34;PackageName&#34;: &#34;go/format&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;token&#34;,
+            &#34;PackageName&#34;: &#34;go/token&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;filepath&#34;,
+            &#34;PackageName&#34;: &#34;path/filepath&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;sort&#34;,
+            &#34;PackageName&#34;: &#34;sort&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;strings&#34;,
+            &#34;PackageName&#34;: &#34;strings&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;log&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;stringutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;typeutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
+          }
+        ],
+        &#34;LineCount&#34;: 462,
+        &#34;Name&#34;: &#34;file.go&#34;,
+        &#34;Size&#34;: 11954,
+        &#34;SourceLineCount&#34;: 339,
+        &#34;TypeCount&#34;: 7,
+        &#34;VariableCount&#34;: 0
+      },
+      {
+        &#34;ConstantCount&#34;: 0,
+        &#34;FunctionCount&#34;: 0,
+        &#34;Imports&#34;: [
+          {
+            &#34;Alias&#34;: &#34;json&#34;,
+            &#34;PackageName&#34;: &#34;encoding/json&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;os&#34;,
+            &#34;PackageName&#34;: &#34;os&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;cli&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/cli&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;log&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;maputil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/maputil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;stringutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;typeutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
+          }
+        ],
+        &#34;LineCount&#34;: 93,
+        &#34;Name&#34;: &#34;main.go&#34;,
+        &#34;Size&#34;: 2185,
+        &#34;SourceLineCount&#34;: 81,
+        &#34;TypeCount&#34;: 0,
+        &#34;VariableCount&#34;: 0
+      },
+      {
+        &#34;ConstantCount&#34;: 1,
+        &#34;FunctionCount&#34;: 2,
+        &#34;Imports&#34;: [
+          {
+            &#34;Alias&#34;: &#34;json&#34;,
+            &#34;PackageName&#34;: &#34;encoding/json&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;errors&#34;,
+            &#34;PackageName&#34;: &#34;errors&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;os&#34;,
+            &#34;PackageName&#34;: &#34;os&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;filepath&#34;,
+            &#34;PackageName&#34;: &#34;path/filepath&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;sort&#34;,
+            &#34;PackageName&#34;: &#34;sort&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;go-defaults&#34;,
+            &#34;PackageName&#34;: &#34;github.com/mcuadros/go-defaults&#34;
+          }
+        ],
+        &#34;LineCount&#34;: 117,
+        &#34;Name&#34;: &#34;module.go&#34;,
+        &#34;Size&#34;: 2212,
+        &#34;SourceLineCount&#34;: 95,
+        &#34;TypeCount&#34;: 4,
+        &#34;VariableCount&#34;: 0
+      },
+      {
+        &#34;ConstantCount&#34;: 0,
+        &#34;FunctionCount&#34;: 2,
+        &#34;Imports&#34;: [
+          {
+            &#34;Alias&#34;: &#34;fmt&#34;,
+            &#34;PackageName&#34;: &#34;fmt&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;ast&#34;,
+            &#34;PackageName&#34;: &#34;go/ast&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;doc&#34;,
+            &#34;PackageName&#34;: &#34;go/doc&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;parser&#34;,
+            &#34;PackageName&#34;: &#34;go/parser&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;token&#34;,
+            &#34;PackageName&#34;: &#34;go/token&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;ioutil&#34;,
+            &#34;PackageName&#34;: &#34;io/ioutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;os&#34;,
+            &#34;PackageName&#34;: &#34;os&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;filepath&#34;,
+            &#34;PackageName&#34;: &#34;path/filepath&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;sort&#34;,
+            &#34;PackageName&#34;: &#34;sort&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;strings&#34;,
+            &#34;PackageName&#34;: &#34;strings&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;fileutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/fileutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;log&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;mathutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/mathutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;rxutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/rxutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;sliceutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/sliceutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;stringutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;stats&#34;,
+            &#34;PackageName&#34;: &#34;github.com/montanaflynn/stats&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;vcs&#34;,
+            &#34;PackageName&#34;: &#34;golang.org/x/tools/go/vcs&#34;
+          }
+        ],
+        &#34;LineCount&#34;: 368,
+        &#34;Name&#34;: &#34;package.go&#34;,
+        &#34;Size&#34;: 9335,
+        &#34;SourceLineCount&#34;: 295,
+        &#34;TypeCount&#34;: 3,
+        &#34;VariableCount&#34;: 5
+      },
+      {
+        &#34;ConstantCount&#34;: 0,
+        &#34;FunctionCount&#34;: 1,
+        &#34;Imports&#34;: [
+          {
+            &#34;Alias&#34;: &#34;json&#34;,
+            &#34;PackageName&#34;: &#34;encoding/json&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;fmt&#34;,
+            &#34;PackageName&#34;: &#34;fmt&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;http&#34;,
+            &#34;PackageName&#34;: &#34;net/http&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;httptest&#34;,
+            &#34;PackageName&#34;: &#34;net/http/httptest&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;os&#34;,
+            &#34;PackageName&#34;: &#34;os&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;filepath&#34;,
+            &#34;PackageName&#34;: &#34;path/filepath&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;diecast&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/diecast&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;fileutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/fileutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;httputil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/httputil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;log&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;maputil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/maputil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;stringutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;typeutil&#34;,
+            &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;go-defaults&#34;,
+            &#34;PackageName&#34;: &#34;github.com/mcuadros/go-defaults&#34;
+          }
+        ],
+        &#34;LineCount&#34;: 179,
+        &#34;Name&#34;: &#34;render.go&#34;,
+        &#34;Size&#34;: 4618,
+        &#34;SourceLineCount&#34;: 146,
+        &#34;TypeCount&#34;: 1,
+        &#34;VariableCount&#34;: 1
+      },
+      {
+        &#34;ConstantCount&#34;: 0,
+        &#34;FunctionCount&#34;: 6,
+        &#34;Imports&#34;: [
+          {
+            &#34;Alias&#34;: &#34;bytes&#34;,
+            &#34;PackageName&#34;: &#34;bytes&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;gzip&#34;,
+            &#34;PackageName&#34;: &#34;compress/gzip&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;base64&#34;,
+            &#34;PackageName&#34;: &#34;encoding/base64&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;ioutil&#34;,
+            &#34;PackageName&#34;: &#34;io/ioutil&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;http&#34;,
+            &#34;PackageName&#34;: &#34;net/http&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;os&#34;,
+            &#34;PackageName&#34;: &#34;os&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;path&#34;,
+            &#34;PackageName&#34;: &#34;path&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;sync&#34;,
+            &#34;PackageName&#34;: &#34;sync&#34;
+          },
+          {
+            &#34;Alias&#34;: &#34;time&#34;,
+            &#34;PackageName&#34;: &#34;time&#34;
+          }
+        ],
+        &#34;LineCount&#34;: 1439,
+        &#34;Name&#34;: &#34;static.go&#34;,
+        &#34;Size&#34;: 98072,
+        &#34;SourceLineCount&#34;: 1385,
+        &#34;TypeCount&#34;: 0,
+        &#34;VariableCount&#34;: 0
+      }
+    ],
+    &#34;FunctionCount&#34;: 11,
+    &#34;Functions&#34;: [
+      {
+        &#34;Arguments&#34;: [
+          {
+            &#34;Name&#34;: &#34;useLocal&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;Comment&#34;: &#34;Dir returns a http.Filesystem for the embedded assets on a given prefix dir.\nIf useLocal is true, the filesystem&#39;s contents are instead used.&#34;,
+        &#34;IsPackageLevel&#34;: true,
+        &#34;Name&#34;: &#34;Dir&#34;,
+        &#34;Returns&#34;: [
+          {
+            &#34;Type&#34;: &#34;http.FileSystem&#34;
+          }
+        ],
+        &#34;Signature&#34;: &#34;Dir(useLocal bool, name string) http.FileSystem&#34;,
+        &#34;Source&#34;: &#34;ewoJaWYgdXNlTG9jYWwgewoJCXJldHVybiBfZXNjRGlyZWN0b3J5e2ZzOiBfZXNjTG9jYWwsIG5hbWU6IG5hbWV9Cgl9CglyZXR1cm4gX2VzY0RpcmVjdG9yeXtmczogX2VzY1N0YXRpYywgbmFtZTogbmFtZX0KfQ==&#34;
+      },
+      {
+        &#34;Arguments&#34;: [
+          {
+            &#34;Name&#34;: &#34;useLocal&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          }
+        ],
+        &#34;Comment&#34;: &#34;FS returns a http.Filesystem for the embedded assets. If useLocal is true,\nthe filesystem&#39;s contents are instead used.&#34;,
+        &#34;IsPackageLevel&#34;: true,
+        &#34;Name&#34;: &#34;FS&#34;,
+        &#34;Returns&#34;: [
+          {
+            &#34;Type&#34;: &#34;http.FileSystem&#34;
+          }
+        ],
+        &#34;Signature&#34;: &#34;FS(useLocal bool) http.FileSystem&#34;,
+        &#34;Source&#34;: &#34;ewoJaWYgdXNlTG9jYWwgewoJCXJldHVybiBfZXNjTG9jYWwKCX0KCXJldHVybiBfZXNjU3RhdGljCn0=&#34;
+      },
+      {
+        &#34;Arguments&#34;: [
+          {
+            &#34;Name&#34;: &#34;useLocal&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;Comment&#34;: &#34;FSByte returns the named file from the embedded assets. If useLocal is\ntrue, the filesystem&#39;s contents are instead used.&#34;,
+        &#34;IsPackageLevel&#34;: true,
+        &#34;Name&#34;: &#34;FSByte&#34;,
+        &#34;Returns&#34;: [
+          {
+            &#34;Type&#34;: &#34;[]byte&#34;
+          },
+          {
+            &#34;Type&#34;: &#34;error&#34;
+          }
+        ],
+        &#34;Signature&#34;: &#34;FSByte(useLocal bool, name string) ([]byte, error)&#34;,
+        &#34;Source&#34;: &#34;ewoJaWYgdXNlTG9jYWwgewoJCWYsIGVyciA6PSBfZXNjTG9jYWwuT3BlbihuYW1lKQoJCWlmIGVyciAhPSBuaWwgewoJCQlyZXR1cm4gbmlsLCBlcnIKCQl9CgkJYiwgZXJyIDo9IGlvdXRpbC5SZWFkQWxsKGYpCgkJXyA9IGYuQ2xvc2UoKQoJCXJldHVybiBiLCBlcnIKCX0KCWYsIGVyciA6PSBfZXNjU3RhdGljLnByZXBhcmUobmFtZSkKCWlmIGVyciAhPSBuaWwgewoJCXJldHVybiBuaWwsIGVycgoJfQoJcmV0dXJuIGYuZGF0YSwgbmlsCn0=&#34;
+      },
+      {
+        &#34;Arguments&#34;: [
+          {
+            &#34;Name&#34;: &#34;useLocal&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;Comment&#34;: &#34;FSMustByte is the same as FSByte, but panics if name is not present.&#34;,
+        &#34;IsPackageLevel&#34;: true,
+        &#34;Name&#34;: &#34;FSMustByte&#34;,
+        &#34;Returns&#34;: [
+          {
+            &#34;Type&#34;: &#34;[]byte&#34;
+          }
+        ],
+        &#34;Signature&#34;: &#34;FSMustByte(useLocal bool, name string) []byte&#34;,
+        &#34;Source&#34;: &#34;ewoJYiwgZXJyIDo9IEZTQnl0ZSh1c2VMb2NhbCwgbmFtZSkKCWlmIGVyciAhPSBuaWwgewoJCXBhbmljKGVycikKCX0KCXJldHVybiBiCn0=&#34;
+      },
+      {
+        &#34;Arguments&#34;: [
+          {
+            &#34;Name&#34;: &#34;useLocal&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;Comment&#34;: &#34;FSMustString is the string version of FSMustByte.&#34;,
+        &#34;IsPackageLevel&#34;: true,
+        &#34;Name&#34;: &#34;FSMustString&#34;,
+        &#34;Returns&#34;: [
+          {
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;Signature&#34;: &#34;FSMustString(useLocal bool, name string) string&#34;,
+        &#34;Source&#34;: &#34;ewoJcmV0dXJuIHN0cmluZyhGU011c3RCeXRlKHVzZUxvY2FsLCBuYW1lKSkKfQ==&#34;
+      },
+      {
+        &#34;Arguments&#34;: [
+          {
+            &#34;Name&#34;: &#34;useLocal&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;Comment&#34;: &#34;FSString is the string version of FSByte.&#34;,
+        &#34;IsPackageLevel&#34;: true,
+        &#34;Name&#34;: &#34;FSString&#34;,
+        &#34;Returns&#34;: [
+          {
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Type&#34;: &#34;error&#34;
+          }
+        ],
+        &#34;Signature&#34;: &#34;FSString(useLocal bool, name string) (string, error)&#34;,
+        &#34;Source&#34;: &#34;ewoJYiwgZXJyIDo9IEZTQnl0ZSh1c2VMb2NhbCwgbmFtZSkKCXJldHVybiBzdHJpbmcoYiksIGVycgp9&#34;
+      },
+      {
+        &#34;Arguments&#34;: [
+          {
+            &#34;Name&#34;: &#34;dir&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;srcRoot&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;IsPackageLevel&#34;: true,
+        &#34;Name&#34;: &#34;GetImportPathFromDir&#34;,
+        &#34;Returns&#34;: [
+          {
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Type&#34;: &#34;error&#34;
+          }
+        ],
+        &#34;Signature&#34;: &#34;GetImportPathFromDir(dir string, srcRoot string) (string, error)&#34;,
+        &#34;Source&#34;: &#34;ewoJaWYgXywgcm9vdCwgZXJyIDo9IHZjcy5Gcm9tRGlyKGRpciwgc3JjUm9vdCk7IGVyciA9PSBuaWwgewoJCXJldHVybiByb290LCBuaWwKCX0gZWxzZSB7CgkJcmV0dXJuIGBgLCBlcnIKCX0KfQ==&#34;
+      },
+      {
+        &#34;Arguments&#34;: [
+          {
+            &#34;Name&#34;: &#34;module&#34;,
+            &#34;Type&#34;: &#34;*Module&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;options&#34;,
+            &#34;Type&#34;: &#34;*RenderOptions&#34;
+          }
+        ],
+        &#34;Comment&#34;: &#34;Renders the provided module as a static website in the target directory.&#34;,
+        &#34;IsPackageLevel&#34;: true,
+        &#34;Name&#34;: &#34;RenderHTML&#34;,
+        &#34;Returns&#34;: [
+          {
+            &#34;Type&#34;: &#34;error&#34;
+          }
+        ],
+        &#34;Signature&#34;: &#34;RenderHTML(module *Module, options *RenderOptions) error&#34;,
+        &#34;Source&#34;: &#34;ewoJaWYgb3B0aW9ucyA9PSBuaWwgewoJCW9wdGlvbnMgPSBuZXcoUmVuZGVyT3B0aW9ucykKCX0KCWRlZmF1bHRzLlNldERlZmF1bHRzKG9wdGlvbnMpCglpZiBtb2R1bGUgPT0gbmlsIHx8IG1vZHVsZS5QYWNrYWdlID09IG5pbCB7CgkJcmV0dXJuIGZtdC5FcnJvcmYoImNhbm5vdCByZW5kZXIgZW1wdHkgbW9kdWxlIikKCX0KCWlmIGZpbGV1dGlsLkRpckV4aXN0cyhvcHRpb25zLlRhcmdldERpcikgewoJCWlmIGVyciA6PSBvcy5SZW1vdmVBbGwob3B0aW9ucy5UYXJnZXREaXIpOyBlcnIgIT0gbmlsIHsKCQkJcmV0dXJuIGVycgoJCX0KCX0gZWxzZSBpZiBmaWxldXRpbC5GaWxlRXhpc3RzKG9wdGlvbnMuVGFyZ2V0RGlyKSB7CgkJcmV0dXJuIGZtdC5FcnJvcmYoInRhcmdldCBwYXRoIGV4aXN0cyBhbmQgaXMgYSBmaWxlIikKCX0KCWlmIGVyciA6PSBvcy5Na2RpckFsbChvcHRpb25zLlRhcmdldERpciwgMDc1NSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBlcnIKCX0KCXNlcnZlciA6PSBkaWVjYXN0Lk5ld1NlcnZlcihuaWwpCglzZXJ2ZXIuQWRkcmVzcyA9IGBsb2NhbGhvc3Q6MGAKCXNlcnZlci5WZXJpZnlGaWxlID0gYC9fbGF5b3V0cy9kZWZhdWx0Lmh0bWxgCglzZXJ2ZXIuT3ZlcnJpZGVQYWdlT2JqZWN0ID0gb3B0aW9ucy5Qcm9wZXJ0aWVzCglpZiB1aSA6PSBvcy5HZXRlbnYoYE9XTkRPQ19VSWApOyBmaWxldXRpbC5EaXJFeGlzdHModWkpIHsKCQlzZXJ2ZXIuUm9vdFBhdGggPSB1aQoJfSBlbHNlIHsKCQlzZXJ2ZXIuU2V0RmlsZVN5c3RlbShGUyhmYWxzZSkpCgl9CglzZXJ2ZXIuR2V0KGAvbW9kdWxlLmpzb25gLCBmdW5jKHcgaHR0cC5SZXNwb25zZVdyaXRlciwgcmVxICpodHRwLlJlcXVlc3QpIHsKCQl3LkhlYWRlcigpLlNldChgQ29udGVudC1UeXBlYCwgYGFwcGxpY2F0aW9uL2pzb25gKQoJCWVuYyA6PSBqc29uLk5ld0VuY29kZXIodykKCQllbmMuU2V0SW5kZW50KGBgLCBgICAgIGApCgkJZW5jLkVuY29kZShtb2R1bGUpCgl9KQoJc2VydmVyLkdldChgL3BhY2thZ2UuanNvbmAsIGZ1bmModyBodHRwLlJlc3BvbnNlV3JpdGVyLCByZXEgKmh0dHAuUmVxdWVzdCkgewoJCXcuSGVhZGVyKCkuU2V0KGBDb250ZW50LVR5cGVgLCBgYXBwbGljYXRpb24vanNvbmApCgkJaWYgcGtnIDo9IGh0dHB1dGlsLlEocmVxLCBgcGFja2FnZWApOyBwa2cgIT0gYGAgewoJCQl2YXIgZm91bmQgKlBhY2thZ2UKCQkJaWYgZXJyIDo9IG1vZHVsZS5XYWxrKGZ1bmMocCAqUGFja2FnZSkgZXJyb3IgewoJCQkJaWYgcC5JbXBvcnRQYXRoID09IHBrZyB8fCBwLk5hbWUgPT0gcGtnIHsKCQkJCQlmb3VuZCA9IHAKCQkJCQlyZXR1cm4gc3RvcAoJCQkJfSBlbHNlIHsKCQkJCQlyZXR1cm4gbmlsCgkJCQl9CgkJCX0pOyBlcnIgPT0gbmlsICYmIGZvdW5kICE9IG5pbCB7CgkJCQllbmMgOj0ganNvbi5OZXdFbmNvZGVyKHcpCgkJCQllbmMuU2V0SW5kZW50KGBgLCBgICAgIGApCgkJCQllbmMuRW5jb2RlKGZvdW5kKQoJCQl9IGVsc2UgaWYgZm91bmQgPT0gbmlsIHsKCQkJCWh0dHAuRXJyb3IodywgZm10LlNwcmludGYoInBhY2thZ2UgJXEgbm90IGZvdW5kIiwgcGtnKSwgaHR0cC5TdGF0dXNOb3RGb3VuZCkKCQkJfSBlbHNlIHsKCQkJCWh0dHAuRXJyb3IodywgZXJyLkVycm9yKCksIGh0dHAuU3RhdHVzTm90Rm91bmQpCgkJCX0KCQl9IGVsc2UgewoJCQlodHRwLkVycm9yKHcsIGBNdXN0IHByb3ZpZGUgP3BhY2thZ2UgcGFyYW1ldGVyYCwgaHR0cC5TdGF0dXNCYWRSZXF1ZXN0KQoJCX0KCX0pCglyZXR1cm4gc2VydmVyLlNlcnZlKGZ1bmMocyAqZGllY2FzdC5TZXJ2ZXIpIGVycm9yIHsKCQlzLkJpbmRpbmdQcmVmaXggPSBgaHR0cDovL2AgKyBzLkFkZHJlc3MKCQlmb3IgXywgYXNzZXQgOj0gcmFuZ2UgbWFwdXRpbC5TdHJpbmdLZXlzKF9lc2NEYXRhKSB7CgkJCWlmIF9lc2NEYXRhW2Fzc2V0XS5pc0RpciB7CgkJCQljb250aW51ZQoJCQl9IGVsc2UgaWYgc3RyaW5ndXRpbC5IYXNBbnlQcmVmaXgoYXNzZXQsIFNraXBBc3NldHMuLi4pIHsKCQkJCWNvbnRpbnVlCgkJCX0KCQkJaWYgZXJyIDo9IHJlbmRlclJlcXVlc3RBbmRXcml0ZUZpbGUob3B0aW9ucy5UYXJnZXREaXIsIGFzc2V0LCBzLCBgYCk7IGVyciAhPSBuaWwgewoJCQkJcmV0dXJuIGVycgoJCQl9CgkJfQoJCWlmIGVyciA6PSByZW5kZXJSZXF1ZXN0QW5kV3JpdGVGaWxlKG9wdGlvbnMuVGFyZ2V0RGlyLCBgL21vZHVsZS5qc29uYCwgcywgYGApOyBlcnIgIT0gbmlsIHsKCQkJcmV0dXJuIGVycgoJCX0KCQlyZXR1cm4gbW9kdWxlLldhbGsoZnVuYyhwa2cgKlBhY2thZ2UpIGVycm9yIHsKCQkJbG9nLkluZm9mKCJwYWNrYWdlOiAlcyIsIHBrZy5OYW1lKQoJCQlpZiBlcnIgOj0gcmVuZGVyUmVxdWVzdEFuZFdyaXRlRmlsZShvcHRpb25zLlRhcmdldERpciwgYC9wYWNrYWdlLmpzb24/cGFja2FnZT1gK3BrZy5OYW1lLCBzLCBmaWxlcGF0aC5Kb2luKGBwa2dgLCBwa2cuSW1wb3J0UGF0aCtgLmpzb25gKSk7IGVyciAhPSBuaWwgewoJCQkJcmV0dXJuIGVycgoJCQl9CgkJCXJldHVybiByZW5kZXJSZXF1ZXN0QW5kV3JpdGVGaWxlKG9wdGlvbnMuVGFyZ2V0RGlyLCBgL3BrZz9wYWNrYWdlPWArcGtnLk5hbWUsIHMsIGZpbGVwYXRoLkpvaW4oYHBrZ2AsIHBrZy5JbXBvcnRQYXRoKSkKCQl9KQoJfSkKfQ==&#34;
+      }
+    ],
+    &#34;ImportPath&#34;: &#34;main&#34;,
+    &#34;LineCount&#34;: 2658,
+    &#34;MainFunction&#34;: false,
+    &#34;Name&#34;: &#34;main&#34;,
+    &#34;ParentPackage&#34;: &#34;&#34;,
+    &#34;SourceLineCount&#34;: 2341,
+    &#34;Statistics&#34;: {
+      &#34;GeometricMean&#34;: 0,
+      &#34;HarmonicMean&#34;: 0.9231,
+      &#34;Maximum&#34;: 1,
+      &#34;Mean&#34;: 0.2281,
+      &#34;Median&#34;: 0,
+      &#34;Minimum&#34;: 0,
+      &#34;StdDev&#34;: 0.3833
+    },
+    &#34;Synopsis&#34;: &#34;&#34;,
+    &#34;TypeCount&#34;: 15,
+    &#34;Types&#34;: {
+      &#34;Arg&#34;: {
+        &#34;Comment&#34;: &#34;Represents a function argument or return value.&#34;,
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Type&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;Arg&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBBcmcgc3RydWN0IHsKCU5hbWUgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCVR5cGUgc3RyaW5nCn0vLyBSZXByZXNlbnRzIGEgZnVuY3Rpb24gYXJndW1lbnQgb3IgcmV0dXJuIHZhbHVlLgo=&#34;
+      },
+      &#34;Field&#34;: {
+        &#34;Comment&#34;: &#34;Represents a single field in a struct declaration.&#34;,
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Type&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Parent&#34;,
+            &#34;Type&#34;: &#34;*Type&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Comment&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;Field&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBGaWVsZCBzdHJ1Y3QgewoJTmFtZSAgICBzdHJpbmcKCVR5cGUgICAgc3RyaW5nCglQYXJlbnQgICpUeXBlICBganNvbjoiLSJgCglDb21tZW50IHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCn0vLyBSZXByZXNlbnRzIGEgc2luZ2xlIGZpZWxkIGluIGEgc3RydWN0IGRlY2xhcmF0aW9uLgo=&#34;
+      },
+      &#34;File&#34;: {
+        &#34;Comment&#34;: &#34;Represents a Golang source file.&#34;,
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Package&#34;,
+            &#34;Type&#34;: &#34;*Package&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Imports&#34;,
+            &#34;Type&#34;: &#34;[]Import&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;MainFunction&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Size&#34;,
+            &#34;Type&#34;: &#34;int64&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;LineCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;SourceLineCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;FunctionCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;TypeCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;ConstantCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;VariableCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          }
+        ],
+        &#34;HasUnexportedFields&#34;: true,
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;File&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBGaWxlIHN0cnVjdCB7CglOYW1lICAgIHN0cmluZwoJUGFja2FnZSAqUGFja2FnZSBganNvbjoiLSJgCglJbXBvcnRzIFsgLy8gUmVwcmVzZW50cyBhIEdvbGFuZyBzb3VyY2UgZmlsZS4KCV1JbXBvcnQgYGpzb246IixvbWl0ZW1wdHkiYAoJTWFpbkZ1bmN0aW9uICAgIGJvb2wgYGpzb246IixvbWl0ZW1wdHkiYAoJU2l6ZSAgICAgICAgICAgIGludDY0CglMaW5lQ291bnQgICAgICAgaW50CglTb3VyY2VMaW5lQ291bnQgaW50CglGdW5jdGlvbkNvdW50ICAgaW50CglUeXBlQ291bnQgICAgICAgaW50CglDb25zdGFudENvdW50ICAgaW50CglWYXJpYWJsZUNvdW50ICAgaW50Cgp9Cg==&#34;
+      },
+      &#34;Import&#34;: {
+        &#34;Comment&#34;: &#34;Represents an import declaration for a dependent package.&#34;,
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;PackageName&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Alias&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;Import&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBJbXBvcnQgc3RydWN0IHsKCVBhY2thZ2VOYW1lIHN0cmluZwoJQWxpYXMgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKfS8vIFJlcHJlc2VudHMgYW4gaW1wb3J0IGRlY2xhcmF0aW9uIGZvciBhIGRlcGVuZGVudCBwYWNrYWdlLgo=&#34;
+      },
+      &#34;Metadata&#34;: {
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Title&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Version&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;GeneratorVersion&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;URL&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;Metadata&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBNZXRhZGF0YSBzdHJ1Y3QgewoJVGl0bGUgICAgICAgICAgICBzdHJpbmcKCVZlcnNpb24gICAgICAgICAgc3RyaW5nCglHZW5lcmF0b3JWZXJzaW9uIHN0cmluZwoJVVJMICAgICAgICAgICAgICBzdHJpbmcKfQ==&#34;
+      },
+      &#34;Method&#34;: {
+        &#34;Comment&#34;: &#34;Represents a function declaration, both package-level and struct methods.&#34;,
+        &#34;Fields&#34;: [
+          {
+            &#34;Comment&#34;: &#34;The parent struct this method is attached to.&#34;,
+            &#34;Name&#34;: &#34;Parent&#34;,
+            &#34;Type&#34;: &#34;*Type&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;The File this declaration appears in.&#34;,
+            &#34;Name&#34;: &#34;File&#34;,
+            &#34;Type&#34;: &#34;*File&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;The name of the method.&#34;,
+            &#34;Name&#34;: &#34;Name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;The name of an example method, as extracted from the method name.&#34;,
+            &#34;Name&#34;: &#34;Label&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;The name of the function the example is for.&#34;,
+            &#34;Name&#34;: &#34;For&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;The expected output of the method (for examples)&#34;,
+            &#34;Name&#34;: &#34;ExpectedOutput&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;The comment text describing the function.&#34;,
+            &#34;Name&#34;: &#34;Comment&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;Whether this method is attached to a Struct instance or Struct pointer.&#34;,
+            &#34;Name&#34;: &#34;PointerReceiver&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;The variable used to access the receiver instance.&#34;,
+            &#34;Name&#34;: &#34;ReceiverName&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;List of arguments this method accepts.&#34;,
+            &#34;Name&#34;: &#34;Arguments&#34;,
+            &#34;Type&#34;: &#34;[]Arg&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;List of outputs this method returns.&#34;,
+            &#34;Name&#34;: &#34;Returns&#34;,
+            &#34;Type&#34;: &#34;[]Arg&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;Return a source representation of the function signature&#34;,
+            &#34;Name&#34;: &#34;Signature&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;Optional full text of the function&#39;s source.&#34;,
+            &#34;Name&#34;: &#34;Source&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Comment&#34;: &#34;Return whether this is a package-level function or struct method.&#34;,
+            &#34;Name&#34;: &#34;IsPackageLevel&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;Method&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBNZXRob2Qgc3RydWN0IHsKCVBhcmVudCAgICAgICAgICAqVHlwZSBganNvbjoiLSJgCglGaWxlICAgICAgICAgICAgKkZpbGUgYGpzb246Ii0iYAoJTmFtZSAgICAgICAgICAgIHN0cmluZwoJTGFiZWwgICAgICAgICAgIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglGb3IgICAgICAgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUV4cGVjdGVkT3V0cHV0ICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJQ29tbWVudCAgICAgICAgIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglQb2ludGVyUmVjZWl2ZXIgYm9vbCAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVJlY2VpdmVyTmFtZSAgICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJQXJndW1lbnRzICAgICAgIFsgLy8gUmVwcmVzZW50cyBhIGZ1bmN0aW9uIGRlY2xhcmF0aW9uLCBib3RoIHBhY2thZ2UtbGV2ZWwgYW5kIHN0cnVjdCBtZXRob2RzLgoJLy8gTGlzdCBvZiBhcmd1bWVudHMgdGhpcyBtZXRob2QgYWNjZXB0cy4KCV1BcmcgYGpzb246IixvbWl0ZW1wdHkiYAoJUmV0dXJucyBbIC8vIExpc3Qgb2Ygb3V0cHV0cyB0aGlzIG1ldGhvZCByZXR1cm5zLgoJXUFyZyAgICBganNvbjoiLG9taXRlbXB0eSJgCglTaWduYXR1cmUgICAgICBzdHJpbmcgYGpzb246IixvbWl0ZW1wdHkiYAoJU291cmNlICAgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUlzUGFja2FnZUxldmVsIGJvb2wKfS8vIFJldHVybiBhIHNvdXJjZSByZXByZXNlbnRhdGlvbiBvZiB0aGUgZnVuY3Rpb24gc2lnbmF0dXJlCi8vIFJldHVybiB3aGV0aGVyIHRoaXMgaXMgYSBwYWNrYWdlLWxldmVsIGZ1bmN0aW9uIG9yIHN0cnVjdCBtZXRob2QuCg==&#34;
+      },
+      &#34;Module&#34;: {
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Metadata&#34;,
+            &#34;Type&#34;: &#34;Metadata&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;PackageList&#34;,
+            &#34;Type&#34;: &#34;[]PackageSummary&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Package&#34;,
+            &#34;Type&#34;: &#34;*Package&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Methods&#34;: [
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;fn&#34;,
+                &#34;Type&#34;: &#34;ModuleWalkFunc&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: false,
+            &#34;Name&#34;: &#34;Walk&#34;,
+            &#34;PointerReceiver&#34;: true,
+            &#34;ReceiverName&#34;: &#34;self&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;error&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;Walk(fn ModuleWalkFunc) error&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;options&#34;,
+                &#34;Type&#34;: &#34;*ScanOptions&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;ScanDir&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;*Module&#34;
+              },
+              {
+                &#34;Type&#34;: &#34;error&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;ScanDir(options *ScanOptions) (*Module, error)&#34;,
+            &#34;Source&#34;: &#34;ewoJaWYgb3B0aW9ucyA9PSBuaWwgewoJCW9wdGlvbnMgPSBuZXcoU2Nhbk9wdGlvbnMpCgl9CglkZWZhdWx0cy5TZXREZWZhdWx0cyhvcHRpb25zKQoJaWYgcGtnLCBlcnIgOj0gTG9hZFBhY2thZ2Uob3B0aW9ucy5TdGFydERpcik7IGVyciA9PSBuaWwgewoJCWVuYyA6PSBqc29uLk5ld0VuY29kZXIob3MuU3Rkb3V0KQoJCWVuYy5TZXRJbmRlbnQoYGAsIGAgICAgYCkKCQl2YXIgbW9kID0gJk1vZHVsZXtNZXRhZGF0YTogTWV0YWRhdGF7VGl0bGU6IGZpbGVwYXRoLkJhc2UocGtnLlVSTCksIFVSTDogcGtnLlVSTCwgR2VuZXJhdG9yVmVyc2lvbjogVmVyc2lvbn0sIFBhY2thZ2U6IHBrZ30KCQlpZiBvcHRpb25zLlZlcnNpb24gPT0gYGAgewoJCQlmb3IgXywgYyA6PSByYW5nZSBwa2cuQ29uc3RhbnRzIHsKCQkJCWlmIGMuTmFtZSA9PSBvcHRpb25zLlZlcnNpb25Db25zdE5hbWUgewoJCQkJCW1vZC5NZXRhZGF0YS5WZXJzaW9uID0gYy5WYWx1ZQoJCQkJCWJyZWFrCgkJCQl9CgkJCX0KCQl9IGVsc2UgewoJCQltb2QuTWV0YWRhdGEuVmVyc2lvbiA9IG9wdGlvbnMuVmVyc2lvbgoJCX0KCQlpZiBlcnIgOj0gbW9kLldhbGsoZnVuYyhwa2cgKlBhY2thZ2UpIGVycm9yIHsKCQkJbW9kLlBhY2thZ2VMaXN0ID0gYXBwZW5kKG1vZC5QYWNrYWdlTGlzdCwgcGtnLlBhY2thZ2VTdW1tYXJ5KQoJCQlzb3J0LlNsaWNlKG1vZC5QYWNrYWdlTGlzdCwgZnVuYyhpIGludCwgaiBpbnQpIGJvb2wgewoJCQkJcmV0dXJuIG1vZC5QYWNrYWdlTGlzdFtpXS5JbXBvcnRQYXRoIDwgbW9kLlBhY2thZ2VMaXN0W2pdLkltcG9ydFBhdGgKCQkJfSkKCQkJcmV0dXJuIG5pbAoJCX0pOyBlcnIgPT0gbmlsIHsKCQkJcmV0dXJuIG1vZCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIG5pbCwgZXJyCgkJfQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KfQ==&#34;
+          }
+        ],
+        &#34;Name&#34;: &#34;Module&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBNb2R1bGUgc3RydWN0IHsKCU1ldGFkYXRhICAgIE1ldGFkYXRhCglQYWNrYWdlTGlzdCBbXVBhY2thZ2VTdW1tYXJ5CglQYWNrYWdlICAgICAqUGFja2FnZQp9&#34;
+      },
+      &#34;ModuleWalkFunc&#34;: {
+        &#34;Name&#34;: &#34;ModuleWalkFunc&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBNb2R1bGVXYWxrRnVuYyBmdW5jKHBrZyAqUGFja2FnZSkgZXJyb3I=&#34;
+      },
+      &#34;Package&#34;: {
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Files&#34;,
+            &#34;Type&#34;: &#34;[]*File&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Constants&#34;,
+            &#34;Type&#34;: &#34;[]Value&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Variables&#34;,
+            &#34;Type&#34;: &#34;[]Value&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Functions&#34;,
+            &#34;Type&#34;: &#34;[]*Method&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Examples&#34;,
+            &#34;Type&#34;: &#34;[]*Method&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Tests&#34;,
+            &#34;Type&#34;: &#34;[]*Method&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Types&#34;,
+            &#34;Type&#34;: &#34;map[string]*Type&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Packages&#34;,
+            &#34;Type&#34;: &#34;[]*Package&#34;
+          }
+        ],
+        &#34;HasUnexportedFields&#34;: true,
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Methods&#34;: [
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;parentDir&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;LoadPackage&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;*Package&#34;
+              },
+              {
+                &#34;Type&#34;: &#34;error&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;LoadPackage(parentDir string) (*Package, error)&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGxvYWRQYWNrYWdlKHBhcmVudERpciwgYGApCn0=&#34;
+          }
+        ],
+        &#34;Name&#34;: &#34;Package&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBQYWNrYWdlIHN0cnVjdCB7CglQYWNrYWdlU3VtbWFyeQoJRmlsZXMgICAgIFtdKkZpbGUKCUNvbnN0YW50cyBbXVZhbHVlICAgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVZhcmlhYmxlcyBbXVZhbHVlICAgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCUZ1bmN0aW9ucyBbXSpNZXRob2QgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCUV4YW1wbGVzICBbXSpNZXRob2QgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVRlc3RzICAgICBbXSpNZXRob2QgICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCVR5cGVzICAgICBtYXBbc3RyaW5nXSpUeXBlIGBqc29uOiIsb21pdGVtcHR5ImAKCVBhY2thZ2VzICBbXSpQYWNrYWdlICAgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKCn0K&#34;
+      },
+      &#34;PackageSummary&#34;: {
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;CanonicalImportPath&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;ImportPath&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;ParentPackage&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;URL&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Synopsis&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;MainFunction&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;CommentWordCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;LineCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;SourceLineCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;FunctionCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;TypeCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;ConstantCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;VariableCount&#34;,
+            &#34;Type&#34;: &#34;int&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Statistics&#34;,
+            &#34;Type&#34;: &#34;Rollup&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;PackageSummary&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBQYWNrYWdlU3VtbWFyeSBzdHJ1Y3QgewoJTmFtZSAgICAgICAgICAgICAgICBzdHJpbmcKCUNhbm9uaWNhbEltcG9ydFBhdGggc3RyaW5nCglJbXBvcnRQYXRoICAgICAgICAgIHN0cmluZwoJUGFyZW50UGFja2FnZSAgICAgICBzdHJpbmcKCVVSTCAgICAgICAgICAgICAgICAgc3RyaW5nCglTeW5vcHNpcyAgICAgICAgICAgIHN0cmluZwoJTWFpbkZ1bmN0aW9uICAgICAgICBib29sCglDb21tZW50V29yZENvdW50ICAgIGludAoJTGluZUNvdW50ICAgICAgICAgICBpbnQKCVNvdXJjZUxpbmVDb3VudCAgICAgaW50CglGdW5jdGlvbkNvdW50ICAgICAgIGludAoJVHlwZUNvdW50ICAgICAgICAgICBpbnQKCUNvbnN0YW50Q291bnQgICAgICAgaW50CglWYXJpYWJsZUNvdW50ICAgICAgIGludAoJU3RhdGlzdGljcyAgICAgICAgICBSb2xsdXAKfQ==&#34;
+      },
+      &#34;RenderOptions&#34;: {
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;TargetDir&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Properties&#34;,
+            &#34;Type&#34;: &#34;map[string]interface{}&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;RenderOptions&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBSZW5kZXJPcHRpb25zIHN0cnVjdCB7CglUYXJnZXREaXIgIHN0cmluZyBgZGVmYXVsdDoiZG9jcyJgCglQcm9wZXJ0aWVzIG1hcFtzdHJpbmddaW50ZXJmYWNle30KfQ==&#34;
+      },
+      &#34;Rollup&#34;: {
+        &#34;Comment&#34;: &#34;Represents statistical rollups of sets of numbers.&#34;,
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Mean&#34;,
+            &#34;Type&#34;: &#34;float64&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;StdDev&#34;,
+            &#34;Type&#34;: &#34;float64&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;GeometricMean&#34;,
+            &#34;Type&#34;: &#34;float64&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;HarmonicMean&#34;,
+            &#34;Type&#34;: &#34;float64&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Median&#34;,
+            &#34;Type&#34;: &#34;float64&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Minimum&#34;,
+            &#34;Type&#34;: &#34;float64&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Maximum&#34;,
+            &#34;Type&#34;: &#34;float64&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;Rollup&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBSb2xsdXAgc3RydWN0IHsKCU1lYW4gICAgICAgICAgZmxvYXQ2NAoJU3RkRGV2ICAgICAgICBmbG9hdDY0CglHZW9tZXRyaWNNZWFuIGZsb2F0NjQKCUhhcm1vbmljTWVhbiAgZmxvYXQ2NAoJTWVkaWFuICAgICAgICBmbG9hdDY0CglNaW5pbXVtICAgICAgIGZsb2F0NjQKCU1heGltdW0gICAgICAgZmxvYXQ2NAp9Ly8gUmVwcmVzZW50cyBzdGF0aXN0aWNhbCByb2xsdXBzIG9mIHNldHMgb2YgbnVtYmVycy4K&#34;
+      },
+      &#34;ScanOptions&#34;: {
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Version&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;StartDir&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;VersionConstName&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;ScanOptions&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBTY2FuT3B0aW9ucyBzdHJ1Y3QgewoJVmVyc2lvbiAgICAgICAgICBzdHJpbmcKCVN0YXJ0RGlyICAgICAgICAgc3RyaW5nIGBkZWZhdWx0OiIuImAKCVZlcnNpb25Db25zdE5hbWUgc3RyaW5nIGBkZWZhdWx0OiJWZXJzaW9uImAKfQ==&#34;
+      },
+      &#34;Type&#34;: {
+        &#34;Comment&#34;: &#34;Represents a type declaration, including all of its constituent fields and methods for structs.&#34;,
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;File&#34;,
+            &#34;Type&#34;: &#34;*File&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;MetaType&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Methods&#34;,
+            &#34;Type&#34;: &#34;[]*Method&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Fields&#34;,
+            &#34;Type&#34;: &#34;[]*Field&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Comment&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Source&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;HasUnexportedFields&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;Type&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBUeXBlIHN0cnVjdCB7CglGaWxlICAgICAqRmlsZSBganNvbjoiLSJgCglOYW1lICAgICBzdHJpbmcKCU1ldGFUeXBlIHN0cmluZyBganNvbjoiLG9taXRlbXB0eSJgCglNZXRob2RzICBbIC8vIFJlcHJlc2VudHMgYSB0eXBlIGRlY2xhcmF0aW9uLCBpbmNsdWRpbmcgYWxsIG9mIGl0cyBjb25zdGl0dWVudCBmaWVsZHMgYW5kIG1ldGhvZHMgZm9yIHN0cnVjdHMuCgldKk1ldGhvZCBganNvbjoiLG9taXRlbXB0eSJgCglGaWVsZHMgICAgICAgICAgICAgIFtdKkZpZWxkIGBqc29uOiIsb21pdGVtcHR5ImAKCUNvbW1lbnQgICAgICAgICAgICAgc3RyaW5nICAgYGpzb246IixvbWl0ZW1wdHkiYAoJU291cmNlICAgICAgICAgICAgICBzdHJpbmcgICBganNvbjoiLG9taXRlbXB0eSJgCglIYXNVbmV4cG9ydGVkRmllbGRzIGJvb2wgICAgIGBqc29uOiIsb21pdGVtcHR5ImAKfQ==&#34;
+      },
+      &#34;Value&#34;: {
+        &#34;Comment&#34;: &#34;Represents a constant or variable declaration.&#34;,
+        &#34;Fields&#34;: [
+          {
+            &#34;Name&#34;: &#34;Name&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Type&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Immutable&#34;,
+            &#34;Type&#34;: &#34;bool&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Expression&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Value&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          },
+          {
+            &#34;Name&#34;: &#34;Comment&#34;,
+            &#34;Type&#34;: &#34;string&#34;
+          }
+        ],
+        &#34;MetaType&#34;: &#34;struct&#34;,
+        &#34;Name&#34;: &#34;Value&#34;,
+        &#34;Source&#34;: &#34;dHlwZSBWYWx1ZSBzdHJ1Y3QgewoJTmFtZSAgICAgICBzdHJpbmcKCVR5cGUgICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUltbXV0YWJsZSAgYm9vbCAgIGBqc29uOiIsb21pdGVtcHR5ImAKCUV4cHJlc3Npb24gc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCVZhbHVlICAgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKCUNvbW1lbnQgICAgc3RyaW5nIGBqc29uOiIsb21pdGVtcHR5ImAKfS8vIFJlcHJlc2VudHMgYSBjb25zdGFudCBvciB2YXJpYWJsZSBkZWNsYXJhdGlvbi4K&#34;
+      }
+    },
+    &#34;URL&#34;: &#34;https://github.com/ghetzel/go-owndoc&#34;,
+    &#34;VariableCount&#34;: 6,
+    &#34;Variables&#34;: [
+      {
+        &#34;Comment&#34;: &#34;Ideal number of words used to describe function and struct method definitions.&#34;,
+        &#34;Expression&#34;: &#34;10&#34;,
+        &#34;Name&#34;: &#34;IdealWordCountFunc&#34;,
+        &#34;Type&#34;: &#34;float64&#34;
+      },
+      {
+        &#34;Comment&#34;: &#34;Ideal number of words per struct declaration.&#34;,
+        &#34;Expression&#34;: &#34;15&#34;,
+        &#34;Name&#34;: &#34;IdealWordCountStruct&#34;,
+        &#34;Type&#34;: &#34;float64&#34;
+      },
+      {
+        &#34;Comment&#34;: &#34;Ideal number of words used to describe struct fields.&#34;,
+        &#34;Expression&#34;: &#34;10&#34;,
+        &#34;Name&#34;: &#34;IdealWordCountStructField&#34;,
+        &#34;Type&#34;: &#34;float64&#34;
+      },
+      {
+        &#34;Comment&#34;: &#34;Ideal number of words used to describe package variables.&#34;,
+        &#34;Expression&#34;: &#34;8&#34;,
+        &#34;Name&#34;: &#34;IdealWordCountVar&#34;,
+        &#34;Type&#34;: &#34;float64&#34;
+      },
+      {
+        &#34;Expression&#34;: &#34;64&#34;,
+        &#34;Name&#34;: &#34;MaxExpressionSnippetLength&#34;
+      },
+      {
+        &#34;Name&#34;: &#34;SkipAssets&#34;
+      }
+    ]
+  },
+  &#34;PackageList&#34;: [
+    {
+      &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-owndoc&#34;,
+      &#34;CommentWordCount&#34;: 355,
+      &#34;ConstantCount&#34;: 2,
+      &#34;FunctionCount&#34;: 11,
+      &#34;ImportPath&#34;: &#34;main&#34;,
+      &#34;LineCount&#34;: 2658,
+      &#34;MainFunction&#34;: false,
+      &#34;Name&#34;: &#34;main&#34;,
+      &#34;ParentPackage&#34;: &#34;&#34;,
+      &#34;SourceLineCount&#34;: 2341,
+      &#34;Statistics&#34;: {
+        &#34;GeometricMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 0.9231,
+        &#34;Maximum&#34;: 1,
+        &#34;Mean&#34;: 0.2281,
+        &#34;Median&#34;: 0,
+        &#34;Minimum&#34;: 0,
+        &#34;StdDev&#34;: 0.3833
+      },
+      &#34;Synopsis&#34;: &#34;&#34;,
+      &#34;TypeCount&#34;: 15,
+      &#34;URL&#34;: &#34;https://github.com/ghetzel/go-owndoc&#34;,
+      &#34;VariableCount&#34;: 6
+    }
+  ]
+}</pre>
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/-/jquery-2.2.4.min.js"></script>
+        <script src="/-/bootstrap.min.js"></script>
+        <script src="/-/site.js"></script>
+    </body>
+</html>

@@ -1,11 +1,11 @@
-module github.com/ghetzel/godocgen
+module github.com/ghetzel/go-owndoc
 
 go 1.13
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.1
 	github.com/ghetzel/cli v1.17.0
-	github.com/ghetzel/diecast v1.17.8
+	github.com/ghetzel/diecast v1.17.13
 	github.com/ghetzel/go-stockutil v1.8.49
 	github.com/labstack/gommon v0.3.0
 	github.com/mcuadros/go-defaults v1.1.0

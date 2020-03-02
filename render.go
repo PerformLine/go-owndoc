@@ -18,7 +18,7 @@ import (
 	"github.com/mcuadros/go-defaults"
 )
 
-var SkipAssets = []string{
+var DefaultSkipAssets = []string{
 	`/_layouts`,
 	`/_includes`,
 	`/pkg.html`,
@@ -26,8 +26,11 @@ var SkipAssets = []string{
 }
 
 type RenderOptions struct {
-	TargetDir  string `default:"docs"`
-	Properties map[string]interface{}
+	TargetDir    string `default:"docs"`
+	Properties   map[string]interface{}
+	TemplateRoot string
+	SkipAssets   []string
+	filesystem   http.FileSystem
 }
 
 // Renders the provided module as a static website in the target directory.
@@ -37,6 +40,10 @@ func RenderHTML(module *Module, options *RenderOptions) error {
 	}
 
 	defaults.SetDefaults(options)
+
+	if options.SkipAssets == nil {
+		options.SkipAssets = DefaultSkipAssets
+	}
 
 	if module == nil || module.Package == nil {
 		return fmt.Errorf("cannot render empty module")
@@ -60,7 +67,13 @@ func RenderHTML(module *Module, options *RenderOptions) error {
 	server.VerifyFile = `/_layouts/default.html`
 	server.OverridePageObject = options.Properties
 
-	if ui := os.Getenv(`OWNDOC_UI`); fileutil.DirExists(ui) {
+	if root := options.TemplateRoot; root != `` {
+		if fileutil.DirExists(root) {
+			options.filesystem = http.Dir(root)
+		} else {
+			return fmt.Errorf("TemplateRoot %q must be a directory", root)
+		}
+	} else if ui := os.Getenv(`OWNDOC_UI`); fileutil.DirExists(ui) {
 		server.RootPath = ui
 	} else {
 		server.SetFileSystem(FS(false))

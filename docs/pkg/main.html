@@ -1,0 +1,2141 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/-/site.css">
+
+        <title>go-owndoc - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/pkg/main.html">main</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v0.0.3
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-owndoc"><strong>go-owndoc:</strong></a>
+	
+	<span class="text-muted">https://github.com/ghetzel/go-owndoc</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 23%</span>
+<h2 id="pkg-overview">package main</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-owndoc"</code>
+</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#Dir">func Dir(useLocal bool, name string) http.FileSystem</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FS">func FS(useLocal bool) http.FileSystem</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FSByte">func FSByte(useLocal bool, name string) ([]byte, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FSMustByte">func FSMustByte(useLocal bool, name string) []byte</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FSMustString">func FSMustString(useLocal bool, name string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FSString">func FSString(useLocal bool, name string) (string, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#GetImportPathFromDir">func GetImportPathFromDir(dir string, srcRoot string) (string, error)</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RenderHTML">func RenderHTML(module *Module, options *RenderOptions) error</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#Arg">type Arg</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Field">type Field</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#File">type File</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Import">type Import</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Metadata">type Metadata</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Method">type Method</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Module">type Module</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Module.ScanDir">
+					func ScanDir(options *ScanOptions) (*Module, error)
+				</a>
+				
+			</li>
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Module.Walk">
+					func
+					(self *Module)
+					Walk(fn ModuleWalkFunc) error
+				</a>
+				
+			</li>
+			
+			
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#ModuleWalkFunc">type ModuleWalkFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Package">type Package</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			<li>
+				
+				<a href="#Package.LoadPackage">
+					func LoadPackage(parentDir string) (*Package, error)
+				</a>
+				
+			</li>
+			
+			
+
+			
+			
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#PackageSummary">type PackageSummary</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#RenderOptions">type RenderOptions</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Rollup">type Rollup</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#ScanOptions">type ScanOptions</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Type">type Type</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Value">type Value</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-owndoc">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="file.go">file.go</a>
+			
+		</td>
+		<td class="text-right">12KB</td>
+		<td class="text-right">339</td>
+		<td class="text-right"></td>
+		<td class="text-right">7</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="main.go">main.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">81</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="module.go">module.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">95</td>
+		<td class="text-right">2</td>
+		<td class="text-right">4</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="package.go">package.go</a>
+			
+		</td>
+		<td class="text-right">9KB</td>
+		<td class="text-right">295</td>
+		<td class="text-right">2</td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+		<td class="text-right">5</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="render.go">render.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">146</td>
+		<td class="text-right">1</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="static.go">static.go</a>
+			
+		</td>
+		<td class="text-right">96KB</td>
+		<td class="text-right">1385</td>
+		<td class="text-right">6</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="CommentExportedFields">CommentExportedFields</span> = `// contains filtered or unexported fields`
+const <span id="Version">Version              </span> = `0.0.3`
+</pre>
+</div>
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="IdealWordCountFunc">IdealWordCountFunc        </span> = 10
+var <span id="IdealWordCountStruct">IdealWordCountStruct      </span> = 15
+var <span id="IdealWordCountStructField">IdealWordCountStructField </span> = 10
+var <span id="IdealWordCountVar">IdealWordCountVar         </span> = 8
+var <span id="MaxExpressionSnippetLength">MaxExpressionSnippetLength</span> = 64
+var <span id="SkipAssets">SkipAssets                </span> = 
+</pre>
+</div>
+
+
+
+
+
+<h3 id="Dir" data-kind="f">
+	func <a title="View Source" href="">Dir</a>
+	<a class="permalink" href="#Dir">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Dir(useLocal bool, name string) http.FileSystem</pre>
+</div>
+
+
+<p><p>Dir returns a http.Filesystem for the embedded assets on a given prefix dir.<br>If useLocal is true, the filesystem’s contents are instead used.</p>
+</p>
+
+
+<h3 id="FS" data-kind="f">
+	func <a title="View Source" href="">FS</a>
+	<a class="permalink" href="#FS">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FS(useLocal bool) http.FileSystem</pre>
+</div>
+
+
+<p><p>FS returns a http.Filesystem for the embedded assets. If useLocal is true,<br>the filesystem’s contents are instead used.</p>
+</p>
+
+
+<h3 id="FSByte" data-kind="f">
+	func <a title="View Source" href="">FSByte</a>
+	<a class="permalink" href="#FSByte">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FSByte(useLocal bool, name string) ([]byte, error)</pre>
+</div>
+
+
+<p><p>FSByte returns the named file from the embedded assets. If useLocal is<br>true, the filesystem’s contents are instead used.</p>
+</p>
+
+
+<h3 id="FSMustByte" data-kind="f">
+	func <a title="View Source" href="">FSMustByte</a>
+	<a class="permalink" href="#FSMustByte">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FSMustByte(useLocal bool, name string) []byte</pre>
+</div>
+
+
+<p><p>FSMustByte is the same as FSByte, but panics if name is not present.</p>
+</p>
+
+
+<h3 id="FSMustString" data-kind="f">
+	func <a title="View Source" href="">FSMustString</a>
+	<a class="permalink" href="#FSMustString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FSMustString(useLocal bool, name string) string</pre>
+</div>
+
+
+<p><p>FSMustString is the string version of FSMustByte.</p>
+</p>
+
+
+<h3 id="FSString" data-kind="f">
+	func <a title="View Source" href="">FSString</a>
+	<a class="permalink" href="#FSString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FSString(useLocal bool, name string) (string, error)</pre>
+</div>
+
+
+<p><p>FSString is the string version of FSByte.</p>
+</p>
+
+
+<h3 id="GetImportPathFromDir" data-kind="f">
+	func <a title="View Source" href="">GetImportPathFromDir</a>
+	<a class="permalink" href="#GetImportPathFromDir">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func GetImportPathFromDir(dir string, srcRoot string) (string, error)</pre>
+</div>
+
+
+
+<h3 id="RenderHTML" data-kind="f">
+	func <a title="View Source" href="">RenderHTML</a>
+	<a class="permalink" href="#RenderHTML">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RenderHTML(module *Module, options *RenderOptions) error</pre>
+</div>
+
+
+<p><p>Renders the provided module as a static website in the target directory.</p>
+</p>
+
+
+
+
+
+<h3 id="Arg" data-kind="t">
+	type
+	<a title="View Source" href="">Arg</a>
+	<a class="permalink" href="#Arg">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Arg</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Type</span> <span class="kt">string</span>
+<span class="p">}</span><span class="c1">// Represents a function argument or return value.
+</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Field" data-kind="t">
+	type
+	<a title="View Source" href="">Field</a>
+	<a class="permalink" href="#Field">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Field</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Name</span>    <span class="kt">string</span>
+	<span class="nx">Type</span>    <span class="kt">string</span>
+	<span class="nx">Parent</span>  <span class="o">*</span><span class="nx">Type</span>  <span class="s">`json:&#34;-&#34;`</span>
+	<span class="nx">Comment</span> <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+<span class="p">}</span><span class="c1">// Represents a single field in a struct declaration.
+</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="File" data-kind="t">
+	type
+	<a title="View Source" href="">File</a>
+	<a class="permalink" href="#File">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">File</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Name</span>    <span class="kt">string</span>
+	<span class="nx">Package</span> <span class="o">*</span><span class="nx">Package</span> <span class="s">`json:&#34;-&#34;`</span>
+	<span class="nx">Imports</span> <span class="p">[</span> <span class="c1">// Represents a Golang source file.
+</span><span class="c1"></span>	<span class="p">]</span><span class="nx">Import</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">MainFunction</span>    <span class="kt">bool</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Size</span>            <span class="kt">int64</span>
+	<span class="nx">LineCount</span>       <span class="kt">int</span>
+	<span class="nx">SourceLineCount</span> <span class="kt">int</span>
+	<span class="nx">FunctionCount</span>   <span class="kt">int</span>
+	<span class="nx">TypeCount</span>       <span class="kt">int</span>
+	<span class="nx">ConstantCount</span>   <span class="kt">int</span>
+	<span class="nx">VariableCount</span>   <span class="kt">int</span>
+  <span class="c1">// contains filtered or unexported fields
+</span><span class="c1"></span><span class="p">}</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Import" data-kind="t">
+	type
+	<a title="View Source" href="">Import</a>
+	<a class="permalink" href="#Import">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Import</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">PackageName</span> <span class="kt">string</span>
+	<span class="nx">Alias</span>       <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+<span class="p">}</span><span class="c1">// Represents an import declaration for a dependent package.
+</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Metadata" data-kind="t">
+	type
+	<a title="View Source" href="">Metadata</a>
+	<a class="permalink" href="#Metadata">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Metadata</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Title</span>            <span class="kt">string</span>
+	<span class="nx">Version</span>          <span class="kt">string</span>
+	<span class="nx">GeneratorVersion</span> <span class="kt">string</span>
+	<span class="nx">URL</span>              <span class="kt">string</span>
+<span class="p">}</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Method" data-kind="t">
+	type
+	<a title="View Source" href="">Method</a>
+	<a class="permalink" href="#Method">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Method</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Parent</span>          <span class="o">*</span><span class="nx">Type</span> <span class="s">`json:&#34;-&#34;`</span>
+	<span class="nx">File</span>            <span class="o">*</span><span class="nx">File</span> <span class="s">`json:&#34;-&#34;`</span>
+	<span class="nx">Name</span>            <span class="kt">string</span>
+	<span class="nx">Label</span>           <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">For</span>             <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">ExpectedOutput</span>  <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Comment</span>         <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">PointerReceiver</span> <span class="kt">bool</span>   <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">ReceiverName</span>    <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Arguments</span>       <span class="p">[</span> <span class="c1">// Represents a function declaration, both package-level and struct methods.
+</span><span class="c1"></span>	<span class="c1">// List of arguments this method accepts.
+</span><span class="c1"></span>	<span class="p">]</span><span class="nx">Arg</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Returns</span> <span class="p">[</span> <span class="c1">// List of outputs this method returns.
+</span><span class="c1"></span>	<span class="p">]</span><span class="nx">Arg</span>    <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Signature</span>      <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Source</span>         <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">IsPackageLevel</span> <span class="kt">bool</span>
+<span class="p">}</span><span class="c1">// Return a source representation of the function signature
+</span><span class="c1">// Return whether this is a package-level function or struct method.
+</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Module" data-kind="t">
+	type
+	<a title="View Source" href="">Module</a>
+	<a class="permalink" href="#Module">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Module</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Metadata</span>    <span class="nx">Metadata</span>
+	<span class="nx">PackageList</span> <span class="p">[]</span><span class="nx">PackageSummary</span>
+	<span class="nx">Package</span>     <span class="o">*</span><span class="nx">Package</span>
+<span class="p">}</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+<h4 id="ScanDir" data-kind="f">
+	func <a title="View Source" href="">ScanDir</a>
+	<a class="permalink" href="#ScanDir">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ScanDir(options *ScanOptions) (*Module, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="Module.Walk" data-kind="f">
+	func
+	(self *Module)
+	<a title="View Source" href="">Walk</a>
+	<a class="permalink" href="#Walk">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Module) Walk(fn ModuleWalkFunc) error</pre>
+</div>
+
+
+
+
+
+
+<h3 id="ModuleWalkFunc" data-kind="t">
+	type
+	<a title="View Source" href="">ModuleWalkFunc</a>
+	<a class="permalink" href="#ModuleWalkFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">ModuleWalkFunc</span> <span class="kd">func</span><span class="p">(</span><span class="nx">pkg</span> <span class="o">*</span><span class="nx">Package</span><span class="p">)</span> <span class="kt">error</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Package" data-kind="t">
+	type
+	<a title="View Source" href="">Package</a>
+	<a class="permalink" href="#Package">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Package</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">PackageSummary</span>
+	<span class="nx">Files</span>     <span class="p">[]</span><span class="o">*</span><span class="nx">File</span>
+	<span class="nx">Constants</span> <span class="p">[]</span><span class="nx">Value</span>          <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Variables</span> <span class="p">[]</span><span class="nx">Value</span>          <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Functions</span> <span class="p">[]</span><span class="o">*</span><span class="nx">Method</span>        <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Examples</span>  <span class="p">[]</span><span class="o">*</span><span class="nx">Method</span>        <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Tests</span>     <span class="p">[]</span><span class="o">*</span><span class="nx">Method</span>        <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Types</span>     <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">Type</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Packages</span>  <span class="p">[]</span><span class="o">*</span><span class="nx">Package</span>       <span class="s">`json:&#34;,omitempty&#34;`</span>
+  <span class="c1">// contains filtered or unexported fields
+</span><span class="c1"></span><span class="p">}</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+<h4 id="LoadPackage" data-kind="f">
+	func <a title="View Source" href="">LoadPackage</a>
+	<a class="permalink" href="#LoadPackage">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func LoadPackage(parentDir string) (*Package, error)</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h3 id="PackageSummary" data-kind="t">
+	type
+	<a title="View Source" href="">PackageSummary</a>
+	<a class="permalink" href="#PackageSummary">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">PackageSummary</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Name</span>                <span class="kt">string</span>
+	<span class="nx">CanonicalImportPath</span> <span class="kt">string</span>
+	<span class="nx">ImportPath</span>          <span class="kt">string</span>
+	<span class="nx">ParentPackage</span>       <span class="kt">string</span>
+	<span class="nx">URL</span>                 <span class="kt">string</span>
+	<span class="nx">Synopsis</span>            <span class="kt">string</span>
+	<span class="nx">MainFunction</span>        <span class="kt">bool</span>
+	<span class="nx">CommentWordCount</span>    <span class="kt">int</span>
+	<span class="nx">LineCount</span>           <span class="kt">int</span>
+	<span class="nx">SourceLineCount</span>     <span class="kt">int</span>
+	<span class="nx">FunctionCount</span>       <span class="kt">int</span>
+	<span class="nx">TypeCount</span>           <span class="kt">int</span>
+	<span class="nx">ConstantCount</span>       <span class="kt">int</span>
+	<span class="nx">VariableCount</span>       <span class="kt">int</span>
+	<span class="nx">Statistics</span>          <span class="nx">Rollup</span>
+<span class="p">}</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="RenderOptions" data-kind="t">
+	type
+	<a title="View Source" href="">RenderOptions</a>
+	<a class="permalink" href="#RenderOptions">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">RenderOptions</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">TargetDir</span>  <span class="kt">string</span> <span class="s">`default:&#34;docs&#34;`</span>
+	<span class="nx">Properties</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
+<span class="p">}</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Rollup" data-kind="t">
+	type
+	<a title="View Source" href="">Rollup</a>
+	<a class="permalink" href="#Rollup">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Rollup</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Mean</span>          <span class="kt">float64</span>
+	<span class="nx">StdDev</span>        <span class="kt">float64</span>
+	<span class="nx">GeometricMean</span> <span class="kt">float64</span>
+	<span class="nx">HarmonicMean</span>  <span class="kt">float64</span>
+	<span class="nx">Median</span>        <span class="kt">float64</span>
+	<span class="nx">Minimum</span>       <span class="kt">float64</span>
+	<span class="nx">Maximum</span>       <span class="kt">float64</span>
+<span class="p">}</span><span class="c1">// Represents statistical rollups of sets of numbers.
+</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="ScanOptions" data-kind="t">
+	type
+	<a title="View Source" href="">ScanOptions</a>
+	<a class="permalink" href="#ScanOptions">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">ScanOptions</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Version</span>          <span class="kt">string</span>
+	<span class="nx">StartDir</span>         <span class="kt">string</span> <span class="s">`default:&#34;.&#34;`</span>
+	<span class="nx">VersionConstName</span> <span class="kt">string</span> <span class="s">`default:&#34;Version&#34;`</span>
+<span class="p">}</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Type" data-kind="t">
+	type
+	<a title="View Source" href="">Type</a>
+	<a class="permalink" href="#Type">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Type</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">File</span>     <span class="o">*</span><span class="nx">File</span> <span class="s">`json:&#34;-&#34;`</span>
+	<span class="nx">Name</span>     <span class="kt">string</span>
+	<span class="nx">MetaType</span> <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Methods</span>  <span class="p">[</span> <span class="c1">// Represents a type declaration, including all of its constituent fields and methods for structs.
+</span><span class="c1"></span>	<span class="p">]</span><span class="o">*</span><span class="nx">Method</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Fields</span>              <span class="p">[]</span><span class="o">*</span><span class="nx">Field</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Comment</span>             <span class="kt">string</span>   <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Source</span>              <span class="kt">string</span>   <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">HasUnexportedFields</span> <span class="kt">bool</span>     <span class="s">`json:&#34;,omitempty&#34;`</span>
+<span class="p">}</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Value" data-kind="t">
+	type
+	<a title="View Source" href="">Value</a>
+	<a class="permalink" href="#Value">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre><html>
+<style type="text/css">
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #3c3d38 }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+body { color: #f8f8f2; background-color: #272822; }
+</style><body class="chroma">
+<pre class="chroma"><span class="kd">type</span> <span class="nx">Value</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Name</span>       <span class="kt">string</span>
+	<span class="nx">Type</span>       <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Immutable</span>  <span class="kt">bool</span>   <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Expression</span> <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Value</span>      <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+	<span class="nx">Comment</span>    <span class="kt">string</span> <span class="s">`json:&#34;,omitempty&#34;`</span>
+<span class="p">}</span><span class="c1">// Represents a constant or variable declaration.
+</span></pre>
+</body>
+</html>
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/-/jquery-2.2.4.min.js"></script>
+        <script src="/-/bootstrap.min.js"></script>
+        <script src="/-/site.js"></script>
+    </body>
+</html>
