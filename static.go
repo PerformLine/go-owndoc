@@ -6,6 +6,8 @@ import (
 	"bytes"
 	"compress/gzip"
 	"encoding/base64"
+	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -100,7 +102,24 @@ func (f *_escFile) Close() error {
 }
 
 func (f *_escFile) Readdir(count int) ([]os.FileInfo, error) {
-	return nil, nil
+	if !f.isDir {
+		return nil, fmt.Errorf(" escFile.Readdir: '%s' is not directory", f.name)
+	}
+
+	fis, ok := _escDirs[f.local]
+	if !ok {
+		return nil, fmt.Errorf(" escFile.Readdir: '%s' is directory, but we have no info about content of this dir, local=%s", f.name, f.local)
+	}
+	limit := count
+	if count <= 0 || limit > len(fis) {
+		limit = len(fis)
+	}
+
+	if len(fis) == 0 && count > 0 {
+		return nil, io.EOF
+	}
+
+	return fis[0:limit], nil
 }
 
 func (f *_escFile) Stat() (os.FileInfo, error) {
@@ -191,6 +210,7 @@ func FSMustString(useLocal bool, name string) string {
 var _escData = map[string]*_escFile{
 
 	"/-/about.html": {
+		name:    "about.html",
 		local:   "assets/-/about.html",
 		size:    907,
 		modtime: 1500000000,
@@ -208,6 +228,7 @@ AwAA
 	},
 
 	"/-/bootstrap.min.css": {
+		name:    "bootstrap.min.css",
 		local:   "assets/-/bootstrap.min.css",
 		size:    121200,
 		modtime: 1500000000,
@@ -543,6 +564,7 @@ z//jP37aFUVTNxUpp6c0n8Z1PT2R0vvxy/8TAAD//1h8f0Zw2QEA
 	},
 
 	"/-/bootstrap.min.js": {
+		name:    "bootstrap.min.js",
 		local:   "assets/-/bootstrap.min.js",
 		size:    37045,
 		modtime: 1500000000,
@@ -715,6 +737,7 @@ pH4cDg9HLOWlvPU1xxI/5FSW1gu8jRqgUbf3zd7s0zd785G285gqs8IQm/8bAAD//y+jxWq1kAAA
 	},
 
 	"/-/jquery-2.2.4.min.js": {
+		name:    "jquery-2.2.4.min.js",
 		local:   "assets/-/jquery-2.2.4.min.js",
 		size:    85578,
 		modtime: 1500000000,
@@ -1224,6 +1247,7 @@ nJiAJC66TD22UcV0/i//JwAA//9HBa+xSk4BAA==
 	},
 
 	"/-/module.html": {
+		name:    "module.html",
 		local:   "assets/-/module.html",
 		size:    565,
 		modtime: 1500000000,
@@ -1238,6 +1262,7 @@ Cw0a36xxfT5uL9Q2aige3/7d6hiniX4HAAD///a0WAM1AgAA
 	},
 
 	"/-/site.css": {
+		name:    "site.css",
 		local:   "assets/-/site.css",
 		size:    3067,
 		modtime: 1500000000,
@@ -1263,6 +1288,7 @@ UBfQ4rx9h73r378BAAD//wo57Wz7CwAA
 	},
 
 	"/-/site.js": {
+		name:    "site.js",
 		local:   "assets/-/site.js",
 		size:    12590,
 		modtime: 1500000000,
@@ -1336,6 +1362,7 @@ b8PVRKkoD05XYw4vwEfbJGETQROyxtxvWxkTvAuYzzoW/N8AAAD///xpdzouMQAA
 	},
 
 	"/_layouts/default.html": {
+		name:    "default.html",
 		local:   "assets/_layouts/default.html",
 		size:    4261,
 		modtime: 1500000000,
@@ -1363,6 +1390,7 @@ nj9ev1S6ebS+FIqj9hEYR+0L/98AAAD//xl4LHulEAAA
 	},
 
 	"/index.html": {
+		name:    "index.html",
 		local:   "assets/index.html",
 		size:    1023,
 		modtime: 1500000000,
@@ -1379,6 +1407,7 @@ cYcs9FFYxkMg2GzOEsf9X/hDOUYA5RBrxc93p69/AQAA///4mZGR/wMAAA==
 	},
 
 	"/pkg.html": {
+		name:    "pkg.html",
 		local:   "assets/pkg.html",
 		size:    8743,
 		modtime: 1500000000,
@@ -1422,17 +1451,44 @@ o5CZ6vkC++ZPrXHHKb33vwIAAP//YkFp7CciAAA=
 	},
 
 	"/": {
+		name:  "/",
+		local: `assets`,
 		isDir: true,
-		local: "assets",
 	},
 
 	"/-": {
+		name:  "-",
+		local: `assets/-`,
 		isDir: true,
-		local: "assets/-",
 	},
 
 	"/_layouts": {
+		name:  "_layouts",
+		local: `assets/_layouts`,
 		isDir: true,
-		local: "assets/_layouts",
+	},
+}
+
+var _escDirs = map[string][]os.FileInfo{
+
+	"assets": {
+		_escData["/-"],
+		_escData["/_layouts"],
+		_escData["/index.html"],
+		_escData["/pkg.html"],
+	},
+
+	"assets/-": {
+		_escData["/-/about.html"],
+		_escData["/-/bootstrap.min.css"],
+		_escData["/-/bootstrap.min.js"],
+		_escData["/-/jquery-2.2.4.min.js"],
+		_escData["/-/module.html"],
+		_escData["/-/site.css"],
+		_escData["/-/site.js"],
+	},
+
+	"assets/_layouts": {
+		_escData["/_layouts/default.html"],
 	},
 }

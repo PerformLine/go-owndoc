@@ -10,7 +10,7 @@ import (
 	"github.com/mcuadros/go-defaults"
 )
 
-const Version = `0.0.3`
+const Version = `0.0.4`
 
 type ModuleWalkFunc func(pkg *Package) error
 
