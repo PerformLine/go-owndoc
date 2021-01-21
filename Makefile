@@ -2,6 +2,7 @@
 
 GO111MODULE ?= on
 BIN         ?= bin/owndoc-$(shell go env GOOS)-$(shell go env GOARCH)
+CGO_ENABLED ?= 0
 
 all: deps fmt test build
 
