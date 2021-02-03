@@ -105,6 +105,8 @@ github.com/ghetzel/diecast v1.19.4 h1:BDQiGmahBUSeaVcG6J6XcRtuE/kZOVLdbfg43ariWd
 github.com/ghetzel/diecast v1.19.4/go.mod h1:WyJGNTZgoKL0zvtk5AiY9xyJh8ZMtD5rx5jbKGUXxj0=
 github.com/ghetzel/diecast v1.19.21 h1:1NXnFNwTeLATZJytqmCpJBXMYlIjFtI3RTUZKiGlQgE=
 github.com/ghetzel/diecast v1.19.21/go.mod h1:lg1jddvHdFJkjuxn1zK2CQj5Yi7nnNZFaTcDgqhvgiw=
+github.com/ghetzel/diecast v1.20.0 h1:SV/w7Hxru3rHOTZJ6CWqxUXnpO+Q4Ofmhka1VlntA4A=
+github.com/ghetzel/diecast v1.20.0/go.mod h1:AUPlwPo0U0+EnMWYj/UzdIeiniDR84j9kT3CVo+L6Ec=
 github.com/ghetzel/friendscript v0.5.0/go.mod h1:GZJ2FZRpgvURp4hUb/AdevNCnHKCWRpKLxtAl817F4g=
 github.com/ghetzel/friendscript v0.5.5/go.mod h1:zYqGAS3vGMxM912/T9GP1S62VP+AXssMDv9dPzO0Ph0=
 github.com/ghetzel/friendscript v0.6.6 h1:jpi8zy2luueXYmEJg1sKUtzNW1Cjk4FvQ8QXuGLRaUE=
@@ -130,6 +132,8 @@ github.com/ghetzel/go-stockutil v1.8.82 h1:sfLKkpZSbkiXyM3aHKh54Xh7xb1IVjU/72Izg
 github.com/ghetzel/go-stockutil v1.8.82/go.mod h1:pVa9I7cYVgQV052hr6Z4OOBOYfOMKsm+aLIWMGMciO4=
 github.com/ghetzel/go-stockutil v1.9.4 h1:xM1Q2ZJ0GJXtN1KtKWMKCUpPuW75ShHRDTObp5Kai14=
 github.com/ghetzel/go-stockutil v1.9.4/go.mod h1:1kTcitSiQsN73l6Ws7nZOyo+vs8EKmIAp0CSOrqTet0=
+github.com/ghetzel/go-stockutil v1.9.5 h1:SZbcQxOz9wU8Z1dl8YXHL0itjlU4VzGcCfr/p/GfuHU=
+github.com/ghetzel/go-stockutil v1.9.5/go.mod h1:1kTcitSiQsN73l6Ws7nZOyo+vs8EKmIAp0CSOrqTet0=
 github.com/ghetzel/go-webfriend v0.9.23/go.mod h1:4tjKFGdCtac9eXJ8Hz48DSCoiwjhzynwFFiyhsLfMnI=
 github.com/ghetzel/go-webfriend v0.9.40/go.mod h1:RDBxcAknpDWMJFOKS9AFiNldv+R6siUKFB4DDv+BGRI=
 github.com/ghetzel/go-webfriend v0.9.60 h1:all/aCdFxqUd1NEeCtaFYrU14+WKLDatxFR2B49R/gw=
